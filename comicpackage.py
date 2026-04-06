@@ -266,6 +266,54 @@ def run_qc(pages_dir):
 
     print(f"  JPEG integrity: {corrupt} corrupt", "⚠" if corrupt else "OK")
 
+    # 7. Two-page bleed remnant detection
+    # Look for pages with a dark vertical band (spine shadow) still present
+    spine_pages = 0
+    for i, f in enumerate(page_files):
+        img_arr = np.array(Image.open(f).convert('L'))
+        ph, pw = img_arr.shape
+        # Check for dark, low-variance vertical bands in the middle 80%
+        search_start = int(pw * 0.1)
+        search_end = int(pw * 0.9)
+        col = search_start
+        found_spine = False
+        while col < search_end and not found_spine:
+            strip = img_arr[:, col]
+            if strip.mean() < 50 and strip.std() < 15:
+                band_width = 0
+                while col < search_end:
+                    s = img_arr[:, col]
+                    if s.mean() >= 50 or s.std() >= 15:
+                        break
+                    band_width += 1
+                    col += 1
+                if band_width >= 10:
+                    found_spine = True
+                    spine_pages += 1
+                    issues.append(f"Page {i} ({f.name}) may have spine remnant (dark band {band_width}px wide)")
+            else:
+                col += 1
+
+    print(f"  Spine remnants: {spine_pages} detected", "⚠" if spine_pages else "OK")
+
+    # 8. Potential upside-down page detection
+    # Heuristic: pages with large black borders on unusual sides
+    # (e.g., black top edge but not bottom) may indicate incorrect rotation
+    orientation_suspect = 0
+    for i, f in enumerate(page_files):
+        img_arr = np.array(Image.open(f).convert('L'))
+        ph, pw = img_arr.shape
+        top_strip = img_arr[:20, :].mean()
+        bottom_strip = img_arr[-20:, :].mean()
+        # If top is very dark (< 30) but bottom is light (> 100), may be upside-down
+        # (scanner bed margin would appear as black band after normalization)
+        if top_strip < 30 and bottom_strip > 100:
+            orientation_suspect += 1
+            issues.append(f"Page {i} ({f.name}) may be upside-down (dark top edge, light bottom)")
+
+    print(f"  Orientation suspects: {orientation_suspect} detected",
+          "⚠" if orientation_suspect else "OK")
+
     # Summary
     print()
     if issues:
