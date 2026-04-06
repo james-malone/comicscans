@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-comicscan.py — Process raw comic book scans into clean, aligned page images.
+comicscans.py — Process raw comic book scans into clean, aligned page images.
 
 Usage:
-    python3 comicscan.py <input_dir> [--output <output_dir>] [--quality 93] [--preview]
+    python3 comicscans.py <input_dir> [--output <output_dir>] [--quality 93] [--preview]
 
 Rotation options (for upside-down pages):
     --rotate 2,4,6,8       Rotate specific pages 180°
@@ -13,8 +13,8 @@ Rotation options (for upside-down pages):
     --auto-rotate           Auto-detect orientation via Tesseract OCR
 
 Example:
-    python3 comicscan.py raw-scans/DS9E17/
-    python3 comicscan.py raw-scans/DS9E17/ --output output/DS9E17 --rotate-even
+    python3 comicscans.py raw-scans/DS9E17/
+    python3 comicscans.py raw-scans/DS9E17/ --output output/DS9E17 --rotate-even
 """
 
 import argparse

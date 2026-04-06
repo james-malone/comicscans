@@ -1,4 +1,4 @@
-# comicscan
+# comicscans
 
 A Python toolkit for converting raw flatbed scanner images of physical comic books into clean, reader-ready CBZ archives. Built to replace manual workflows like ScanTailor Advanced with a fully automated pipeline.
 
@@ -9,7 +9,7 @@ A Python toolkit for converting raw flatbed scanner images of physical comic boo
 ## How It Works
 
 ```
-raw-scans/DS9E17/            comicscan.py              comicpackage.py
+raw-scans/DS9E17/            comicscans.py              comicpackage.py
  Scan.jpeg    ──┐
  Scan 1.jpeg  ──┤         ┌──────────────┐           ┌──────────────┐
  Scan 2.jpeg  ──┼────────>│  Detect      │           │  QC Checks   │
@@ -24,7 +24,7 @@ The workflow is split into two scripts so you can inspect the processed pages be
 
 | Script | Purpose |
 |--------|---------|
-| `comicscan.py` | Image processing: page detection, rotation, deskew, bleed removal, normalization |
+| `comicscans.py` | Image processing: page detection, rotation, deskew, bleed removal, normalization |
 | `comicpackage.py` | Quality control, ComicInfo.xml metadata, CBZ archive creation |
 
 ---
@@ -54,7 +54,7 @@ brew install tesseract
 ### 1. Process raw scans
 
 ```bash
-python3 comicscan.py raw-scans/DS9E17/ \
+python3 comicscans.py raw-scans/DS9E17/ \
   --output output/DS9E17/ \
   --auto-rotate \
   --rotate 1
@@ -76,10 +76,10 @@ Output: `output/Star Trek: Deep Space Nine-issue_017-(1994).cbz`
 
 ---
 
-## Usage: comicscan.py
+## Usage: comicscans.py
 
 ```
-python3 comicscan.py <input_dir> [options]
+python3 comicscans.py <input_dir> [options]
 ```
 
 ### Options
@@ -109,19 +109,19 @@ Supported formats: JPEG, PNG, TIFF, BMP.
 
 ```bash
 # Basic processing (no rotation correction)
-python3 comicscan.py raw-scans/DS9E17/
+python3 comicscans.py raw-scans/DS9E17/
 
 # Auto-detect orientation + manually fix one page
-python3 comicscan.py raw-scans/DS9E17/ --auto-rotate --rotate 1
+python3 comicscans.py raw-scans/DS9E17/ --auto-rotate --rotate 1
 
 # Rotate all even pages (alternating scan pattern)
-python3 comicscan.py raw-scans/DS9E17/ --rotate-even
+python3 comicscans.py raw-scans/DS9E17/ --rotate-even
 
 # Preview before saving
-python3 comicscan.py raw-scans/DS9E17/ --auto-rotate --preview
+python3 comicscans.py raw-scans/DS9E17/ --auto-rotate --preview
 
 # Lower quality for smaller file size
-python3 comicscan.py raw-scans/DS9E17/ --quality 85
+python3 comicscans.py raw-scans/DS9E17/ --quality 85
 ```
 
 ---
