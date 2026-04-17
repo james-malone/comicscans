@@ -1394,6 +1394,77 @@ fpDom.btnClose.addEventListener('click', () => {
     fpDom.modal.classList.add('hidden');
 });
 
+// ===== Settings modal =====
+const settingsDom = {
+    modal: document.getElementById('settings-modal'),
+    btnOpen: document.getElementById('btn-settings'),
+    btnClose: document.getElementById('btn-settings-close'),
+    btnSave: document.getElementById('btn-settings-save'),
+    btnResetDefaults: document.getElementById('btn-settings-reset-defaults'),
+    cvKey: document.getElementById('settings-cv-key'),
+    cvStatus: document.getElementById('settings-cv-status'),
+    shiftX: document.getElementById('settings-shift-x'),
+    shiftY: document.getElementById('settings-shift-y'),
+    shiftDefaults: document.getElementById('settings-shift-defaults'),
+    saveStatus: document.getElementById('settings-save-status'),
+};
+
+let settingsDefaults = { x: 13, y: 11 };
+
+async function loadSettings() {
+    try {
+        const s = await apiGet('/api/config/settings');
+        // API key
+        if (s.comicvine_api_key && s.comicvine_api_key.has_key) {
+            settingsDom.cvStatus.textContent = `API key saved (${s.comicvine_api_key.masked})`;
+            settingsDom.cvKey.placeholder = 'Key saved — enter new key to replace';
+        } else {
+            settingsDom.cvStatus.innerHTML = 'No API key saved. <a href="https://comicvine.gamespot.com/api/" target="_blank">Get one here</a>';
+        }
+        settingsDom.cvKey.value = '';
+        // Inward shifts
+        settingsDom.shiftX.value = s.inward_shift_x;
+        settingsDom.shiftY.value = s.inward_shift_y;
+        settingsDefaults = s.inward_shift_defaults || { x: 13, y: 11 };
+        settingsDom.shiftDefaults.textContent =
+            `Measured defaults: X=${settingsDefaults.x}, Y=${settingsDefaults.y}.`;
+        settingsDom.saveStatus.textContent = '';
+    } catch (e) {
+        settingsDom.saveStatus.textContent = 'Failed to load settings: ' + e.message;
+    }
+}
+
+settingsDom.btnOpen.addEventListener('click', async () => {
+    await loadSettings();
+    settingsDom.modal.classList.remove('hidden');
+});
+
+settingsDom.btnClose.addEventListener('click', () => {
+    settingsDom.modal.classList.add('hidden');
+});
+
+settingsDom.btnSave.addEventListener('click', async () => {
+    const payload = {
+        inward_shift_x: parseFloat(settingsDom.shiftX.value),
+        inward_shift_y: parseFloat(settingsDom.shiftY.value),
+    };
+    const newKey = settingsDom.cvKey.value.trim();
+    if (newKey) payload.comicvine_api_key = newKey;
+    try {
+        await apiPost('/api/config/settings', payload);
+        settingsDom.saveStatus.textContent = 'Saved. New scans will use the new settings.';
+        settingsDom.cvKey.value = '';
+        await loadSettings();
+    } catch (e) {
+        settingsDom.saveStatus.textContent = 'Save failed: ' + e.message;
+    }
+});
+
+settingsDom.btnResetDefaults.addEventListener('click', () => {
+    settingsDom.shiftX.value = settingsDefaults.x;
+    settingsDom.shiftY.value = settingsDefaults.y;
+});
+
 // ===== Initialization =====
 
 console.log('ComicScans frontend loaded.');

@@ -769,6 +769,25 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 3px 6px;
 }
 
+.settings-grid {
+    display: grid;
+    grid-template-columns: max-content 100px;
+    gap: 6px 10px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.settings-grid label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.settings-grid input {
+    font-size: 12px;
+    padding: 3px 6px;
+}
+
 /* ===== File Picker ===== */
 .btn-icon-sm {
     background: var(--btn-secondary-bg);

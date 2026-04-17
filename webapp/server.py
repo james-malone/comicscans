@@ -466,7 +466,10 @@ def detect_page(sid: str, page_index: int):
 
     # Step 3: Detect page boundaries on the correctly-oriented image
     if HYBRID_MODEL_PATH:
-        bounds = detect_page_bounds_hybrid(oriented_image, dpi, model_path=HYBRID_MODEL_PATH)
+        sx, sy = _get_inward_shift()
+        bounds = detect_page_bounds_hybrid(oriented_image, dpi,
+                                           model_path=HYBRID_MODEL_PATH,
+                                           inward_shift_x=sx, inward_shift_y=sy)
     else:
         bounds = detect_page_bounds(oriented_image, dpi)
 
@@ -654,6 +657,11 @@ def process_all(sid: str, req: ProcessRequest):
 # ---------------------------------------------------------------------------
 CONFIG_PATH = Path.home() / ".comicscans_config.json"
 
+# Defaults for the aesthetic inward-crop post-shift. These match the values
+# baked into detect_page_bounds_hybrid (measured residuals on DS9E20+E23 holdout).
+DEFAULT_INWARD_SHIFT_X = 13
+DEFAULT_INWARD_SHIFT_Y = 11
+
 
 def _load_config() -> dict:
     if CONFIG_PATH.exists():
@@ -665,14 +673,67 @@ def _save_config(config: dict):
     CONFIG_PATH.write_text(json.dumps(config, indent=2))
 
 
+def _get_inward_shift() -> tuple[float, float]:
+    """Return (x, y) inward-shift values from config, falling back to defaults."""
+    cfg = _load_config()
+    sx = cfg.get("inward_shift_x", DEFAULT_INWARD_SHIFT_X)
+    sy = cfg.get("inward_shift_y", DEFAULT_INWARD_SHIFT_Y)
+    try:
+        return float(sx), float(sy)
+    except (TypeError, ValueError):
+        return float(DEFAULT_INWARD_SHIFT_X), float(DEFAULT_INWARD_SHIFT_Y)
+
+
 # ---------------------------------------------------------------------------
-# API key endpoints
+# Settings endpoints
+# ---------------------------------------------------------------------------
+@app.get("/api/config/settings")
+def get_settings():
+    """Return all user-configurable settings. API key is masked."""
+    config = _load_config()
+    key = config.get("comicvine_api_key", "")
+    masked = key[:4] + "..." + key[-4:] if len(key) > 8 else ("*" * len(key))
+    sx, sy = _get_inward_shift()
+    return {
+        "comicvine_api_key": {"has_key": bool(key), "masked": masked},
+        "inward_shift_x": sx,
+        "inward_shift_y": sy,
+        "inward_shift_defaults": {
+            "x": DEFAULT_INWARD_SHIFT_X,
+            "y": DEFAULT_INWARD_SHIFT_Y,
+        },
+    }
+
+
+@app.post("/api/config/settings")
+def set_settings(req: dict):
+    """Partial update of settings. Only keys present in req are modified."""
+    config = _load_config()
+    if "comicvine_api_key" in req:
+        k = (req["comicvine_api_key"] or "").strip()
+        if k:
+            config["comicvine_api_key"] = k
+    if "inward_shift_x" in req:
+        try:
+            config["inward_shift_x"] = float(req["inward_shift_x"])
+        except (TypeError, ValueError):
+            raise HTTPException(status_code=400, detail="inward_shift_x must be a number")
+    if "inward_shift_y" in req:
+        try:
+            config["inward_shift_y"] = float(req["inward_shift_y"])
+        except (TypeError, ValueError):
+            raise HTTPException(status_code=400, detail="inward_shift_y must be a number")
+    _save_config(config)
+    return {"status": "ok"}
+
+
+# ---------------------------------------------------------------------------
+# API key endpoints (legacy — kept so the CBZ modal flow still works)
 # ---------------------------------------------------------------------------
 @app.get("/api/config/api-key")
 def get_api_key():
     config = _load_config()
     key = config.get("comicvine_api_key", "")
-    # Mask the key for display
     masked = key[:4] + "..." + key[-4:] if len(key) > 8 else ("*" * len(key))
     return {"has_key": bool(key), "masked": masked}
 
