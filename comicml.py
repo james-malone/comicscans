@@ -38,6 +38,18 @@ from torchvision import models, transforms
 GROUND_TRUTH_FILE = Path(__file__).parent / "ground_truth.json"
 MODEL_FILE = Path(__file__).parent / "comicml_model.pt"
 
+# Production ensemble: hybrid eval on DS9E20+E23 holdout (70 pages) shows this
+# 4-model average drops the max corner error from 50.9 → 42.6 px (−16%) vs the
+# single production model, with essentially unchanged mean. Each member
+# contributes data or seed diversity; s256 is excluded (individually too weak).
+# Set ENSEMBLE_MODELS = [] (or leave files missing) to fall back to single-model.
+ENSEMBLE_MODELS = [
+    "comicml_model_reg_768_605pg.pt",   # seed 137, 605 pages  (= MODEL_FILE)
+    "comicml_model_reg_768_693pg.pt",   # seed 137, 693 pages
+    "comicml_model_s42.pt",             # seed 42,  502 pages
+    "comicml_model_s137.pt",            # seed 137, 502 pages
+]
+
 # Default input resolution for the CNN. 512 gives each feature cell ~10 orig
 # pixels at 600 DPI; 768 cuts that to ~7 px and improves localization at
 # ~2.25× per-epoch training cost. Stored per-checkpoint so different model
@@ -869,6 +881,35 @@ def _get_cached_model(model_path):
     return model, device
 
 
+def _resolve_ensemble_paths():
+    """Return list of absolute ensemble model paths that exist on disk.
+    Silently skips missing files so a user with only a subset still works."""
+    base = Path(__file__).parent
+    out = []
+    for p in ENSEMBLE_MODELS:
+        fp = base / p
+        if fp.exists():
+            out.append(fp)
+    return out
+
+
+def _get_cached_ensemble():
+    """Load and cache the production ensemble models once. Returns (models, device)."""
+    paths = _resolve_ensemble_paths()
+    if not paths:
+        return [], None
+    key = ("__ensemble__", tuple(str(p) for p in paths))
+    if key in _MODEL_CACHE:
+        return _MODEL_CACHE[key]
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    models_list = []
+    for p in paths:
+        m, _ = _load_model(p, device)
+        models_list.append(m)
+    _MODEL_CACHE[key] = (models_list, device)
+    return models_list, device
+
+
 def detect_page_bounds_hybrid(image, dpi=600, model_path=None):
     """Hybrid CNN+edge-snap detector. Returns the same dict format as
     comicscans.detect_page_bounds() so it can be used as a drop-in replacement.
@@ -878,12 +919,20 @@ def detect_page_bounds_hybrid(image, dpi=600, model_path=None):
     (matching the original detector's convention, so _bounds_to_original_corners
     in the webapp works unchanged).
     """
-    model_path = model_path or MODEL_FILE
-    model, device = _get_cached_model(model_path)
+    # Prefer the production ensemble if configured and all members exist;
+    # otherwise fall back to a single model.
+    models_list, device = _get_cached_ensemble() if model_path is None else ([], None)
+    if len(models_list) >= 2:
+        cnn, disagreements = predict_corners_ensemble(models_list, device, image)
+        bleed_method = f"cnn+snap (ensemble×{len(models_list)})"
+    else:
+        model_path = model_path or MODEL_FILE
+        model, device = _get_cached_model(model_path)
+        cnn, disagreements = predict_corners_with_disagreement(model, device, image)
+        bleed_method = "cnn+snap"
 
     # CNN + refinement give us 4 corners in original image pixel space,
     # in [TL, TR, BR, BL] order.
-    cnn, disagreements = predict_corners_with_disagreement(model, device, image)
     corners = np.array(refine_corners_linefit(image, cnn, dpi=dpi,
                                                tta_disagreements=disagreements),
                        dtype=np.float64)
@@ -908,7 +957,7 @@ def detect_page_bounds_hybrid(image, dpi=600, model_path=None):
         return {
             "top": int(round(top)), "bottom": int(round(bottom)),
             "left": int(round(left)), "right": int(round(right)),
-            "angle": 0.0, "spine_col": None, "bleed_method": "cnn+snap",
+            "angle": 0.0, "spine_col": None, "bleed_method": bleed_method,
         }
 
     # Non-zero deskew: rotate corners by -angle about the original center,
@@ -941,7 +990,7 @@ def detect_page_bounds_hybrid(image, dpi=600, model_path=None):
     return {
         "top": int(round(top)), "bottom": int(round(bottom)),
         "left": int(round(left)), "right": int(round(right)),
-        "angle": angle, "spine_col": None, "bleed_method": "cnn+snap",
+        "angle": angle, "spine_col": None, "bleed_method": bleed_method,
     }
 
 
@@ -951,6 +1000,16 @@ def evaluate(args):
     model, ckpt = _load_model(model_path, device)
     print(f"Loaded model from {model_path} (trained {ckpt.get('epoch', '?')} epochs, "
           f"best val {ckpt.get('val_px', '?'):.2f} px)")
+
+    # Production ensemble for hybrid eval (matches detect_page_bounds_hybrid).
+    # Only used when --hybrid and --model is not explicitly overridden.
+    ensemble_models = []
+    if args.hybrid and not args.model:
+        ensemble_models, _ = _get_cached_ensemble()
+        if len(ensemble_models) >= 2:
+            print(f"Hybrid path uses production ensemble: {len(ensemble_models)} models")
+        else:
+            ensemble_models = []
 
     entries = _load_entries()
     holdout_dirs = ckpt.get("holdout_dirs", [])
@@ -981,8 +1040,14 @@ def evaluate(args):
 
         if args.hybrid:
             dpi = entry.get("dpi", 600)
-            hyb_pred = refine_corners_linefit(img, cnn_pred, dpi=dpi,
-                                              tta_disagreements=disagreements)
+            # Use ensemble for the hybrid path if configured
+            if ensemble_models:
+                ens_pred, ens_dis = predict_corners_ensemble(ensemble_models, device, img)
+                hyb_pred = refine_corners_linefit(img, ens_pred, dpi=dpi,
+                                                  tta_disagreements=ens_dis)
+            else:
+                hyb_pred = refine_corners_linefit(img, cnn_pred, dpi=dpi,
+                                                  tta_disagreements=disagreements)
             hyb_d = np.mean([np.hypot(p[0] - g[0], p[1] - g[1]) for p, g in zip(hyb_pred, gt)])
             hybrid_dists.append(hyb_d)
 

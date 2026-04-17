@@ -67,6 +67,15 @@ if HYBRID_MODEL_PATH:
         print(f"[webapp]   type={_mtype}  input_size={_insize}  "
               f"epoch={_epoch}  best_val={_val_str}  file={_size_mb:.1f} MB")
         del _ckpt
+        # Report ensemble membership if configured
+        try:
+            from comicml import _resolve_ensemble_paths
+            _ens = _resolve_ensemble_paths()
+            if len(_ens) >= 2:
+                print(f"[webapp]   ensemble active: {len(_ens)} models "
+                      f"({', '.join(p.name for p in _ens)})")
+        except Exception:
+            pass
     except Exception as e:
         print(f"[webapp] Hybrid detector unavailable ({e}); falling back to classical.")
         HYBRID_MODEL_PATH = None
