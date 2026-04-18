@@ -11,9 +11,13 @@ venv/
 # macOS
 .DS_Store
 
-# IDE
+# IDE / AI tooling
 .vscode/
 .idea/
+.claude/
+
+# Training logs
+*.log
 
 # Project - don't track large image/archive files
 good-examples/
