@@ -3,9 +3,9 @@
 comicml training dashboard — FastAPI server (port 8001).
 
 Start with:
-    python3 webapp/server.py
+    python3 webapp/train/server.py
 or:
-    cd webapp && uvicorn server:app --port 8001 --reload
+    cd webapp/train && uvicorn server:app --port 8001 --reload
 """
 
 import asyncio

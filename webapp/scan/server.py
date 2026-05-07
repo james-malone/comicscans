@@ -7,7 +7,7 @@ previewing results with user-adjustable crop corners, and batch processing
 to final output files.
 
 Usage:
-    python webapp/server.py
+    python3 webapp/scan/server.py
     # Then open http://127.0.0.1:8000
 """
 

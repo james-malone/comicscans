@@ -185,10 +185,12 @@ single 1420pg_e280   19    28    44   ← dominant on every metric
 ```
 
 **Process for evaluating a new candidate model:**
-1. Run `comicml_train.py eval --model <new>.pt` — check overall mean/p95/max
+1. Run `python3 -m comicml.train eval --model <new>.pt` — check overall mean/p95/max
 2. Run the same eval on each ensemble member individually
 3. Compare per-directory numbers — confirm no regressions on any single dir
-4. Only then add the new model to `ensemble_config.json`
+4. Only then add the new model to `models/ensemble_config.json` (also keep the
+   `ENSEMBLE_MODELS` fallback list in `comicml/inference.py` in sync — it's the
+   safety net when the JSON is missing/unparseable)
 5. Restart the comicscan webapp (the ensemble is cached in memory)
 
 ---
@@ -201,7 +203,7 @@ producing interleaved JSON lines that needed manual de-interleaving to read.
 The `.pt` checkpoints were also overwritten by whichever run wrote `is_best=True`
 last.
 
-**Fix already applied** (in `comicml_train.py`): refuse to start training if
+**Fix already applied** (in `comicml/train.py`): refuse to start training if
 the target log file was modified in the last 5 minutes. The error message
 tells the user how to override.
 
@@ -219,8 +221,9 @@ nonsense.
 
 **Before launching any training:**
 ```bash
-ps -ef | grep comicml_train | grep -v grep    # nothing running?
-ls -la /Users/james/Documents/dev/comicscan/comicml_model_reg_768_<name>.pt   # output free?
+ps -ef | grep "comicml.train" | grep -v grep                     # nothing running?
+ls -la models/comicml_model_reg_768_<name>.pt 2>/dev/null        # output free?
+ls -la models/comicml_model_reg_768_<name>_log.jsonl 2>/dev/null # log fresh?
 ```
 
 ---
@@ -274,21 +277,30 @@ saves) rather than the per-epoch number, *not* to enlarge the holdout.
 ## Reference: the eval+promote loop
 
 ```bash
-# 1. Collect any new GT
-python3 comiceval.py collect <all scan roots>
+cd /Users/james/Documents/dev/comicscan
 
-# 2. Train (epoch count picked from the table above; end on a restart boundary)
-cd /Users/james/Documents/dev/comicml && nohup venv-ml/bin/python3 comicml_train.py train \
+# 1. Collect any new GT (always pass ALL scan roots in one invocation)
+venv-cs/bin/python3 comiceval.py collect \
+    /Users/james/Documents/comic-processing/raw-scans \
+    /Users/james/Documents/comics-scanned
+
+# Snapshot before any new training
+cp data/ground_truth.json data/ground_truth.json.<count>.bak
+
+# 2. Train (epoch count from the table above; end on a restart boundary)
+nohup venv-cs/bin/python3 -m comicml.train train \
     --output comicml_model_reg_768_<N>pg_e<E>.pt \
     --epochs <E> --input-size 768 --warm-restarts 40 --seed 137 \
     > /tmp/comicml_train_<N>pg_e<E>.log 2>&1 &
 
 # 3. Eval the new model + each existing ensemble member
-venv-ml/bin/python3 comicml_train.py eval --model comicml_model_reg_768_<N>pg_e<E>.pt
-venv-ml/bin/python3 comicml_train.py eval --model <each_existing_ensemble_member>.pt
+venv-cs/bin/python3 -m comicml.train eval --model comicml_model_reg_768_<N>pg_e<E>.pt
+venv-cs/bin/python3 -m comicml.train eval --model <each_existing_ensemble_member>.pt
 
-# 4. Compare per-directory numbers; if no regressions, add to ensemble:
-#    edit /Users/james/Documents/dev/comicscan/ensemble_config.json
+# 4. Compare per-directory numbers; if no regressions, add to the ensemble:
+#    - edit models/ensemble_config.json (the source of truth)
+#    - also append to ENSEMBLE_MODELS in comicml/inference.py (the fallback)
 
-# 5. Restart the comicscan webapp to clear the model cache
+# 5. Restart the scan webapp to clear the cached ensemble in memory:
+#    python3 webapp/scan/server.py
 ```

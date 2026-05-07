@@ -42,17 +42,21 @@ from .models import (
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 _MODELS_DIR   = _PROJECT_ROOT / "models"
 
-MODEL_FILE = _MODELS_DIR / "comicml_model_reg_768_1420pg_e280.pt"
+MODEL_FILE = _MODELS_DIR / "comicml_model_reg_768_1702pg_e280.pt"
 
-# Production ensemble: hybrid eval on DS9E20+E23+DS9_1996_5 holdout. If an
-# ensemble_config.json exists in models/ it is read first and its "models"
-# list replaces this default — use the training dashboard "Add to ensemble"
-# button to update it without touching this file.
+# Production ensemble: hybrid eval on DS9E20+E23+DS9_1996_5 holdout.
+# `models/ensemble_config.json` is the source of truth — if present, its
+# "models" list replaces this fallback. Use the training dashboard
+# "Add to ensemble" button to update the JSON without touching this file.
+# Keep this fallback in sync with ensemble_config.json so behaviour is
+# identical when the JSON is missing/unparseable (e.g. fresh checkout).
 # Set ENSEMBLE_MODELS = [] (or leave files missing) to fall back to single-model.
 ENSEMBLE_MODELS = [
-    "comicml_model_reg_768_956pg.pt",        # seed 137, 956 pages
-    "comicml_model_reg_768_1000pg.pt",       # seed 137, 1000 pages
-    "comicml_model_reg_768_1420pg_e280.pt",  # seed 137, 1420 pages, 280 epochs (champion)
+    "comicml_model_reg_768_956pg.pt",         # seed 137, 956 pages
+    "comicml_model_reg_768_1000pg.pt",        # seed 137, 1000 pages
+    "comicml_model_reg_768_1420pg_e280.pt",   # seed 137, 1420 pages, 280 epochs
+    "comicml_model_reg_768_1589pg_e280.pt",   # seed 137, 1589 pages, 280 epochs
+    "comicml_model_reg_768_1702pg_e280.pt",   # seed 137, 1702 pages, 280 epochs (champion)
 ]
 
 
