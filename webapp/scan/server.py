@@ -32,7 +32,8 @@ from pydantic import BaseModel
 # ---------------------------------------------------------------------------
 # Import existing detection logic from the parent package
 # ---------------------------------------------------------------------------
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(_PROJECT_ROOT))
 from comicscans import (
     load_scans,
     get_source_dpi,
@@ -40,12 +41,12 @@ from comicscans import (
     detect_orientation,
     normalize_dimensions,
 )
+from comicml import MODEL_FILE as _DEFAULT_MODEL
 
 # Optional hybrid CNN+classical detector. Activated if a trained checkpoint
-# exists at COMICML_MODEL (env var) or the default ./comicml_model.pt.
+# exists at COMICML_MODEL (env var) or the package default.
 import os
 _MODEL_PATH_ENV = os.environ.get("COMICML_MODEL")
-_DEFAULT_MODEL = Path(__file__).resolve().parent.parent / "comicml_model.pt"
 if _MODEL_PATH_ENV and Path(_MODEL_PATH_ENV).is_file():
     HYBRID_MODEL_PATH = _MODEL_PATH_ENV
 elif _DEFAULT_MODEL.is_file():
@@ -996,7 +997,7 @@ def create_cbz_endpoint(sid: str, req: CreateCBZRequest):
         raise HTTPException(status_code=400, detail=f"Output directory not found: {req.output_dir}")
 
     # Import from comicpackage
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    sys.path.insert(0, str(_PROJECT_ROOT))
     from comicpackage import create_cbz, find_page_files
 
     page_files = find_page_files(pages_dir)

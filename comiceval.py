@@ -41,7 +41,7 @@ from comicscans import (
 # Paths
 # ---------------------------------------------------------------------------
 
-GROUND_TRUTH_FILE = Path(__file__).parent / "ground_truth.json"
+GROUND_TRUTH_FILE = Path(__file__).parent / "data" / "ground_truth.json"
 TUNED_PARAMS_FILE = Path(__file__).parent / "comiceval_params.json"
 
 # ---------------------------------------------------------------------------

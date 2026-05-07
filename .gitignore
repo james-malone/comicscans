@@ -25,6 +25,7 @@ raw-scans/
 output/
 errors/
 diagnose_out/
+random-samples/
 
 # Model checkpoints (large binary files — not tracked in git)
 *.pt

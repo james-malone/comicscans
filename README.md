@@ -26,11 +26,13 @@ The workflow is split so you can inspect processed pages before packaging, and r
 
 | Tool | Purpose |
 |------|---------|
-| `webapp/` | Interactive web UI — visual crop editing, batch processing, CBZ packaging with ComicVine metadata |
+| `webapp/scan/` | Interactive scan UI (port 8000) — visual crop editing, batch processing, CBZ packaging with ComicVine metadata |
+| `webapp/train/` | Training dashboard (port 8001) — launch runs, watch live loss curves, browse ground truth, evaluate models |
 | `comicscans.py` | CLI image processing: page detection, rotation, deskew, bleed removal, normalization |
 | `comicpackage.py` | CLI quality control, ComicInfo.xml metadata, CBZ archive creation |
 | `comiceval.py` | Ground-truth evaluation and parameter tuning against manual crop corrections |
-| `comicml.py` | Hybrid detector: 4-model ResNet-18 ensemble + line-fit edge refinement (~14 px mean error) |
+| `comicml/` | Hybrid detector package: 5-model ResNet-18 ensemble + line-fit edge refinement (~16 px mean / ~24 px p95 single-model on holdout) |
+| `lessons.md` | Running log of empirical training findings — read before launching a new training run |
 
 ---
 
@@ -64,8 +66,15 @@ Raw scans must be named `Scan.jpeg`, `Scan 1.jpeg`, `Scan 2.jpeg`, etc. (front c
 The easiest path is the web app:
 
 ```bash
-python3 webapp/server.py
+python3 webapp/scan/server.py
 # Opens at http://localhost:8000
+```
+
+For the training dashboard (only needed when you're working on the ML model):
+
+```bash
+python3 webapp/train/server.py
+# Opens at http://localhost:8001
 ```
 
 Load a directory, detect all pages, adjust any that need fixing, process, and package — all in the browser.
@@ -230,32 +239,33 @@ Run `audit` after every new batch of ground-truth collection — the heuristic i
 
 ## Hybrid CNN Detector
 
-Classical detection hit a structural ceiling around 117 px mean corner error. `comicml.py` replaces it with a two-stage hybrid detector:
+Classical detection hit a structural ceiling around 117 px mean corner error. The `comicml/` package replaces it with a two-stage hybrid detector:
 
-1. **CNN stage** — a 4-model ResNet-18 ensemble (768×768 input) regresses all four page corners directly. Each member differs in training seed and/or data slice, and predictions are averaged per-corner. Test-time augmentation (horizontal flip + average) runs inside each member for extra variance reduction. Trained on 748 labeled pages across 20 DS9 issues with cosine warm-restart AdamW over 120 epochs.
+1. **CNN stage** — a 5-model ResNet-18 ensemble (768×768 input) regresses all four page corners directly. Members are trained on incrementally larger ground-truth slices (956 → 1000 → 1420 → 1589 → 1702 corrected pages) so each makes different mistakes, and predictions are averaged per-corner. Test-time augmentation (horizontal flip + average) runs inside each member for extra variance reduction. Best individual members use cosine warm-restart AdamW over 280 epochs.
 
 2. **Line-fit refinement** — samples ~30 gradient profiles along each predicted page edge, RANSAC-fits a line through confident detections, and intersects adjacent lines for corner coordinates. Falls back to per-corner snap when the line fit disagrees with independent per-corner evidence (agreement gating prevents catastrophic failures from spurious edges on bleed-heavy pages). Adaptive skip uses per-corner TTA disagreement to bypass refinement when the CNN is highly confident.
 
-Across the full 818-page corrected corpus, the hybrid detector achieves **14.17 px mean corner error** (median 12.25, P95 27.93) — an ~88% improvement over the classical detector's 117 px mean.
+The strongest single member achieves **~16.3 px mean corner error** on the 114-page DS9 holdout (median 15.8, P95 23.5, max 38.6). The 5-model ensemble brings tail metrics down further by averaging out uncorrelated outliers — see `lessons.md` for run-by-run history and tuning notes.
 
 ```bash
-# Train a single model (one ensemble member). Repeat with different --seed
-# and --train slices to diversify the ensemble; list the resulting paths
-# in comicml.ENSEMBLE_MODELS so detection picks them up automatically.
-python3 comicml.py train \
-    --train DS9E18,DS9E19,DS9E21,DS9E22,DS9E2.3,DS9E24,DS9E25,DS9E26,DS9E27,DS9E28,DS9E29,DS9E30,DS9E31 \
-    --holdout DS9E20,DS9E23 \
-    --input-size 768 --epochs 120 --warm-restarts 40 \
-    --seed 42 --output comicml_model_s42.pt
+# Train a new ensemble member. The defaults match the recipe documented in
+# lessons.md (768 input, 280 epochs, warm restarts T_0=40, seed=137). Vary
+# the seed to diversify the ensemble.
+python3 -m comicml.train train \
+    --output comicml_model_reg_768_<dataset>pg_e280.pt \
+    --input-size 768 --epochs 280 --warm-restarts 40 --seed 137
 
-# Evaluate CNN-only and hybrid (ensemble is used automatically when available)
-python3 comicml.py eval --hybrid --all
+# Evaluate a model on its embedded holdout (uses TTA flip averaging)
+python3 -m comicml.train eval --model comicml_model_reg_768_1702pg_e280.pt
 
 # Use hybrid detector from the CLI
 python3 comicscans.py raw-scans/DS9E17/ --auto-rotate
 ```
 
-The web app automatically uses the ensemble when the models listed in `comicml.ENSEMBLE_MODELS` exist in the repo root. On startup it prints how many ensemble members were loaded and their per-model validation accuracy.
+Active ensemble membership is configured by `models/ensemble_config.json`. The
+scan webapp reads this on startup; restart it after editing to pick up
+changes. The training dashboard's Model Management tab can edit it
+interactively.
 
 ---
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>comicml — Training Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <h1>comicml</h1>
+    <span class="subtitle">Training Dashboard</span>
+  </header>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="training">Training</button>
+    <button class="tab-btn" data-tab="dataset">Dataset</button>
+    <button class="tab-btn" data-tab="eval">Eval Results</button>
+    <button class="tab-btn" data-tab="models">Models</button>
+  </div>
+
+  <!-- ===================== Tab 1: Training ===================== -->
+  <div id="tab-training" class="tab-content active">
+    <div class="train-config">
+      <h2>Training Config</h2>
+      <div class="field">
+        <label>Train dirs (comma-separated)</label>
+        <textarea id="cfg-train" rows="4"></textarea>
+      </div>
+      <div class="field">
+        <label>Holdout dirs</label>
+        <textarea id="cfg-holdout" rows="2"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Epochs</label><input type="number" id="cfg-epochs" value="120"></div>
+        <div class="field"><label>Batch size</label><input type="number" id="cfg-batch" value="8"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>LR</label><input type="text" id="cfg-lr" value="1e-4"></div>
+        <div class="field"><label>Input size</label><input type="number" id="cfg-size" value="768"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Warm restarts</label><input type="number" id="cfg-wr" value="40"></div>
+        <div class="field"><label>Seed</label><input type="number" id="cfg-seed" value="137"></div>
+      </div>
+      <div class="field">
+        <label>Output filename (in comicscan_dir)</label>
+        <input type="text" id="cfg-output" placeholder="e.g. comicml_model_new.pt">
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px;">
+        <button class="btn btn-primary" id="btn-start" onclick="trainStart()">Launch Training</button>
+        <button class="btn btn-muted" id="btn-stop" onclick="trainStop()" disabled>Stop</button>
+      </div>
+      <div style="margin-top:16px;" id="prev-runs-section">
+        <div class="panel-title">Log files</div>
+        <select id="prev-runs-select" style="width:100%;margin-top:4px;">
+          <option value="">— select a log file —</option>
+        </select>
+        <div style="display:flex;gap:6px;margin-top:6px;">
+          <button class="btn btn-secondary" style="flex:1" onclick="loadPrevRun(document.getElementById('prev-runs-select').value)">Load (snapshot)</button>
+          <button class="btn btn-primary" style="flex:1" id="btn-watch" onclick="watchLogFile(document.getElementById('prev-runs-select').value)">Watch live</button>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="panel-title">Compare baseline</div>
+        <select id="baseline-select" style="width:100%;margin-top:4px;" onchange="loadBaseline(this.value)">
+          <option value="">— none —</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="train-right">
+      <div class="train-status-bar">
+        <span class="status-dot idle" id="status-dot"></span>
+        <span id="status-text">Idle</span>
+        <div class="progress-bar-wrap" style="flex:1">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <span class="epoch-info" id="epoch-info"></span>
+        <span class="best-val" id="best-val-badge"></span>
+      </div>
+      <canvas id="chart-canvas" height="220"></canvas>
+      <div class="train-log" id="train-log"><span style="color:var(--text-dim)">Training output will appear here…</span></div>
+      <div id="compare-section" style="display:none">
+        <div class="compare-section-title" id="compare-title"></div>
+        <canvas id="chart-canvas-delta" height="140"></canvas>
+        <div class="train-log compare-log" id="compare-log"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Tab 2: Dataset ===================== -->
+  <div id="tab-dataset" class="tab-content">
+    <div class="dataset-filters">
+      <div>
+        <label>Scan dir</label>
+        <select id="filter-dir" onchange="datasetLoad()"><option value="">All</option></select>
+      </div>
+      <div>
+        <label>Correction</label>
+        <select id="filter-corr" onchange="datasetLoad()">
+          <option value="">All</option>
+          <option value="true">Corrected only</option>
+          <option value="false">Auto-accepted only</option>
+        </select>
+      </div>
+      <div>
+        <label>Search</label>
+        <input type="text" id="filter-search" placeholder="filename or dir…" oninput="datasetLoad()">
+      </div>
+      <div class="dataset-stats" id="dataset-stats"></div>
+    </div>
+    <div class="dataset-grid" id="dataset-grid"><div class="no-results">Loading…</div></div>
+    <div id="dataset-loadmore" style="display:none;text-align:center;padding:12px;flex-shrink:0;background:var(--bg-secondary);border-top:1px solid var(--border)">
+      <button class="btn btn-secondary" onclick="datasetLoadMore()">Load more</button>
+      <span id="dataset-loadmore-info" style="font-size:12px;color:var(--text-muted);margin-left:10px;"></span>
+    </div>
+  </div>
+
+  <!-- ===================== Tab 3: Eval ===================== -->
+  <div id="tab-eval" class="tab-content">
+    <div class="eval-toolbar">
+      <div>
+        <label>Model</label>
+        <select id="eval-model-select"></select>
+      </div>
+      <button class="btn btn-primary" onclick="evalStart()">Run Eval</button>
+      <span class="spinner" id="eval-spinner" style="display:none"></span>
+      <span id="eval-status" style="font-size:12px;color:var(--text-muted)"></span>
+    </div>
+    <div class="eval-body" id="eval-body">
+      <div style="text-align:center;padding:40px;color:var(--text-dim)">Select a model and click Run Eval to see results.</div>
+    </div>
+  </div>
+
+  <!-- ===================== Tab 4: Models ===================== -->
+  <div id="tab-models" class="tab-content">
+    <div class="models-body">
+      <div class="panel-title">Available models in comicscan_dir</div>
+      <div class="model-grid" id="model-grid"><div style="color:var(--text-dim)">Loading…</div></div>
+      <div class="panel config-panel">
+        <div class="panel-title">config.json</div>
+        <div class="field">
+          <label>comicscan_dir</label>
+          <input type="text" id="cfg-comicscan-dir">
+        </div>
+        <div class="field">
+          <label>ground_truth_file</label>
+          <input type="text" id="cfg-gt-file">
+        </div>
+        <button class="btn btn-secondary" onclick="configSave()">Save Config</button>
+        <span id="cfg-save-msg" style="font-size:12px;color:var(--success);margin-left:8px;"></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Dataset modal -->
+<div class="modal-overlay hidden" id="page-modal" onclick="if(event.target===this)modalClose()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="modalClose()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

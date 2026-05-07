@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-comicml.py — CNN inference for comic page corner detection.
+comicml.inference — CNN inference for comic page corner detection.
 
-Runtime inference only. Training, evaluation, and the training dashboard
-live in the separate comicml project at /Users/james/Documents/dev/comicml.
+Runtime inference only. Training code lives in comicml.train; shared model
+class definitions in comicml.models.
 
 Usage:
     # Predict corners for a single image (for spot-checking)
-    python3 comicml.py predict path/to/Scan.jpeg --model comicml_model_reg_768_1420pg_e280.pt
+    python3 -m comicml.inference predict path/to/Scan.jpeg \\
+        --model comicml_model_reg_768_1420pg_e280.pt
 """
 
 import argparse
@@ -22,28 +23,37 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import models, transforms
 
-MODEL_FILE = Path(__file__).parent / "comicml_model_reg_768_1420pg_e280.pt"
+# Model class definitions are shared with comicml.train. INPUT_SIZE etc. also
+# come from .models so training and inference never drift.
+from .models import (
+    CornerRegressor,
+    CornerHeatmapRegressor,
+    _soft_argmax_2d,
+    INPUT_SIZE,
+    IMAGENET_MEAN,
+    IMAGENET_STD,
+)
+
+# Project root (two levels up from comicml/inference.py):
+#   <root>/
+#     comicml/inference.py  ← __file__
+#     models/               ← .pt files, _log.jsonl files, ensemble_config.json
+#     data/                 ← ground_truth.json
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_MODELS_DIR   = _PROJECT_ROOT / "models"
+
+MODEL_FILE = _MODELS_DIR / "comicml_model_reg_768_1420pg_e280.pt"
 
 # Production ensemble: hybrid eval on DS9E20+E23+DS9_1996_5 holdout. If an
-# ensemble_config.json exists alongside this file it is read first and its
-# "models" list replaces this default — use the training dashboard "Add to
-# ensemble" button to update it without touching this file.
+# ensemble_config.json exists in models/ it is read first and its "models"
+# list replaces this default — use the training dashboard "Add to ensemble"
+# button to update it without touching this file.
 # Set ENSEMBLE_MODELS = [] (or leave files missing) to fall back to single-model.
 ENSEMBLE_MODELS = [
     "comicml_model_reg_768_956pg.pt",        # seed 137, 956 pages
     "comicml_model_reg_768_1000pg.pt",       # seed 137, 1000 pages
     "comicml_model_reg_768_1420pg_e280.pt",  # seed 137, 1420 pages, 280 epochs (champion)
 ]
-
-# Default input resolution for the CNN. 512 gives each feature cell ~10 orig
-# pixels at 600 DPI; 768 cuts that to ~7 px and improves localization at
-# ~2.25× per-epoch training cost. Stored per-checkpoint so different model
-# files can use different resolutions.
-INPUT_SIZE = 512
-
-# ImageNet normalization (ResNet-18 is pretrained on it)
-IMAGENET_MEAN = [0.485, 0.456, 0.406]
-IMAGENET_STD = [0.229, 0.224, 0.225]
 
 
 
@@ -469,20 +479,18 @@ def _get_cached_model(model_path):
 
 def _resolve_ensemble_paths():
     """Return list of absolute ensemble model paths that exist on disk.
-    Reads ensemble_config.json first if present (written by the comicml
+    Reads models/ensemble_config.json first if present (written by the
     training dashboard); falls back to the hardcoded ENSEMBLE_MODELS list.
     Silently skips missing files so a partial ensemble still works."""
-    base = Path(__file__).parent
-    config_path = base / "ensemble_config.json"
+    config_path = _MODELS_DIR / "ensemble_config.json"
     if config_path.exists():
         try:
-            import json as _json
-            names = _json.loads(config_path.read_text()).get("models", [])
+            names = json.loads(config_path.read_text()).get("models", [])
         except Exception:
             names = ENSEMBLE_MODELS
     else:
         names = ENSEMBLE_MODELS
-    return [base / p for p in names if (base / p).exists()]
+    return [_MODELS_DIR / p for p in names if (_MODELS_DIR / p).exists()]
 
 
 def _get_cached_ensemble():

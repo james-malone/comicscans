@@ -1,0 +1,704 @@
+/* ============================================================
+   ComicScans — Newsprint theme add-on
+   Drop into webapp/static/newsprint.css and add after style.css:
+     <link rel="stylesheet" href="/static/newsprint.css">
+   It declares [data-theme="newsprint"] variables AND layers
+   visual overrides (squared corners, offset shadows, slab-serif
+   wordmark, halftone hero strip). To make it the default, set
+   <html data-theme="newsprint"> in index.html.
+   ============================================================ */
+
+/* Google Fonts — loaded via @import so you only add one <link> */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+[data-theme="newsprint"] {
+    /* Paper tones */
+    --bg-primary: #ede4d1;        /* main paper */
+    --bg-secondary: #e4d9c1;      /* paper alt (hover rows, modals) */
+    --bg-panel: #ede4d1;          /* topbar & inspector */
+    --bg-input: #f3ece0;          /* inputs */
+    --bg-card: #ede4d1;           /* cards */
+    --bg-canvas: #e4d9c1;         /* editor canvas bg */
+    --border: #1a1612;            /* thick ink borders */
+    --border-focus: #d92d22;      /* red */
+
+    --text: #1a1612;              /* ink */
+    --text-muted: #6b6052;
+    --text-dim: #96897a;
+
+    --accent: #d92d22;            /* red */
+    --accent-hover: #a61f16;
+    --accent-glow: rgba(217, 45, 34, 0.18);
+
+    --btn-secondary-bg: #ede4d1;
+    --btn-secondary-hover: #e4d9c1;
+    --btn-muted-bg: #d9cdb0;
+    --btn-muted-hover: #c9bb9a;
+
+    --success: #3a6b3a;
+    --warning: #f2b826;
+    --overlay: rgba(26, 22, 18, 0.7);
+    --scrollbar-thumb: rgba(26, 22, 18, 0.35);
+
+    /* Newsprint-specific tokens */
+    --ink: #1a1612;
+    --ink-soft: #3a342c;
+    --yellow: #f2b826;
+    --paper-deep: #d9cdb0;
+    --halftone: radial-gradient(rgba(26,22,18,.12) 1px, transparent 1.2px);
+    --halftone-size: 6px 6px;
+    --font-slab: 'Roboto Slab', 'Rockwell', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+}
+
+/* ======================================================
+   Scope every override under [data-theme="newsprint"] so
+   switching themes in Settings fully restores the old look.
+   ====================================================== */
+
+html[data-theme="newsprint"],
+[data-theme="newsprint"] body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Remove the soft rounded feel everywhere */
+[data-theme="newsprint"] input,
+[data-theme="newsprint"] select,
+[data-theme="newsprint"] textarea,
+[data-theme="newsprint"] .dir-pill,
+[data-theme="newsprint"] .pop-menu,
+[data-theme="newsprint"] .pop-panel,
+[data-theme="newsprint"] .modal-panel,
+[data-theme="newsprint"] .grid-card,
+[data-theme="newsprint"] .cbz-result-item,
+[data-theme="newsprint"] .fp-entries,
+[data-theme="newsprint"] button {
+    border-radius: 2px;
+}
+
+/* ======================================================
+   Top bar
+   ====================================================== */
+[data-theme="newsprint"] #topbar {
+    background: var(--bg-primary);
+    border-bottom: 3px solid var(--ink);
+}
+
+[data-theme="newsprint"] .topbar-row {
+    padding: 10px 18px;
+    gap: 12px;
+}
+
+[data-theme="newsprint"] .app-logo {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-right: 8px;
+    position: relative;
+    padding-left: 42px;
+}
+
+/* Logo mark — red square with inset paper + ink dot */
+[data-theme="newsprint"] .app-logo::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%) rotate(-3deg);
+    width: 30px; height: 30px;
+    background: var(--accent);
+    border: 2.5px solid var(--ink);
+}
+[data-theme="newsprint"] .app-logo::after {
+    content: '';
+    position: absolute;
+    left: 11px; top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    background: var(--ink);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Red SCANS half of wordmark — can't easily split without JS,
+   so we just tint the whole thing ink-colored which still reads
+   strongly against the paper. If you want two-tone, wrap SCANS
+   in <span class="logo-accent"> in the HTML. */
+[data-theme="newsprint"] .app-logo .logo-accent { color: var(--accent); }
+
+[data-theme="newsprint"] .separator {
+    background: var(--ink);
+    opacity: 0.5;
+    width: 2px;
+}
+
+/* Directory pill — paper card with ink border + offset shadow */
+[data-theme="newsprint"] .dir-pill {
+    height: 30px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: transform .08s, box-shadow .08s;
+}
+[data-theme="newsprint"] .dir-pill:hover {
+    background: var(--bg-secondary);
+    transform: translate(-1px,-1px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+[data-theme="newsprint"] .dir-pill:active {
+    transform: translate(1px,1px);
+    box-shadow: 0 0 0 var(--ink);
+}
+[data-theme="newsprint"] .dir-pill-icon { display: none; }
+[data-theme="newsprint"] .dir-pill-label { color: var(--ink); font-weight: 700; }
+[data-theme="newsprint"] .dir-pill-meta { color: var(--text-muted); }
+[data-theme="newsprint"] .dir-pill-caret { color: var(--ink); opacity: 0.7; }
+
+/* Primary buttons — blocky, slab-serif, offset shadow */
+[data-theme="newsprint"] .btn-md,
+[data-theme="newsprint"] .btn-primary,
+[data-theme="newsprint"] button.btn-sm,
+[data-theme="newsprint"] #btn-cv-search,
+[data-theme="newsprint"] #btn-save-api-key,
+[data-theme="newsprint"] .fp-footer button {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    height: 30px;
+    padding: 0 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform .08s, box-shadow .08s;
+}
+[data-theme="newsprint"] .btn-md:hover,
+[data-theme="newsprint"] .btn-primary:hover {
+    background: var(--accent);
+    transform: translate(-1px,-1px);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+[data-theme="newsprint"] .btn-md:active,
+[data-theme="newsprint"] .btn-primary:active {
+    transform: translate(2px,2px);
+    box-shadow: 0 0 0 var(--ink);
+}
+
+/* Secondary / muted buttons — paper with ink border */
+[data-theme="newsprint"] .btn-secondary,
+[data-theme="newsprint"] .btn-muted,
+[data-theme="newsprint"] .btn-nav,
+[data-theme="newsprint"] .btn-icon-sm,
+[data-theme="newsprint"] .btn-settings {
+    background: var(--bg-secondary);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    font-family: var(--font-slab);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: transform .08s, box-shadow .08s;
+}
+[data-theme="newsprint"] .btn-secondary:hover,
+[data-theme="newsprint"] .btn-muted:hover,
+[data-theme="newsprint"] .btn-nav:hover {
+    background: var(--bg-primary);
+    transform: translate(-1px,-1px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+[data-theme="newsprint"] .btn-sm { font-size: 10px; padding: 4px 10px; height: 26px; }
+
+[data-theme="newsprint"] .btn-icon {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    width: 28px; height: 28px;
+    padding: 0;
+    font-weight: 900;
+}
+
+[data-theme="newsprint"] .btn-link {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: var(--text-muted);
+    text-transform: none;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+[data-theme="newsprint"] .btn-link:hover { color: var(--accent); background: none; transform: none; box-shadow: none; }
+
+/* ======================================================
+   Inputs
+   ====================================================== */
+[data-theme="newsprint"] input[type="text"],
+[data-theme="newsprint"] input[type="number"],
+[data-theme="newsprint"] input[type="password"],
+[data-theme="newsprint"] select,
+[data-theme="newsprint"] textarea {
+    background: var(--bg-input);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 2px;
+}
+[data-theme="newsprint"] input:focus,
+[data-theme="newsprint"] select:focus,
+[data-theme="newsprint"] textarea:focus {
+    border-color: var(--accent);
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+/* ======================================================
+   Grid view
+   ====================================================== */
+[data-theme="newsprint"] #grid-view {
+    padding: 72px 28px 60px;
+}
+
+/* Inject a "hero strip" BEFORE the grid using a CSS-generated
+   banner. Your HTML puts #grid-container directly inside #grid-view
+   so we pre-pend an info band via ::before. Because we can't stuff
+   dynamic counts into ::before, this band is decorative — the real
+   session info lives in the dir-pill + topbar. */
+[data-theme="newsprint"] #grid-view::before {
+    content: 'SESSION · SCAN · CROP · PACKAGE';
+    display: block;
+    background: var(--ink);
+    color: var(--bg-primary);
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 14px 20px;
+    margin: 0 0 20px;
+    border: 3px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+    background-image: var(--halftone), linear-gradient(var(--ink), var(--ink));
+    background-size: var(--halftone-size), auto;
+}
+
+[data-theme="newsprint"] #grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Grid cards — comic-panel feel: thick ink border + offset shadow */
+[data-theme="newsprint"] .grid-card {
+    background: var(--bg-primary);
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .12s, box-shadow .12s;
+    position: relative;
+    border-radius: 0;
+    overflow: visible;
+}
+[data-theme="newsprint"] .grid-card:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 6px 6px 0 var(--ink);
+    border-color: var(--ink);
+}
+[data-theme="newsprint"] .grid-card.active {
+    box-shadow: 4px 4px 0 var(--accent), 4px 4px 0 0 var(--ink);
+    outline: 2px solid var(--accent);
+    outline-offset: -3px;
+}
+[data-theme="newsprint"] .grid-card img {
+    aspect-ratio: 2/3;
+    border-bottom: 3px solid var(--ink);
+    background: var(--paper-deep);
+}
+
+/* Halftone corner flourish */
+[data-theme="newsprint"] .grid-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 44px; height: 44px;
+    background-image: var(--halftone);
+    background-size: 4px 4px;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+/* Card footer — filename + status badge */
+[data-theme="newsprint"] .card-footer {
+    padding: 8px 10px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+}
+[data-theme="newsprint"] .card-footer .page-label {
+    color: var(--ink);
+    font-weight: 700;
+}
+[data-theme="newsprint"] .card-footer .status-badge {
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    background: var(--paper-deep);
+    padding: 3px 6px;
+    border: 1.5px solid var(--ink);
+    text-transform: uppercase;
+    gap: 0;
+}
+/* The status dot is hidden in newsprint — colour comes from the badge
+   background via the :has() rules below. The badge text node is set by
+   app.js (Pending / Detected / Adjusted), so no ::before is needed. */
+[data-theme="newsprint"] .status-dot { display: none; }
+/* Color the badge by status when app.js toggles .detected/.pending/.adjusted on the dot */
+[data-theme="newsprint"] .status-badge:has(.status-dot.detected) {
+    background: var(--success); color: var(--bg-primary);
+}
+[data-theme="newsprint"] .status-badge:has(.status-dot.adjusted) {
+    background: var(--yellow); color: var(--ink);
+}
+[data-theme="newsprint"] .status-badge:has(.status-dot.pending) {
+    background: var(--paper-deep); color: var(--ink);
+}
+
+/* ======================================================
+   Editor view
+   ====================================================== */
+[data-theme="newsprint"] #editor-view {
+    background: var(--bg-secondary);
+    background-image: var(--halftone);
+    background-size: var(--halftone-size);
+}
+
+[data-theme="newsprint"] #editor-canvas-panel {
+    background: transparent;
+    padding: 68px 24px 24px;
+}
+
+[data-theme="newsprint"] #canvas-container {
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: #fff;
+}
+
+[data-theme="newsprint"] #editor-controls {
+    background: var(--bg-primary);
+    border-left: 3px solid var(--ink);
+    min-width: 260px;
+    max-width: 300px;
+    padding: 0;
+    gap: 0;
+}
+
+[data-theme="newsprint"] .editor-header {
+    background: var(--ink);
+    color: var(--bg-primary);
+    padding: 14px 18px;
+    border-bottom: 3px solid var(--ink);
+}
+[data-theme="newsprint"] #editor-title {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--bg-primary);
+    letter-spacing: 0.5px;
+}
+[data-theme="newsprint"] .editor-header .btn-icon {
+    color: var(--bg-primary);
+    border-color: var(--bg-primary);
+    background: var(--accent);
+}
+
+[data-theme="newsprint"] .control-group {
+    padding: 14px 18px;
+    border-bottom: 2px solid var(--ink);
+}
+
+[data-theme="newsprint"] .section-label,
+[data-theme="newsprint"] .control-group > label:first-child {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+/* Add red square before section labels */
+[data-theme="newsprint"] .section-label::before,
+[data-theme="newsprint"] .control-group > label:first-child::before {
+    content: '';
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border: 1.5px solid var(--ink);
+    flex-shrink: 0;
+}
+
+[data-theme="newsprint"] #rotation-value {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--ink);
+}
+
+/* Slider */
+[data-theme="newsprint"] input[type="range"] {
+    background: var(--paper-deep);
+    height: 6px;
+    border: 1.5px solid var(--ink);
+    border-radius: 0;
+}
+[data-theme="newsprint"] input[type="range"]::-webkit-slider-thumb {
+    width: 16px; height: 16px;
+    background: var(--accent);
+    border: 2px solid var(--ink);
+    border-radius: 0;
+}
+
+/* Corner display */
+[data-theme="newsprint"] #corner-display {
+    background: var(--bg-input);
+    border: 2px solid var(--ink);
+    font-family: var(--font-mono);
+    padding: 8px 10px;
+    border-radius: 2px;
+}
+[data-theme="newsprint"] .corner-label {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    color: var(--accent);
+}
+[data-theme="newsprint"] .corner-coord {
+    color: var(--text-muted);
+}
+[data-theme="newsprint"] .corner-coord:hover {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+}
+[data-theme="newsprint"] .corner-input {
+    background: var(--bg-input);
+    border: 1.5px solid var(--accent);
+    color: var(--ink);
+    border-radius: 2px;
+}
+
+/* Corner previews */
+[data-theme="newsprint"] .corner-preview {
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+}
+[data-theme="newsprint"] .corner-preview .cp-label {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    background: var(--ink);
+    color: var(--bg-primary);
+    border-radius: 0;
+    padding: 2px 5px;
+    letter-spacing: 1px;
+    top: 0; left: 0;
+}
+
+/* Nav row */
+[data-theme="newsprint"] .nav-row {
+    padding: 12px 18px;
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+}
+[data-theme="newsprint"] .nav-label {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    color: var(--ink);
+    font-size: 13px;
+}
+
+/* ======================================================
+   Modals
+   ====================================================== */
+[data-theme="newsprint"] .modal-backdrop {
+    background: rgba(26, 22, 18, 0.7);
+}
+[data-theme="newsprint"] .modal-panel {
+    background: var(--bg-primary);
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 0;
+    /* Cap height to viewport and scroll overflowing content. The base
+       .modal-wide rule sets `overflow-y: auto` but our higher-specificity
+       selector clobbered it, leaving the Save / Create buttons in tall
+       modals (CBZ metadata, Settings) clipped off-screen. */
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/* Title bar stays pinned to the top while content scrolls — the dark
+   slab keeps modal context visible and prevents an empty paper top. */
+[data-theme="newsprint"] .modal-panel h2 {
+    background: var(--ink);
+    color: var(--bg-primary);
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    padding: 14px 20px;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+[data-theme="newsprint"] .modal-panel > *:not(h2):not(.modal-close) {
+    margin-left: 22px;
+    margin-right: 22px;
+}
+[data-theme="newsprint"] .modal-panel > *:last-child { margin-bottom: 22px; }
+/* Top margin under the h2 — apply to every visible non-h2 child, not only
+   the first-of-type, so cbz-step DIVs other than the API-key step
+   (e.g. the Metadata step) also get breathing room below the title bar. */
+[data-theme="newsprint"] .modal-panel > h2 + *:not(.modal-close),
+[data-theme="newsprint"] .modal-panel > .cbz-step:not(.hidden) {
+    margin-top: 18px;
+}
+
+/* Close button stays visible while the modal scrolls. We switch from
+   the base `position: absolute` (which scrolls with content and
+   disappears) to a sticky flex item pinned to the top-right. The
+   negative margin-bottom keeps it overlapping the h2 visually so it
+   doesn't add an empty band of paper above the title. */
+[data-theme="newsprint"] .modal-close {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: 2px solid var(--bg-primary);
+    width: 28px; height: 28px;
+    padding: 0;
+    border-radius: 0;
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 14px;
+    position: sticky;
+    top: 12px;
+    right: auto;
+    align-self: flex-end;
+    margin: 12px 12px -40px 0;
+    z-index: 3;
+}
+
+/* CBZ results */
+[data-theme="newsprint"] .cbz-result-item {
+    background: var(--bg-input);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+}
+[data-theme="newsprint"] .cbz-result-item:hover {
+    background: var(--bg-secondary);
+    transform: translate(-1px,-1px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Meta grid */
+[data-theme="newsprint"] .meta-grid label {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: left;
+}
+
+/* ======================================================
+   Popovers / menus
+   ====================================================== */
+[data-theme="newsprint"] .pop-menu,
+[data-theme="newsprint"] .pop-panel {
+    background: var(--bg-primary);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 2px;
+}
+[data-theme="newsprint"] .pop-menu-item {
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    border-radius: 0;
+}
+[data-theme="newsprint"] .pop-menu-item:hover {
+    background: var(--bg-secondary);
+}
+[data-theme="newsprint"] .pop-menu-item.danger { color: var(--accent); }
+[data-theme="newsprint"] .pop-menu-sep { background: var(--ink); opacity: 1; height: 2px; }
+
+[data-theme="newsprint"] .pop-field label,
+[data-theme="newsprint"] .cbz-field label,
+[data-theme="newsprint"] .settings-grid label {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+/* ======================================================
+   File picker
+   ====================================================== */
+[data-theme="newsprint"] .fp-entries {
+    background: var(--bg-input);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+}
+[data-theme="newsprint"] .fp-entry:hover {
+    background: var(--bg-secondary);
+}
+[data-theme="newsprint"] .fp-entry.is-dir {
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+/* ======================================================
+   Progress modal
+   ====================================================== */
+[data-theme="newsprint"] #progress-bar-container {
+    background: var(--paper-deep);
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    height: 16px;
+}
+[data-theme="newsprint"] #progress-bar {
+    background: var(--accent);
+    border-radius: 0;
+}
+
+/* ======================================================
+   Zoom lens
+   ====================================================== */
+[data-theme="newsprint"] #zoom-lens {
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 var(--ink);
+}

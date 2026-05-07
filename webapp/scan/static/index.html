@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="newsprint">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComicScans</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/newsprint.css">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16.png">
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
 </head>
 <body>
     <!-- Top Bar -->
     <header id="topbar">
         <div class="topbar-row">
             <div class="topbar-left">
-                <span class="app-logo">ComicScans</span>
+                <span id="app-logo" class="app-logo" role="button" tabindex="0" title="Back to grid">ComicScans</span>
 
                 <!-- Active directory pill — shows current scan folder, click for dropdown -->
                 <div class="dir-pill-wrap">
@@ -89,6 +94,7 @@
             <div class="cbz-field">
                 <label>Theme</label>
                 <select id="theme-select">
+                    <option value="newsprint">Newsprint</option>
                     <option value="dark">Dark</option>
                     <option value="light">Light</option>
                     <option value="solarized">Solarized</option>
@@ -135,6 +141,15 @@
                     <input type="checkbox" id="settings-show-detected">
                     <span>Show detected bounds overlay</span>
                 </label>
+            </div>
+
+            <div class="cbz-field">
+                <label class="section-label">Workflow</label>
+                <label class="checkbox-row">
+                    <input type="checkbox" id="settings-clear-output-on-input-change">
+                    <span>Clear output directory when input directory changes</span>
+                </label>
+                <p class="hint">When the input changes to a different folder, also empty the output field so you don't accidentally write to the previous comic's output folder.</p>
             </div>
 
             <div class="cbz-field">

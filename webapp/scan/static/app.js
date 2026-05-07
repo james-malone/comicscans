@@ -150,19 +150,8 @@ async function detectAll() {
         try {
             const result = await apiPost(`/api/session/${sid}/detect/${i}`);
             state.detections[i] = result;
-            // Update just this card's status badge
-            const card = document.querySelector(`.grid-card[data-index="${i}"]`);
-            if (card) {
-                const dot = card.querySelector('.status-dot');
-                if (dot) {
-                    dot.classList.remove('pending');
-                    dot.classList.add('detected');
-                }
-                const label = card.querySelector('.card-status');
-                if (label) {
-                    label.textContent = result.bleed_method || 'detected';
-                }
-            }
+            // Update just this card's status badge (dot + label together)
+            updateCardStatus(i);
         } catch (err) {
             console.error(`Detection failed for page ${i}:`, err);
         }
@@ -1061,6 +1050,16 @@ function navigateEditor(delta) {
 // Close editor
 dom.btnCloseEditor.addEventListener('click', closeEditor);
 
+// App logo → return to grid view (no-op if grid is already showing)
+const appLogoEl = document.getElementById('app-logo');
+if (appLogoEl) {
+    const goHome = () => { if (state.currentPage !== null) closeEditor(); };
+    appLogoEl.addEventListener('click', goHome);
+    appLogoEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+    });
+}
+
 // ===== Keyboard Shortcuts =====
 
 document.addEventListener('keydown', (e) => {
@@ -1084,10 +1083,18 @@ document.addEventListener('keydown', (e) => {
 // Load helper — used by the dir pill (Change / Reload) actions
 async function loadDirectory(inputDir) {
     if (!inputDir) return;
+    const prevInput = dom.inputDir.value.trim();
+    const inputChanged = prevInput && prevInput !== inputDir;
     dom.inputDir.value = inputDir;
     try {
         localStorage.setItem('comicscans-input-dir', inputDir);
     } catch (e) { /* ignore */ }
+    // If the user's workflow pref is set, clear the output field on input change
+    // so we don't accidentally write into the previous comic's output folder.
+    if (inputChanged && getClearOutputOnInputChange()) {
+        dom.outputDir.value = '';
+        try { localStorage.removeItem(LS_OUT); } catch (e) { /* ignore */ }
+    }
 
     // Close editor if open before loading new session
     if (state.currentPage !== null) {
@@ -1673,7 +1680,27 @@ const settingsDom = {
     detStyle: document.getElementById('settings-detected-style'),
     detSwatch: document.getElementById('settings-detected-swatch'),
     showDet: document.getElementById('settings-show-detected'),
+    clearOutputOnInputChange: document.getElementById('settings-clear-output-on-input-change'),
 };
+
+// Workflow preference: clear output dir when input dir changes. Persisted in
+// localStorage (client-only; not sent to the server). Defaults to ON.
+const LS_CLEAR_OUTPUT = 'comicscans-clear-output-on-input-change';
+function getClearOutputOnInputChange() {
+    try {
+        const v = localStorage.getItem(LS_CLEAR_OUTPUT);
+        return v === null ? true : v === '1';
+    } catch (e) { return true; }
+}
+function setClearOutputOnInputChange(on) {
+    try { localStorage.setItem(LS_CLEAR_OUTPUT, on ? '1' : '0'); } catch (e) {}
+}
+if (settingsDom.clearOutputOnInputChange) {
+    settingsDom.clearOutputOnInputChange.checked = getClearOutputOnInputChange();
+    settingsDom.clearOutputOnInputChange.addEventListener('change', () => {
+        setClearOutputOnInputChange(settingsDom.clearOutputOnInputChange.checked);
+    });
+}
 
 let settingsDefaults = { x: 13, y: 11 };
 let overlayDefaults = {
@@ -1739,6 +1766,9 @@ async function loadSettings() {
 
 settingsDom.btnOpen.addEventListener('click', async () => {
     await loadSettings();
+    if (settingsDom.clearOutputOnInputChange) {
+        settingsDom.clearOutputOnInputChange.checked = getClearOutputOnInputChange();
+    }
     settingsDom.modal.classList.remove('hidden');
 });
 
