@@ -380,6 +380,18 @@ html[data-theme="newsprint"],
 [data-theme="newsprint"] .status-badge:has(.status-dot.pending) {
     background: var(--paper-deep); color: var(--ink);
 }
+/* Ignored: high-contrast solid ink so it reads "this page is OUT" — same
+   visual weight as a CANCELLED stamp. */
+[data-theme="newsprint"] .status-badge:has(.status-dot.ignored) {
+    background: var(--ink); color: var(--bg-primary);
+}
+[data-theme="newsprint"] .grid-card.ignored {
+    box-shadow: 4px 4px 0 var(--text-dim);
+}
+[data-theme="newsprint"] .grid-card.ignored img {
+    opacity: 0.3;
+    filter: grayscale(0.7);
+}
 
 /* ======================================================
    Editor view

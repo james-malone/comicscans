@@ -110,6 +110,7 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 #     "thumbnails": {page_index: bytes},     -- JPEG thumbnail cache
 #     "detection": {page_index: {...}},      -- auto-detected results
 #     "overrides": {page_index: {...}},      -- user overrides
+#     "ignored": {page_index: True},         -- pages excluded from process/CBZ
 # }
 sessions: dict = {}
 
@@ -125,6 +126,10 @@ class UpdatePageRequest(BaseModel):
     corners: list  # [[x1,y1], [x2,y2], [x3,y3], [x4,y4]]
     rotation: float
     rotate180: bool
+
+
+class IgnorePageRequest(BaseModel):
+    ignored: bool
 
 
 class ProcessRequest(BaseModel):
@@ -193,6 +198,7 @@ def _save_session_file(session: dict):
         "version": 1,
         "detections": {},
         "overrides": {},
+        "ignored": sorted(int(k) for k in session.get("ignored", {}).keys()),
     }
 
     for idx, det in session["detection"].items():
@@ -233,6 +239,12 @@ def _load_session_file(session: dict):
     for idx_str, ovr in save_data.get("overrides", {}).items():
         idx = int(idx_str)
         session["overrides"][idx] = ovr
+
+    # Ignored is a flat list of page indices in the saved schema
+    if "ignored" not in session:
+        session["ignored"] = {}
+    for idx in save_data.get("ignored", []):
+        session["ignored"][int(idx)] = True
 
 
 def _clear_session_file(session: dict) -> bool:
@@ -368,13 +380,15 @@ def create_session(req: CreateSessionRequest):
         "thumbnails": {},
         "detection": {},
         "overrides": {},
+        "ignored": {},
     }
 
     _load_session_file(sessions[sid])
 
-    # Include saved detections/overrides so the frontend can restore state
+    # Include saved detections/overrides/ignored so the frontend can restore state
     saved_detections = {str(k): v for k, v in sessions[sid]["detection"].items()}
     saved_overrides = {str(k): v for k, v in sessions[sid]["overrides"].items()}
+    saved_ignored = sorted(int(k) for k in sessions[sid]["ignored"].keys())
 
     return {
         "session_id": sid,
@@ -382,6 +396,7 @@ def create_session(req: CreateSessionRequest):
         "has_saved_session": bool(saved_detections),
         "detections": saved_detections,
         "overrides": saved_overrides,
+        "ignored": saved_ignored,
     }
 
 
@@ -524,10 +539,15 @@ def clear_session_cache(sid: str):
 
 @app.post("/api/session/{sid}/detect-all")
 def detect_all_pages(sid: str):
-    """Run detection on every page in the session sequentially."""
+    """Run detection on every page in the session sequentially. Ignored pages
+    are skipped — un-ignore them and re-run if you want them detected."""
     session = _get_session(sid)
+    ignored = session.get("ignored", {})
     results = []
     for i in range(len(session["scans"])):
+        if ignored.get(i):
+            results.append({"page_index": i, "skipped": "ignored"})
+            continue
         result = detect_page(sid, i)
         results.append(result)
     _save_session_file(session)
@@ -548,6 +568,23 @@ def update_page(sid: str, page_index: int, req: UpdatePageRequest):
     }
     _save_session_file(session)
     return {"status": "ok", "page_index": page_index}
+
+
+@app.post("/api/session/{sid}/ignore/{page_index}")
+def ignore_page(sid: str, page_index: int, req: IgnorePageRequest):
+    """Mark a page as ignored (skipped during process_all and CBZ build) or
+    clear the ignore flag. Ignored pages are persisted in the session JSON."""
+    session = _get_session(sid)
+    if page_index < 0 or page_index >= len(session["scans"]):
+        raise HTTPException(status_code=404, detail=f"Page index {page_index} out of range")
+
+    session.setdefault("ignored", {})
+    if req.ignored:
+        session["ignored"][page_index] = True
+    else:
+        session["ignored"].pop(page_index, None)
+    _save_session_file(session)
+    return {"status": "ok", "page_index": page_index, "ignored": req.ignored}
 
 
 def _get_effective_settings(session: dict, page_index: int) -> dict:
@@ -611,8 +648,13 @@ def process_all(sid: str, req: ProcessRequest):
 
     cropped_pages = []
     page_results = []
+    ignored = session.get("ignored", {})
+    skipped_count = 0
 
     for i in range(len(session["scans"])):
+        if ignored.get(i):
+            skipped_count += 1
+            continue
         settings = _get_effective_settings(session, i)
         image = _load_page_image(session, i)
 
@@ -663,6 +705,7 @@ def process_all(sid: str, req: ProcessRequest):
     return {
         "output_dir": str(output_dir),
         "num_pages": len(page_results),
+        "skipped": skipped_count,
         "pages": page_results,
     }
 

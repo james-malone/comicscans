@@ -9,6 +9,7 @@ const state = {
     pages: [],            // [{index, filename, dpi, width, height}]
     detections: {},       // {pageIndex: {corners, rotation, rotate180, bleed_method, ...}}
     overrides: {},        // {pageIndex: {corners, rotation, rotate180}} — user edits
+    ignored: {},          // {pageIndex: true} — pages excluded from process/CBZ
     currentPage: null,    // index of page being edited
     editorImage: null,    // Image object for the editor canvas
     editorScale: 1,       // display_size / original_size ratio
@@ -57,6 +58,8 @@ const dom = {
     rotationValue:  document.getElementById('rotation-value'),
     btnRotate180:   document.getElementById('btn-rotate180'),
     rotate180Status:document.getElementById('rotate180-status'),
+    btnIgnore:      document.getElementById('btn-ignore'),
+    ignoreStatus:   document.getElementById('ignore-status'),
     btnReset:       document.getElementById('btn-reset'),
     btnPreview:     document.getElementById('btn-preview'),
     btnApply:       document.getElementById('btn-apply'),
@@ -115,9 +118,10 @@ async function createSession(inputDir) {
     state.pages = data.pages || [];
     state.detections = {};
     state.overrides = {};
+    state.ignored = {};
     state.currentPage = null;
 
-    // Restore saved detections and overrides from the server response
+    // Restore saved detections, overrides, and ignored set from the response
     if (data.detections) {
         for (const [idx, det] of Object.entries(data.detections)) {
             state.detections[parseInt(idx)] = det;
@@ -126,6 +130,11 @@ async function createSession(inputDir) {
     if (data.overrides) {
         for (const [idx, ovr] of Object.entries(data.overrides)) {
             state.overrides[parseInt(idx)] = ovr;
+        }
+    }
+    if (Array.isArray(data.ignored)) {
+        for (const idx of data.ignored) {
+            state.ignored[parseInt(idx)] = true;
         }
     }
 
@@ -140,12 +149,15 @@ async function detectPage(pageIndex) {
     return data;
 }
 
-/** Run detection on all pages one-by-one, updating the grid after each. */
+/** Run detection on all pages one-by-one, updating the grid after each.
+ *  Ignored pages are skipped (the server skips them too) so the count
+ *  reflects work actually being done. */
 async function detectAll() {
     const sid = state.sessionId;
     const total = state.pages.length;
     const lbl = dom.btnDetectAll.querySelector('.btn-lbl');
     for (let i = 0; i < total; i++) {
+        if (state.ignored[i]) continue;
         if (lbl) lbl.textContent = `Detecting ${i + 1}/${total}…`;
         try {
             const result = await apiPost(`/api/session/${sid}/detect/${i}`);
@@ -220,7 +232,11 @@ function renderGrid() {
         dot.className = 'status-dot';
         let statusText = 'Pending';
 
-        if (state.overrides[i]) {
+        if (state.ignored[i]) {
+            dot.classList.add('ignored');
+            statusText = 'Ignored';
+            card.classList.add('ignored');
+        } else if (state.overrides[i]) {
             dot.classList.add('adjusted');
             statusText = 'Adjusted';
         } else if (state.detections[i]) {
@@ -236,7 +252,8 @@ function renderGrid() {
 
         card.appendChild(footer);
 
-        // Click to open editor
+        // Click to open editor (still works for ignored pages so the
+        // user can un-ignore from the editor)
         card.addEventListener('click', () => openEditor(i));
 
         dom.gridContainer.appendChild(card);
@@ -254,8 +271,12 @@ function updateCardStatus(pageIndex) {
 
     dot.className = 'status-dot';
     let statusText = 'Pending';
+    card.classList.toggle('ignored', !!state.ignored[pageIndex]);
 
-    if (state.overrides[pageIndex]) {
+    if (state.ignored[pageIndex]) {
+        dot.classList.add('ignored');
+        statusText = 'Ignored';
+    } else if (state.overrides[pageIndex]) {
         dot.classList.add('adjusted');
         statusText = 'Adjusted';
     } else if (state.detections[pageIndex]) {
@@ -290,6 +311,7 @@ function openEditor(pageIndex) {
     const navLabel = document.getElementById('nav-page-label');
     if (navLabel) navLabel.textContent = `${pageIndex + 1} / ${state.pages.length}`;
 
+    syncIgnoreUI(pageIndex);
     loadEditorImage(pageIndex);
 }
 
@@ -947,6 +969,36 @@ dom.btnRotate180.addEventListener('click', () => {
     loadEditorImage(pageIndex);
 });
 
+// Ignore toggle — exclude this page from process_all and the CBZ build.
+// The ignored set is persisted server-side in .comicscans_session.json.
+dom.btnIgnore.addEventListener('click', async () => {
+    const pageIndex = state.currentPage;
+    if (pageIndex === null) return;
+    const next = !state.ignored[pageIndex];
+    try {
+        await apiPost(`/api/session/${state.sessionId}/ignore/${pageIndex}`,
+                      { ignored: next });
+    } catch (err) {
+        alert('Failed to update ignore: ' + err.message);
+        return;
+    }
+    if (next) state.ignored[pageIndex] = true;
+    else delete state.ignored[pageIndex];
+    syncIgnoreUI(pageIndex);
+    updateCardStatus(pageIndex);
+});
+
+/** Update the editor's ignore button + status label for the given page. */
+function syncIgnoreUI(pageIndex) {
+    const ignored = !!state.ignored[pageIndex];
+    dom.ignoreStatus.textContent = ignored ? 'On' : 'Off';
+    dom.btnIgnore.textContent = ignored ? 'Un-ignore' : 'Ignore';
+    // Visually de-emphasize the canvas when ignored — same opacity treatment
+    // as the grid card so the user sees the same "this won't ship" cue in
+    // both views.
+    dom.canvasContainer.style.opacity = ignored ? '0.45' : '';
+}
+
 // Reset to auto-detected values
 dom.btnReset.addEventListener('click', () => {
     commitCornerEdits();
@@ -1159,6 +1211,7 @@ dom.btnClearSession.addEventListener('click', async () => {
         await apiPost(`/api/session/${state.sessionId}/clear-cache`);
         state.detections = {};
         state.overrides = {};
+        state.ignored = {};
         // Reset grid badges
         renderGrid();
         // If editor is open, reset the overlay
@@ -1891,6 +1944,7 @@ dirPillDom.mClear.addEventListener('click', async () => {
         await apiPost(`/api/session/${state.sessionId}/clear-cache`);
         state.detections = {};
         state.overrides = {};
+        state.ignored = {};
         renderGrid();
         if (state.currentPage !== null) loadDetectionOverlay(state.currentPage);
     } catch (err) {
