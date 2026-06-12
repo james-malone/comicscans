@@ -13,6 +13,7 @@ Example:
 """
 
 import argparse
+import re
 import statistics
 import sys
 import xml.etree.ElementTree as ET
@@ -71,19 +72,16 @@ def collect_metadata_from_args(args):
 
 def find_page_files(pages_path):
     """Find processed page files (jpg or webp) in the given directory."""
-    page_files = sorted(pages_path.glob('Scan *.jpg'),
-                        key=lambda f: int(f.stem.split(' ')[1]))
-    if not page_files:
-        page_files = sorted(pages_path.glob('Scan *.webp'),
-                            key=lambda f: int(f.stem.split(' ')[1]))
-    if not page_files:
-        # Try without space
-        page_files = sorted(pages_path.glob('Scan*.jpg'),
-                            key=lambda f: int(f.stem.replace('Scan', '') or '0'))
-    if not page_files:
-        page_files = sorted(pages_path.glob('Scan*.webp'),
-                            key=lambda f: int(f.stem.replace('Scan', '') or '0'))
-    return page_files
+    pattern = re.compile(r'^Scan ?(\d+)?$')
+    numbered = []
+    for f in pages_path.iterdir():
+        if f.suffix.lower() not in ('.jpg', '.jpeg', '.webp'):
+            continue
+        m = pattern.match(f.stem)
+        if m:
+            numbered.append((int(m.group(1)) if m.group(1) else 0, f))
+    numbered.sort(key=lambda x: x[0])
+    return [f for _, f in numbered]
 
 
 def generate_comicinfo_xml(pages_dir, metadata):
