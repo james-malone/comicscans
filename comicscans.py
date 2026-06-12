@@ -20,6 +20,7 @@ Example:
 import argparse
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -35,7 +36,7 @@ from PIL import Image
 # Orientation detection via Tesseract OCR
 # ---------------------------------------------------------------------------
 
-TESSERACT_BIN = "/opt/homebrew/bin/tesseract"
+TESSERACT_BIN = shutil.which("tesseract") or "/opt/homebrew/bin/tesseract"
 
 # Common English words used to score OCR output quality
 COMMON_WORDS = set("""the a an is it in on to of and for are was not you all can had her his one our
@@ -178,15 +179,25 @@ def parse_rotate_pages(args, total_pages):
     if args.rotate:
         for part in args.rotate.split(','):
             part = part.strip()
-            if '-' in part:
-                start, end = part.split('-', 1)
-                pages_to_rotate.update(range(int(start), int(end) + 1))
-            else:
-                pages_to_rotate.add(int(part))
+            try:
+                if '-' in part:
+                    start, end = part.split('-', 1)
+                    pages_to_rotate.update(range(int(start), int(end) + 1))
+                else:
+                    pages_to_rotate.add(int(part))
+            except ValueError:
+                print(f"Error: invalid --rotate value '{part}' "
+                      f"(expected page numbers like '3' or ranges like '2-5')")
+                sys.exit(1)
 
     if args.rotate_range:
-        start, end = args.rotate_range.split('-', 1)
-        pages_to_rotate.update(range(int(start), int(end) + 1))
+        try:
+            start, end = args.rotate_range.split('-', 1)
+            pages_to_rotate.update(range(int(start), int(end) + 1))
+        except ValueError:
+            print(f"Error: invalid --rotate-range value '{args.rotate_range}' "
+                  f"(expected a range like '2-5')")
+            sys.exit(1)
 
     if args.rotate_even:
         pages_to_rotate.update(range(0, total_pages, 2))
@@ -821,8 +832,10 @@ def process(input_dir, output_dir=None, quality=85, preview=False,
         print(f"Rotate 180°: pages {sorted(pages_to_rotate)}")
     if auto_rotate:
         if not os.path.isfile(TESSERACT_BIN):
-            print(f"Error: Tesseract not found at {TESSERACT_BIN}")
-            print("Install with: brew install tesseract")
+            print(f"Error: Tesseract not found (looked for {TESSERACT_BIN})")
+            print("Install it and ensure it is on PATH, e.g.:")
+            print("  macOS:  brew install tesseract")
+            print("  Linux:  apt install tesseract-ocr")
             sys.exit(1)
         print(f"Auto-rotate: enabled (Tesseract OCR)")
     print()
@@ -897,6 +910,10 @@ def process(input_dir, output_dir=None, quality=85, preview=False,
         print(f"    Cropped:  {cw}x{ch}")
         cropped_pages.append(cropped)
     print()
+
+    if not cropped_pages:
+        print("Error: No pages could be processed (all images failed to load).")
+        sys.exit(1)
 
     # Step 3: Normalize dimensions
     print("Step 3: Normalizing dimensions...")

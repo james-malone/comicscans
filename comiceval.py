@@ -394,7 +394,11 @@ def _worker_loop(conn, entries_chunk):
     images = {}
     for entry in entries_chunk:
         img = cv2.imread(entry["filepath"])
-        if img is not None and entry["gt_rotate180"]:
+        if img is None:
+            print(f"  Warning: could not read {entry['filepath']} — "
+                  f"counted as max error during tuning")
+            continue
+        if entry["gt_rotate180"]:
             img = cv2.rotate(img, cv2.ROTATE_180)
         images[entry["filepath"]] = img
     # Signal readiness
@@ -407,6 +411,9 @@ def _worker_loop(conn, entries_chunk):
         total = 0.0
         for entry in entries_chunk:
             img = images.get(entry["filepath"])
+            if img is None:
+                total += 1000
+                continue
             det = run_detection(entry, params, preloaded_image=img)
             if "error" in det:
                 total += 1000

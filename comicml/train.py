@@ -74,6 +74,9 @@ def _split_entries(entries, train_dirs, holdout_dirs):
     train, holdout = [], []
     train_set = set(train_dirs)
     holdout_set = set(holdout_dirs)
+    overlap = train_set & holdout_set
+    if overlap:
+        raise ValueError(f"scan dirs appear in both train and holdout: {sorted(overlap)}")
     for e in entries:
         name = e["scan_dir"].rsplit("/", 1)[-1]
         if name in train_set:
@@ -348,6 +351,7 @@ def train(args):
         return loss, coords
 
     best_val_px = float("inf")
+    best_epoch = 0
 
     # Clear any previous log for this output path
     log_path.write_text("")
@@ -382,8 +386,8 @@ def train(args):
                 imgs = imgs.to(device)
                 targets = targets.to(device)
                 _, coords = forward_loss(imgs, targets)
-                orig_w = torch.tensor(meta["orig_w"]).to(device)
-                orig_h = torch.tensor(meta["orig_h"]).to(device)
+                orig_w = meta["orig_w"].to(device)
+                orig_h = meta["orig_h"].to(device)
                 px, _ = _corner_px_error(coords, targets, orig_w, orig_h)
                 val_px_sum += px * imgs.size(0)
                 val_n += imgs.size(0)
@@ -396,6 +400,7 @@ def train(args):
 
         if is_best:
             best_val_px = val_px
+            best_epoch = epoch
             torch.save({
                 "model_state":  model.state_dict(),
                 "input_size":   input_size,
@@ -425,6 +430,11 @@ def train(args):
                 "is_best":     is_best,
                 "elapsed":     round(elapsed, 1),
             }) + "\n")
+
+        if args.patience and epoch - best_epoch >= args.patience:
+            print(f"Early stopping: val_px has not improved since epoch "
+                  f"{best_epoch + 1} ({args.patience} epochs ago)")
+            break
 
     print(f"\nBest holdout mean corner error: {best_val_px:.2f} px")
     print(f"Model saved to {output_path}")
@@ -554,6 +564,8 @@ def main():
     p_train.add_argument("--warm-restarts", type=int, default=40,
         help="Cosine warm restart period in epochs (0 = plain cosine decay)")
     p_train.add_argument("--seed", type=int, default=137)
+    p_train.add_argument("--patience", type=int, default=0,
+                         help="stop early if val_px has not improved in N epochs (0 = off)")
     p_train.add_argument("--output", type=str, default=None,
         help="Output filename (relative → placed in <root>/models/). "
              f"Default: {DEFAULT_MODEL_FILE.name}")

@@ -106,9 +106,19 @@ async def train_start(cfg: TrainConfig):
         "--seed", str(cfg.seed),
         "--output", str(output_path),
     ]
-    proc = subprocess.Popen(cmd, cwd=str(_PROJECT),
-                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                            text=True, bufsize=1)
+    # Prune finished runs so _active_runs doesn't grow forever
+    for rid in [rid for rid, r in _active_runs.items()
+                if r["proc"].poll() is not None]:
+        del _active_runs[rid]
+
+    # Console output goes to a file: a PIPE that nobody reads would fill the
+    # OS buffer and block the training process mid-run.
+    console_path = output_path.with_name(output_path.stem + "_console.out")
+    with open(console_path, "w") as console:
+        proc = subprocess.Popen(cmd, cwd=str(_PROJECT),
+                                stdin=subprocess.DEVNULL,
+                                stdout=console, stderr=subprocess.STDOUT,
+                                text=True)
     _active_runs[run_id] = {
         "proc": proc,
         "log_path": log_path,
@@ -174,7 +184,13 @@ async def train_stop(run_id: str):
     run = _active_runs.get(run_id)
     if not run:
         raise HTTPException(404, "Run not found")
-    run["proc"].terminate()
+    proc = run["proc"]
+    proc.terminate()
+    try:
+        proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        proc.wait()
     run["status"] = "stopped"
     return {"status": "stopped"}
 

@@ -1192,10 +1192,6 @@ dom.btnDetectAll.addEventListener('click', async () => {
     }
 });
 
-// The stale detectAll loop touches .textContent directly — patch it so the
-// per-iteration "Detecting X/N" label targets just the label span.
-// (Overwrite the simple default behavior by re-implementing detectAll below.)
-
 // Clear Cache button
 dom.btnClearSession.addEventListener('click', async () => {
     if (!state.sessionId) {

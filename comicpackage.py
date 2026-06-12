@@ -13,8 +13,6 @@ Example:
 """
 
 import argparse
-import hashlib
-import os
 import statistics
 import sys
 import xml.etree.ElementTree as ET
@@ -209,9 +207,19 @@ def run_qc(pages_dir):
     dimensions = []
     file_sizes = []
     for f in page_files:
-        img = Image.open(f)
-        dimensions.append(img.size)
+        try:
+            img = Image.open(f)
+            dimensions.append(img.size)
+        except Exception as e:
+            issues.append(f"Page {f.name} unreadable: {e}")
+            continue
         file_sizes.append(f.stat().st_size)
+
+    if not dimensions:
+        print("Error: No readable pages for QC")
+        for issue in issues:
+            print(f"  ⚠ {issue}")
+        return False
 
     unique_dims = set(dimensions)
     if len(unique_dims) > 1:
@@ -239,7 +247,10 @@ def run_qc(pages_dir):
 
     # 4. Blank page detection
     for i, f in enumerate(page_files):
-        img = Image.open(f).convert('L')
+        try:
+            img = Image.open(f).convert('L')
+        except Exception:
+            continue  # unreadable pages already flagged in check 2
         pixels = np.array(img)
         std = pixels.std()
         if std < 10:
@@ -251,7 +262,10 @@ def run_qc(pages_dir):
     # 5. Duplicate detection
     hashes = []
     for f in page_files:
-        hashes.append(compute_phash(f))
+        try:
+            hashes.append(compute_phash(f))
+        except Exception:
+            continue  # unreadable pages already flagged in check 2
 
     duplicates = []
     for i in range(len(hashes)):
@@ -279,7 +293,10 @@ def run_qc(pages_dir):
     # Look for pages with a dark vertical band (spine shadow) still present
     spine_pages = 0
     for i, f in enumerate(page_files):
-        img_arr = np.array(Image.open(f).convert('L'))
+        try:
+            img_arr = np.array(Image.open(f).convert('L'))
+        except Exception:
+            continue  # unreadable pages already flagged in check 2
         ph, pw = img_arr.shape
         # Check for dark, low-variance vertical bands in the middle 80%
         search_start = int(pw * 0.1)
@@ -310,7 +327,10 @@ def run_qc(pages_dir):
     # (e.g., black top edge but not bottom) may indicate incorrect rotation
     orientation_suspect = 0
     for i, f in enumerate(page_files):
-        img_arr = np.array(Image.open(f).convert('L'))
+        try:
+            img_arr = np.array(Image.open(f).convert('L'))
+        except Exception:
+            continue  # unreadable pages already flagged in check 2
         ph, pw = img_arr.shape
         top_strip = img_arr[:20, :].mean()
         bottom_strip = img_arr[-20:, :].mean()
