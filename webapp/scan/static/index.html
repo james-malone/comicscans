@@ -201,9 +201,9 @@
             </div>
 
             <div class="control-group inline">
-                <button id="btn-rotate180" class="btn-secondary btn-sm">180&deg;</button>
+                <button id="btn-rotate180" class="btn-secondary btn-sm" title="Rotate 180&deg; (T)">180&deg;</button>
                 <span id="rotate180-status" class="status-label">Off</span>
-                <button id="btn-ignore" class="btn-secondary btn-sm" title="Exclude this page from processing & CBZ">Ignore</button>
+                <button id="btn-ignore" class="btn-secondary btn-sm" title="Exclude this page from processing & CBZ (I)">Ignore</button>
                 <span id="ignore-status" class="status-label">Off</span>
             </div>
 
@@ -218,10 +218,12 @@
             </div>
 
             <div class="control-group button-row">
-                <button id="btn-reset" class="btn-secondary btn-sm">Reset</button>
-                <button id="btn-preview" class="btn-secondary btn-sm">Preview</button>
-                <button id="btn-apply" class="btn-sm">Apply</button>
+                <button id="btn-undo" class="btn-secondary btn-sm" title="Undo last edit (U or Cmd+Z)">Undo</button>
+                <button id="btn-reset" class="btn-secondary btn-sm" title="Reset to auto-detected (R)">Reset</button>
+                <button id="btn-preview" class="btn-secondary btn-sm" title="Server-rendered preview (P)">Preview</button>
+                <button id="btn-apply" class="btn-sm" title="Save overrides (A)">Apply</button>
             </div>
+            <div class="kbd-hints">A apply &middot; U undo &middot; R reset &middot; P preview &middot; I ignore &middot; T 180&deg; &middot; &larr;/&rarr; pages &middot; Esc grid</div>
 
             <div class="control-group">
                 <label class="section-label">Corner previews</label>

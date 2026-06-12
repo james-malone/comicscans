@@ -664,6 +664,13 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
     color: var(--text-dim);
 }
 
+.kbd-hints {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.2px;
+    margin: -2px 0 6px;
+}
+
 /* Rotation slider */
 input[type="range"] {
     -webkit-appearance: none;

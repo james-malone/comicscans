@@ -142,6 +142,131 @@ def load_ground_truth(path: Path = GROUND_TRUTH_FILE) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Ground-truth lint: cheap geometric sanity checks (no model required)
+# ---------------------------------------------------------------------------
+
+def quad_convex(corners) -> bool:
+    """True if corners form a convex quadrilateral in TL, TR, BR, BL order.
+
+    With image coordinates (y down), correct ordering walks the quad
+    clockwise on screen, so every consecutive-edge cross product is positive.
+    A zero/negative cross means mis-ordered corners or a self-intersecting
+    ("bow-tie") quad — both are labeling mistakes.
+    """
+    pts = [(float(x), float(y)) for x, y in corners]
+    for i in range(4):
+        ax, ay = pts[i]
+        bx, by = pts[(i + 1) % 4]
+        cx, cy = pts[(i + 2) % 4]
+        cross = (bx - ax) * (cy - by) - (by - ay) * (cx - bx)
+        if cross <= 0:
+            return False
+    return True
+
+
+def quad_dimensions(corners):
+    """(width, height) of a TL, TR, BR, BL quad as mean opposite-edge lengths."""
+    tl, tr, br, bl = (np.array(c, dtype=np.float64) for c in corners)
+    width = (np.hypot(*(tr - tl)) + np.hypot(*(br - bl))) / 2.0
+    height = (np.hypot(*(bl - tl)) + np.hypot(*(br - tr))) / 2.0
+    return float(width), float(height)
+
+
+def lint_entry(entry, aspect_range=(1.05, 2.2)):
+    """Per-entry geometric checks. Returns a list of issue strings (empty = clean)."""
+    issues = []
+    corners = entry["gt_corners"]
+
+    img_w = entry.get("image_width")
+    img_h = entry.get("image_height")
+    if img_w and img_h:
+        for name, (x, y) in zip(("TL", "TR", "BR", "BL"), corners):
+            if x < -5 or y < -5 or x > img_w + 5 or y > img_h + 5:
+                issues.append(f"corner {name} outside image bounds "
+                              f"({x:.0f},{y:.0f} vs {img_w}x{img_h})")
+
+    if not quad_convex(corners):
+        issues.append("corners not a convex TL,TR,BR,BL quad (mis-ordered or crossed)")
+        return issues  # dimensions are meaningless for a broken quad
+
+    width, height = quad_dimensions(corners)
+    if min(width, height) < 50:
+        issues.append(f"degenerate quad ({width:.0f}x{height:.0f}px)")
+    else:
+        aspect = height / width
+        lo, hi = aspect_range
+        if not lo <= aspect <= hi:
+            issues.append(f"unusual aspect ratio {aspect:.2f} "
+                          f"(page {width:.0f}x{height:.0f}px, expected {lo}-{hi})")
+    return issues
+
+
+def lint_ground_truth(entries=None, z_thresh=3.5, min_dir_pages=5,
+                      aspect_range=(1.05, 2.2)):
+    """Geometric quality gate over the ground truth. Returns [(entry, issue)].
+
+    Two passes:
+    1. Per-entry checks (bounds, convexity, degenerate size, aspect ratio).
+    2. Per-scan-dir robust outliers: pages from one scanning session have
+       near-identical crop sizes, so a page whose width or height deviates
+       by a robust z-score > z_thresh from the directory median usually has
+       a mis-placed corner.
+    """
+    if entries is None:
+        entries = load_ground_truth()
+
+    report = []
+    for e in entries:
+        for issue in lint_entry(e, aspect_range=aspect_range):
+            report.append((e, issue))
+
+    by_dir = {}
+    for e in entries:
+        if quad_convex(e["gt_corners"]):
+            by_dir.setdefault(e["scan_dir"], []).append(e)
+
+    for group in by_dir.values():
+        if len(group) < min_dir_pages:
+            continue
+        dims = np.array([quad_dimensions(e["gt_corners"]) for e in group])
+        for dim_idx, dim_name in ((0, "width"), (1, "height")):
+            vals = dims[:, dim_idx]
+            med = float(np.median(vals))
+            mad = float(np.median(np.abs(vals - med)))
+            if mad < 1e-6:
+                continue
+            for e, v in zip(group, vals):
+                z = 0.6745 * (v - med) / mad
+                if abs(z) > z_thresh:
+                    report.append((e, f"page {dim_name} {v:.0f}px deviates from "
+                                      f"dir median {med:.0f}px (robust z={z:+.1f})"))
+    return report
+
+
+def run_lint(args):
+    entries = load_ground_truth()
+    report = lint_ground_truth(entries, z_thresh=args.z,
+                               min_dir_pages=args.min_dir_pages,
+                               aspect_range=(args.aspect_min, args.aspect_max))
+    corrected = sum(1 for e in entries if e["has_correction"])
+    print(f"Linted {len(entries)} GT entries ({corrected} corrected) — "
+          f"{len(report)} issues on {len({id(e) for e, _ in report})} pages\n")
+    if not report:
+        print("No geometric issues found.")
+        return
+
+    report.sort(key=lambda r: (r[0]["scan_dir"], r[0]["page_index"]))
+    print(f"{'scan':<22} {'pg':<4} {'corr':<5} issue")
+    print("-" * 90)
+    for e, issue in report:
+        scan = e["scan_dir"].rsplit("/", 1)[-1]
+        corr = "yes" if e["has_correction"] else "auto"
+        print(f"{scan:<22} {e['page_index']:<4} {corr:<5} {issue}")
+    print("\nReview flagged pages in the webapp (corrected ones especially — they "
+          "feed training); then re-run collect + lint.")
+
+
+# ---------------------------------------------------------------------------
 # Metrics
 # ---------------------------------------------------------------------------
 
@@ -739,6 +864,18 @@ def main():
     # summary
     sub.add_parser("summary", help="Print ground truth summary")
 
+    # lint
+    p_lint = sub.add_parser("lint",
+        help="Fast geometric sanity checks on ground truth (no model needed)")
+    p_lint.add_argument("--z", type=float, default=3.5,
+                        help="Robust z-score threshold for per-dir size outliers (default 3.5)")
+    p_lint.add_argument("--min-dir-pages", type=int, default=5,
+                        help="Min pages per dir for outlier stats (default 5)")
+    p_lint.add_argument("--aspect-min", type=float, default=1.05,
+                        help="Min sane height/width ratio (default 1.05)")
+    p_lint.add_argument("--aspect-max", type=float, default=2.2,
+                        help="Max sane height/width ratio (default 2.2)")
+
     # audit
     p_audit = sub.add_parser("audit",
         help="Run hybrid detector and flag pages where ground truth likely has a mis-clicked corner")
@@ -790,6 +927,9 @@ def main():
     elif args.command == "summary":
         entries = load_ground_truth()
         export_for_webapp(entries)
+
+    elif args.command == "lint":
+        run_lint(args)
 
     elif args.command == "audit":
         audit_ground_truth(

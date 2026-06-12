@@ -60,6 +60,7 @@ const dom = {
     rotate180Status:document.getElementById('rotate180-status'),
     btnIgnore:      document.getElementById('btn-ignore'),
     ignoreStatus:   document.getElementById('ignore-status'),
+    btnUndo:        document.getElementById('btn-undo'),
     btnReset:       document.getElementById('btn-reset'),
     btnPreview:     document.getElementById('btn-preview'),
     btnApply:       document.getElementById('btn-apply'),
@@ -625,10 +626,10 @@ function applyCornerInput(cornerIndex) {
     const x = parseFloat(elX.value);
     const y = parseFloat(elY.value);
     if (isNaN(x) || isNaN(y)) return;
+    pushUndo(state.currentPage);
     displayCorners[cornerIndex] = [x * scale, y * scale];
-    drawOverlay();
+    drawOverlay();  // also redraws the corner preview thumbnails
     saveCorners();
-    updateCornerPreviews();
     syncPageToServer(state.currentPage);
 }
 
@@ -902,6 +903,9 @@ function handleMouseUp(e) {
 dom.overlayCanvas.addEventListener('mousedown', (e) => {
     handleMouseDown(e);
     if (state.draggingCorner !== null) {
+        // Corners are still untouched here — snapshot for undo before the
+        // mousemove events start mutating them.
+        pushUndo(state.currentPage);
         // Track globally so cursor leaving the canvas doesn't drop the corner
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
@@ -938,6 +942,7 @@ dom.rotationSlider.addEventListener('input', () => {
 dom.btnRotate180.addEventListener('click', () => {
     const pageIndex = state.currentPage;
     if (pageIndex === null) return;
+    pushUndo(pageIndex);
 
     if (!state.overrides[pageIndex]) {
         const detection = state.detections[pageIndex];
@@ -1004,6 +1009,7 @@ dom.btnReset.addEventListener('click', () => {
     commitCornerEdits();
     const pageIndex = state.currentPage;
     if (pageIndex === null) return;
+    pushUndo(pageIndex);
 
     delete state.overrides[pageIndex];
     dom.canvasContainer.style.transform = '';
@@ -1112,21 +1118,89 @@ if (appLogoEl) {
     });
 }
 
+// ===== Undo =====
+
+// Per-page undo stacks. Each snapshot is the page's override state captured
+// BEFORE a mutating edit; null means "no override yet", so undoing past the
+// first edit restores the pure auto-detection.
+const undoStacks = {};
+const UNDO_LIMIT = 50;
+
+function pushUndo(pageIndex) {
+    if (pageIndex === null || pageIndex === undefined) return;
+    const ovr = state.overrides[pageIndex];
+    const snap = ovr === undefined ? null : JSON.parse(JSON.stringify(ovr));
+    const stack = undoStacks[pageIndex] || (undoStacks[pageIndex] = []);
+    stack.push(snap);
+    if (stack.length > UNDO_LIMIT) stack.shift();
+}
+
+function undoEdit() {
+    const pageIndex = state.currentPage;
+    if (pageIndex === null) return;
+    const stack = undoStacks[pageIndex];
+    if (!stack || stack.length === 0) return;
+
+    exitCornerEdit(false);
+    const before = getPageData(pageIndex);
+    const beforeR180 = before ? (before.rotate180 || false) : false;
+
+    const snap = stack.pop();
+    if (snap === null) delete state.overrides[pageIndex];
+    else state.overrides[pageIndex] = snap;
+
+    const after = getPageData(pageIndex);
+    const afterR180 = after ? (after.rotate180 || false) : false;
+
+    if (afterR180 !== beforeR180) {
+        // Orientation changed — reload the image (redraws the overlay too)
+        loadEditorImage(pageIndex);
+    } else {
+        // Restore the fine-rotation preview transform, then redraw
+        const det = state.detections[pageIndex];
+        const delta = ((after && after.rotation) || 0) - ((det && det.rotation) || 0);
+        dom.canvasContainer.style.transform = delta ? `rotate(${delta}deg)` : '';
+        loadDetectionOverlay(pageIndex);
+    }
+    updateCardStatus(pageIndex);
+    syncPageToServer(pageIndex);
+}
+
+dom.btnUndo.addEventListener('click', undoEdit);
+
+// Capture pre-edit state when a rotation-slider drag begins (the 'input'
+// events that follow mutate the override continuously).
+dom.rotationSlider.addEventListener('pointerdown', () => pushUndo(state.currentPage));
+
 // ===== Keyboard Shortcuts =====
 
 document.addEventListener('keydown', (e) => {
-    // Only handle shortcuts when editor is open
+    // Only when the editor is open, no modal is showing, and the user isn't
+    // typing in a field (corner inputs handle their own Enter/Escape).
     if (state.currentPage === null) return;
+    if (document.querySelector('.modal-backdrop:not(.hidden)')) return;
+    const t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' ||
+              t.tagName === 'SELECT' || t.isContentEditable)) return;
 
-    if (e.key === 'ArrowLeft') {
+    const mod = e.metaKey || e.ctrlKey;
+    if (mod && !e.shiftKey && (e.key === 'z' || e.key === 'Z')) {
         e.preventDefault();
-        navigateEditor(-1);
-    } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        navigateEditor(1);
-    } else if (e.key === 'Escape') {
-        e.preventDefault();
-        closeEditor();
+        undoEdit();
+        return;
+    }
+    if (mod || e.altKey) return; // leave other browser shortcuts alone
+
+    switch (e.key) {
+        case 'ArrowLeft':  e.preventDefault(); commitCornerEdits(); navigateEditor(-1); break;
+        case 'ArrowRight': e.preventDefault(); commitCornerEdits(); navigateEditor(1); break;
+        case 'Escape':     e.preventDefault(); closeEditor(); break;
+        case 'a': case 'A': e.preventDefault(); dom.btnApply.click(); break;
+        case 'u': case 'U': e.preventDefault(); undoEdit(); break;
+        case 'r': case 'R': e.preventDefault(); dom.btnReset.click(); break;
+        case 'p': case 'P': e.preventDefault(); dom.btnPreview.click(); break;
+        case 'i': case 'I': e.preventDefault(); dom.btnIgnore.click(); break;
+        case 't': case 'T': e.preventDefault(); dom.btnRotate180.click(); break;
     }
 });
 
