@@ -30,8 +30,9 @@ random-samples/
 # Model checkpoints (large binary files — not tracked in git)
 *.pt
 
-# Ground truth (generated from session files via comiceval.py collect)
-ground_truth.json
+# Ground truth backups (the live data/ground_truth.json IS tracked — it's the
+# hand-labeled dataset and must be backed up in git)
+*.bak
 
 # Virtual environments
 venv-cs/
