@@ -71,16 +71,29 @@ class TrainConfig(BaseModel):
     seed: int = 137
     output: Optional[str] = None
 
+def _default_train_dirs(holdout: str) -> str:
+    """All collected scan dirs except the holdout — mirrors comicml.train's
+    dynamic --train default so the dashboard pre-fills the real training set."""
+    try:
+        gt = json.loads(_GT_FILE.read_text())
+    except (OSError, json.JSONDecodeError):
+        return ""
+    holdout_set = set(holdout.split(","))
+    dirs = sorted({e["scan_dir"].rsplit("/", 1)[-1] for e in gt})
+    return ",".join(d for d in dirs if d not in holdout_set)
+
+
 @app.get("/api/train/defaults")
 async def train_defaults():
     import re
     src = (_PROJECT / "comicml" / "train.py").read_text()
-    train_m   = re.search(r'p_train\.add_argument\("--train",\s*default="([^"]+)"', src)
     holdout_m = re.search(r'p_train\.add_argument\("--holdout",\s*default="([^"]+)"', src)
-    return {
-        "train":   train_m.group(1)   if train_m   else "",
-        "holdout": holdout_m.group(1) if holdout_m else "",
-    }
+    holdout = holdout_m.group(1) if holdout_m else "DS9E20,DS9E23,DS9_1996_5"
+    # --train no longer has a static default; compute it the same way the
+    # trainer does so the dashboard shows the actual set that will train.
+    train_m = re.search(r'p_train\.add_argument\("--train",\s*default="([^"]+)"', src)
+    train = train_m.group(1) if train_m else _default_train_dirs(holdout)
+    return {"train": train, "holdout": holdout}
 
 @app.post("/api/train/start")
 async def train_start(cfg: TrainConfig):

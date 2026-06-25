@@ -86,6 +86,21 @@ def _split_entries(entries, train_dirs, holdout_dirs):
     return train, holdout
 
 
+def _resolve_train_dirs(entries, holdout_dirs, explicit=None):
+    """Training dir list. An explicit list wins; otherwise default to EVERY
+    collected dir except the holdout.
+
+    Deriving the default from the ground truth (rather than a hand-maintained
+    allowlist) means freshly collected comics are trained on automatically —
+    a stale allowlist would silently drop exactly the data you just added.
+    """
+    if explicit:
+        return explicit
+    holdout_set = set(holdout_dirs)
+    all_dirs = sorted({e["scan_dir"].rsplit("/", 1)[-1] for e in entries})
+    return [d for d in all_dirs if d not in holdout_set]
+
+
 # ---------------------------------------------------------------------------
 # Dataset
 # ---------------------------------------------------------------------------
@@ -291,8 +306,9 @@ def train(args):
         print(f"Random seed: {args.seed}")
 
     entries = _load_entries()
-    train_dirs = args.train.split(",")
     holdout_dirs = args.holdout.split(",")
+    train_dirs = _resolve_train_dirs(entries, holdout_dirs,
+                                     args.train.split(",") if args.train else None)
     train_entries, holdout_entries = _split_entries(entries, train_dirs, holdout_dirs)
 
     train_entries = [e for e in train_entries if e["has_correction"]]
@@ -544,15 +560,9 @@ def main():
 
     # --- train ---
     p_train = sub.add_parser("train", help="Train a new corner regression model")
-    p_train.add_argument("--train",
-        default="DS9-annual,DS9-Lightstorm,DS9E18,DS9E19,DS9E2.3,DS9E21,DS9E22,DS9E24,DS9E25,"
-                "DS9E26,DS9E27,DS9E28,DS9E29,DS9E30,DS9E31,DS9E32,DS9Worf_special,"
-                "DS9_1996_4,DS9_1996_6,DS9_1996_7,DS9_1996_8,DS9_1996_9,DS9_1996_10,"
-                "DS9_1996_11,DS9_1996_12,DS9_1996_13,DS9_1996_14,DS9_1996_15,"
-                "DS9_blood-and-honor,DS9_MaquisE1,DS9_MaquisE2,DS9_MaquisE3,"
-                "DS9_rules-of-diplomacy,DS9_special,DS9_Terok-Nor,DS9_ultimate-annual,"
-                "VOY_1,VOY_2,VOY_3,VOY_4,VOY_5,VOY_6,VOY_7",
-        help="Comma-separated scan dir names for training")
+    p_train.add_argument("--train", default=None,
+        help="Comma-separated scan dir names for training "
+             "(default: all collected dirs except the holdout)")
     p_train.add_argument("--holdout", default="DS9E20,DS9E23,DS9_1996_5",
         help="Comma-separated scan dir names held out for validation")
     p_train.add_argument("--epochs", type=int, default=120)

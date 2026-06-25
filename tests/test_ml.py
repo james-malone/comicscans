@@ -13,7 +13,9 @@ import pytest
 
 torch = pytest.importorskip("torch")
 
-from comicml.train import _split_entries, _corner_px_error, PageCornerDataset  # noqa: E402
+from comicml.train import (  # noqa: E402
+    _split_entries, _resolve_train_dirs, _corner_px_error, PageCornerDataset,
+)
 from comicml.inference import predict_corners  # noqa: E402
 
 
@@ -45,6 +47,18 @@ class TestSplitEntries:
     def test_overlap_rejected(self):
         with pytest.raises(ValueError, match="both train and holdout"):
             _split_entries([], ["A", "B"], ["B", "C"])
+
+
+class TestResolveTrainDirs:
+    def test_default_is_all_dirs_minus_holdout(self):
+        # The footgun guard: every collected dir except the holdout, so newly
+        # collected comics are never silently dropped from training.
+        entries = [_entry("A"), _entry("B"), _entry("C"), _entry("NEW")]
+        assert _resolve_train_dirs(entries, ["B"]) == ["A", "C", "NEW"]
+
+    def test_explicit_overrides_default(self):
+        entries = [_entry("A"), _entry("B"), _entry("C")]
+        assert _resolve_train_dirs(entries, ["B"], ["A"]) == ["A"]
 
 
 class TestCornerPxError:
