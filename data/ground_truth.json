@@ -71100,6 +71100,5056 @@
     "has_correction": true
   },
   {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        191,
+        170
+      ],
+      [
+        4096,
+        180
+      ],
+      [
+        4033,
+        6299
+      ],
+      [
+        117,
+        6289
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        861.0,
+        709.0
+      ],
+      [
+        4841.0,
+        709.0
+      ],
+      [
+        4841.0,
+        6853.0
+      ],
+      [
+        861.0,
+        6853.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        696,
+        602
+      ],
+      [
+        4608,
+        483
+      ],
+      [
+        4775,
+        6592
+      ],
+      [
+        848,
+        6717
+      ]
+    ],
+    "gt_rotation": -0.46526531912238256,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        696.3,
+        602.4
+      ],
+      [
+        4683.2,
+        570.0
+      ],
+      [
+        4732.9,
+        6689.8
+      ],
+      [
+        746.0,
+        6722.2
+      ]
+    ],
+    "det_rotation": -0.46526531912238256,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        177,
+        248
+      ],
+      [
+        4044,
+        264
+      ],
+      [
+        4071,
+        6368
+      ],
+      [
+        162,
+        6359
+      ]
+    ],
+    "gt_rotation": 0.1384324865009517,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        176.9,
+        247.9
+      ],
+      [
+        4085.9,
+        257.4
+      ],
+      [
+        4071.1,
+        6368.4
+      ],
+      [
+        162.1,
+        6358.9
+      ]
+    ],
+    "det_rotation": 0.1384324865009517,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        796,
+        650
+      ],
+      [
+        4691,
+        713
+      ],
+      [
+        4566,
+        6832
+      ],
+      [
+        650,
+        6759
+      ]
+    ],
+    "gt_rotation": 0.8794867442549461,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        746.2,
+        650.6
+      ],
+      [
+        4687.7,
+        711.1
+      ],
+      [
+        4593.5,
+        6847.3
+      ],
+      [
+        652.0,
+        6786.8
+      ]
+    ],
+    "det_rotation": 0.8794867442549461,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        222,
+        211
+      ],
+      [
+        4096,
+        295
+      ],
+      [
+        4033,
+        6393
+      ],
+      [
+        100,
+        6338
+      ]
+    ],
+    "gt_rotation": 1.0759186148466557,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        215.5,
+        209.4
+      ],
+      [
+        4145.8,
+        283.2
+      ],
+      [
+        4030.7,
+        6412.1
+      ],
+      [
+        100.4,
+        6338.3
+      ]
+    ],
+    "det_rotation": 1.0759186148466557,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        754,
+        713
+      ],
+      [
+        4660,
+        650
+      ],
+      [
+        4722,
+        6769
+      ],
+      [
+        807,
+        6811
+      ]
+    ],
+    "gt_rotation": 0.44999560285140483,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        747.9,
+        707.3
+      ],
+      [
+        4769.8,
+        738.9
+      ],
+      [
+        4721.8,
+        6847.7
+      ],
+      [
+        700.0,
+        6816.1
+      ]
+    ],
+    "det_rotation": 0.44999560285140483,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        243,
+        138
+      ],
+      [
+        4179,
+        180
+      ],
+      [
+        4190,
+        6299
+      ],
+      [
+        188,
+        6274
+      ]
+    ],
+    "gt_rotation": 0.48209129158295516,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        239.2,
+        144.5
+      ],
+      [
+        4235.1,
+        178.1
+      ],
+      [
+        4183.5,
+        6307.9
+      ],
+      [
+        187.6,
+        6274.3
+      ]
+    ],
+    "det_rotation": 0.48209129158295516,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        117,
+        264
+      ],
+      [
+        3960,
+        180
+      ],
+      [
+        4159,
+        6278
+      ],
+      [
+        253,
+        6372
+      ]
+    ],
+    "gt_rotation": -1.7845822425727071,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        100.8,
+        295.0
+      ],
+      [
+        4019.9,
+        172.9
+      ],
+      [
+        4210.3,
+        6286.0
+      ],
+      [
+        291.3,
+        6408.1
+      ]
+    ],
+    "det_rotation": -1.7845822425727071,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        775,
+        786
+      ],
+      [
+        4669,
+        744
+      ],
+      [
+        4712,
+        6863
+      ],
+      [
+        783,
+        6921
+      ]
+    ],
+    "gt_rotation": -0.7196881492395538,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        706.3,
+        793.6
+      ],
+      [
+        4669.0,
+        743.8
+      ],
+      [
+        4745.9,
+        6871.3
+      ],
+      [
+        783.2,
+        6921.1
+      ]
+    ],
+    "det_rotation": -0.7196881492395538,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        826,
+        802
+      ],
+      [
+        4722,
+        744
+      ],
+      [
+        4785,
+        6863
+      ],
+      [
+        859,
+        6905
+      ]
+    ],
+    "gt_rotation": 0.153136139900815,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        826.2,
+        802.1
+      ],
+      [
+        4769.2,
+        812.6
+      ],
+      [
+        4752.9,
+        6926.6
+      ],
+      [
+        809.9,
+        6916.0
+      ]
+    ],
+    "det_rotation": 0.153136139900815,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        133.3,
+        224.4
+      ],
+      [
+        4059.2,
+        198.5
+      ],
+      [
+        4099.6,
+        6328.4
+      ],
+      [
+        173.7,
+        6354.3
+      ]
+    ],
+    "gt_rotation": -0.378131602918875,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        133.3,
+        224.4
+      ],
+      [
+        4059.2,
+        198.5
+      ],
+      [
+        4099.6,
+        6328.4
+      ],
+      [
+        173.7,
+        6354.3
+      ]
+    ],
+    "det_rotation": -0.378131602918875,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        932,
+        765
+      ],
+      [
+        4829,
+        734
+      ],
+      [
+        4837,
+        6842
+      ],
+      [
+        940,
+        6894
+      ]
+    ],
+    "gt_rotation": -0.5106083503305491,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        76.0,
+        156.8
+      ],
+      [
+        4019.9,
+        121.6
+      ],
+      [
+        4074.5,
+        6247.4
+      ],
+      [
+        130.6,
+        6282.5
+      ]
+    ],
+    "det_rotation": -0.5106083503305491,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        180,
+        232
+      ],
+      [
+        4085,
+        222
+      ],
+      [
+        4085,
+        6341
+      ],
+      [
+        211,
+        6362
+      ]
+    ],
+    "gt_rotation": 0.3673024246342057,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        123.1,
+        205.3
+      ],
+      [
+        4112.0,
+        230.9
+      ],
+      [
+        4072.6,
+        6384.8
+      ],
+      [
+        83.7,
+        6359.2
+      ]
+    ],
+    "det_rotation": 0.3673024246342057,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        751,
+        738
+      ],
+      [
+        4663,
+        672
+      ],
+      [
+        4722,
+        6790
+      ],
+      [
+        854,
+        6863
+      ]
+    ],
+    "gt_rotation": -0.9612750875219925,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        750.8,
+        737.6
+      ],
+      [
+        4663.2,
+        672.0
+      ],
+      [
+        4766.0,
+        6797.1
+      ],
+      [
+        853.6,
+        6862.8
+      ]
+    ],
+    "det_rotation": -0.9612750875219925,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        167,
+        269
+      ],
+      [
+        4054,
+        295
+      ],
+      [
+        4075,
+        6404
+      ],
+      [
+        170,
+        6404
+      ]
+    ],
+    "gt_rotation": 0.18786394142145188,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        166.6,
+        269.4
+      ],
+      [
+        4091.6,
+        282.3
+      ],
+      [
+        4071.5,
+        6412.2
+      ],
+      [
+        146.5,
+        6399.4
+      ]
+    ],
+    "det_rotation": 0.18786394142145188,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        618,
+        628
+      ],
+      [
+        4593,
+        534
+      ],
+      [
+        4681,
+        6644
+      ],
+      [
+        754,
+        6738
+      ]
+    ],
+    "gt_rotation": -1.3560015769738132,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        618.3,
+        627.7
+      ],
+      [
+        4593.2,
+        533.7
+      ],
+      [
+        4738.3,
+        6661.9
+      ],
+      [
+        763.4,
+        6756.0
+      ]
+    ],
+    "det_rotation": -1.3560015769738132,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        109,
+        160
+      ],
+      [
+        4015,
+        191
+      ],
+      [
+        3988,
+        6308
+      ],
+      [
+        99,
+        6278
+      ]
+    ],
+    "gt_rotation": 0.3204872502948905,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        109.2,
+        160.2
+      ],
+      [
+        4022.1,
+        182.1
+      ],
+      [
+        3987.9,
+        6308.0
+      ],
+      [
+        74.9,
+        6286.1
+      ]
+    ],
+    "det_rotation": 0.3204872502948905,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        799,
+        702
+      ],
+      [
+        4708,
+        612
+      ],
+      [
+        4809,
+        6738
+      ],
+      [
+        883,
+        6831
+      ]
+    ],
+    "gt_rotation": -1.3370696228207268,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        740.1,
+        704.3
+      ],
+      [
+        4708.0,
+        611.7
+      ],
+      [
+        4851.0,
+        6738.1
+      ],
+      [
+        883.1,
+        6830.7
+      ]
+    ],
+    "det_rotation": -1.3370696228207268,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        162,
+        201
+      ],
+      [
+        4084,
+        193
+      ],
+      [
+        4084,
+        6319
+      ],
+      [
+        165,
+        6319
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        165.0,
+        193.0
+      ],
+      [
+        4084.0,
+        193.0
+      ],
+      [
+        4084.0,
+        6319.0
+      ],
+      [
+        165.0,
+        6319.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        841,
+        640
+      ],
+      [
+        4751,
+        602
+      ],
+      [
+        4788,
+        6717
+      ],
+      [
+        872,
+        6769
+      ]
+    ],
+    "gt_rotation": -0.7317905792961606,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        792.9,
+        652.3
+      ],
+      [
+        4750.6,
+        601.8
+      ],
+      [
+        4828.8,
+        6727.3
+      ],
+      [
+        871.1,
+        6777.8
+      ]
+    ],
+    "det_rotation": -0.7317905792961606,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        193,
+        243
+      ],
+      [
+        4067,
+        222
+      ],
+      [
+        4088,
+        6341
+      ],
+      [
+        172,
+        6362
+      ]
+    ],
+    "gt_rotation": -0.45597563281074904,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        125.4,
+        238.1
+      ],
+      [
+        4041.3,
+        207.0
+      ],
+      [
+        4090.1,
+        6338.8
+      ],
+      [
+        174.2,
+        6369.9
+      ]
+    ],
+    "det_rotation": -0.45597563281074904,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        193,
+        253
+      ],
+      [
+        4109,
+        253
+      ],
+      [
+        4121,
+        6369
+      ],
+      [
+        202,
+        6378
+      ]
+    ],
+    "gt_rotation": -0.1364677435918645,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        187.2,
+        250.0
+      ],
+      [
+        4106.2,
+        240.6
+      ],
+      [
+        4120.8,
+        6368.6
+      ],
+      [
+        201.8,
+        6377.9
+      ]
+    ],
+    "det_rotation": -0.1364677435918645,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        778,
+        734
+      ],
+      [
+        4704,
+        713
+      ],
+      [
+        4683,
+        6832
+      ],
+      [
+        767,
+        6853
+      ]
+    ],
+    "gt_rotation": -0.34767340647933914,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        728.2,
+        737.1
+      ],
+      [
+        4700.1,
+        713.0
+      ],
+      [
+        4737.2,
+        6836.9
+      ],
+      [
+        765.3,
+        6861.0
+      ]
+    ],
+    "det_rotation": -0.34767340647933914,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        882,
+        598
+      ],
+      [
+        4795,
+        683
+      ],
+      [
+        4610,
+        6800
+      ],
+      [
+        694,
+        6696
+      ]
+    ],
+    "gt_rotation": 0.18679212988638533,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        699.2,
+        669.2
+      ],
+      [
+        4795.2,
+        682.5
+      ],
+      [
+        4775.3,
+        6803.5
+      ],
+      [
+        679.3,
+        6790.1
+      ]
+    ],
+    "det_rotation": 0.18679212988638533,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_1",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_1/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        399,
+        267
+      ],
+      [
+        4318,
+        264
+      ],
+      [
+        4349,
+        6383
+      ],
+      [
+        433,
+        6393
+      ]
+    ],
+    "gt_rotation": -0.11716981753779064,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        399.4,
+        267.2
+      ],
+      [
+        4340.4,
+        259.2
+      ],
+      [
+        4352.9,
+        6391.2
+      ],
+      [
+        411.9,
+        6399.2
+      ]
+    ],
+    "det_rotation": -0.11716981753779064,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        170,
+        149
+      ],
+      [
+        4119,
+        159
+      ],
+      [
+        4119,
+        6163
+      ],
+      [
+        162,
+        6153
+      ]
+    ],
+    "gt_rotation": 0.17129448985556206,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        170.0,
+        149.1
+      ],
+      [
+        4131.0,
+        160.9
+      ],
+      [
+        4113.0,
+        6174.9
+      ],
+      [
+        152.1,
+        6163.1
+      ]
+    ],
+    "det_rotation": 0.17129448985556206,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        771,
+        826
+      ],
+      [
+        4718,
+        815
+      ],
+      [
+        4725,
+        6821
+      ],
+      [
+        788,
+        6811
+      ]
+    ],
+    "gt_rotation": -0.1624318312805688,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        770.9,
+        825.8
+      ],
+      [
+        4717.9,
+        814.6
+      ],
+      [
+        4734.9,
+        6825.6
+      ],
+      [
+        787.9,
+        6836.8
+      ]
+    ],
+    "det_rotation": -0.1624318312805688,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        82.2,
+        255.9
+      ],
+      [
+        4044.7,
+        192.5
+      ],
+      [
+        4140.7,
+        6191.8
+      ],
+      [
+        178.2,
+        6255.2
+      ]
+    ],
+    "gt_rotation": -0.9167223363664703,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        82.2,
+        255.9
+      ],
+      [
+        4044.7,
+        192.5
+      ],
+      [
+        4140.7,
+        6191.8
+      ],
+      [
+        178.2,
+        6255.2
+      ]
+    ],
+    "det_rotation": -0.9167223363664703,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        740,
+        881
+      ],
+      [
+        4705,
+        881
+      ],
+      [
+        4705,
+        6890
+      ],
+      [
+        740,
+        6890
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        740.0,
+        881.0
+      ],
+      [
+        4705.0,
+        881.0
+      ],
+      [
+        4705.0,
+        6890.0
+      ],
+      [
+        740.0,
+        6890.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        757,
+        922
+      ],
+      [
+        4695,
+        908
+      ],
+      [
+        4695,
+        6915
+      ],
+      [
+        736,
+        6905
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        726.0,
+        908.0
+      ],
+      [
+        4695.0,
+        908.0
+      ],
+      [
+        4695.0,
+        6915.0
+      ],
+      [
+        726.0,
+        6915.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        172,
+        201
+      ],
+      [
+        4099,
+        232
+      ],
+      [
+        4057,
+        6226
+      ],
+      [
+        120,
+        6216
+      ]
+    ],
+    "gt_rotation": 0.265713152359735,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        140.3,
+        209.1
+      ],
+      [
+        4100.2,
+        227.5
+      ],
+      [
+        4072.4,
+        6231.4
+      ],
+      [
+        112.4,
+        6213.0
+      ]
+    ],
+    "det_rotation": 0.265713152359735,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        827.8000000000002,
+        851
+      ],
+      [
+        4742.8,
+        858.1000000000004
+      ],
+      [
+        4732,
+        6867.1
+      ],
+      [
+        817,
+        6860
+      ]
+    ],
+    "gt_rotation": 0.10293659038596997,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        228.0,
+        148.9
+      ],
+      [
+        4143.0,
+        156.0
+      ],
+      [
+        4132.2,
+        6165.0
+      ],
+      [
+        217.2,
+        6157.9
+      ]
+    ],
+    "det_rotation": 0.10293659038596997,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        298,
+        191
+      ],
+      [
+        4224,
+        201
+      ],
+      [
+        4201,
+        6203
+      ],
+      [
+        264,
+        6189
+      ]
+    ],
+    "gt_rotation": 0.2084521160451415,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        285.6,
+        181.5
+      ],
+      [
+        4222.6,
+        195.8
+      ],
+      [
+        4200.7,
+        6202.8
+      ],
+      [
+        263.7,
+        6188.5
+      ]
+    ],
+    "det_rotation": 0.2084521160451415,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        836,
+        956
+      ],
+      [
+        4774,
+        975
+      ],
+      [
+        4735,
+        6988
+      ],
+      [
+        809,
+        6957
+      ]
+    ],
+    "gt_rotation": 0.28523025160865534,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        835.7,
+        955.8
+      ],
+      [
+        4773.6,
+        975.4
+      ],
+      [
+        4743.7,
+        6986.3
+      ],
+      [
+        805.8,
+        6966.7
+      ]
+    ],
+    "det_rotation": 0.28523025160865534,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        318,
+        117
+      ],
+      [
+        4191,
+        193
+      ],
+      [
+        4078,
+        6184
+      ],
+      [
+        162,
+        6122
+      ]
+    ],
+    "gt_rotation": 0.4252122547470908,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        206.3,
+        163.0
+      ],
+      [
+        4191.2,
+        192.6
+      ],
+      [
+        4146.6,
+        6199.4
+      ],
+      [
+        161.7,
+        6169.9
+      ]
+    ],
+    "det_rotation": 0.4252122547470908,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        778,
+        807
+      ],
+      [
+        4702,
+        829
+      ],
+      [
+        4652,
+        6842
+      ],
+      [
+        726,
+        6800
+      ]
+    ],
+    "gt_rotation": 0.32402591692250976,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        761.7,
+        806.7
+      ],
+      [
+        4701.7,
+        829.0
+      ],
+      [
+        4667.7,
+        6842.9
+      ],
+      [
+        727.7,
+        6820.6
+      ]
+    ],
+    "det_rotation": 0.32402591692250976,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        392,
+        253
+      ],
+      [
+        4251,
+        247
+      ],
+      [
+        4286,
+        6237
+      ],
+      [
+        350,
+        6257
+      ]
+    ],
+    "gt_rotation": -0.6129181834915206,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        291.4,
+        289.2
+      ],
+      [
+        4251.2,
+        246.9
+      ],
+      [
+        4315.3,
+        6241.5
+      ],
+      [
+        355.6,
+        6283.9
+      ]
+    ],
+    "det_rotation": -0.6129181834915206,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        932,
+        853
+      ],
+      [
+        4819,
+        901
+      ],
+      [
+        4735,
+        6905
+      ],
+      [
+        830,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.5039775315776933,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        931.8,
+        852.8
+      ],
+      [
+        4823.6,
+        887.0
+      ],
+      [
+        4770.6,
+        6912.8
+      ],
+      [
+        878.8,
+        6878.5
+      ]
+    ],
+    "det_rotation": 0.5039775315776933,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        318,
+        107
+      ],
+      [
+        4193,
+        211
+      ],
+      [
+        4057,
+        6195
+      ],
+      [
+        141,
+        6132
+      ]
+    ],
+    "gt_rotation": 1.4725748912799825,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        295.9,
+        100.2
+      ],
+      [
+        4221.6,
+        201.2
+      ],
+      [
+        4065.4,
+        6275.2
+      ],
+      [
+        139.7,
+        6174.2
+      ]
+    ],
+    "det_rotation": 1.4725748912799825,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        799,
+        744
+      ],
+      [
+        4673,
+        754
+      ],
+      [
+        4631,
+        6759
+      ],
+      [
+        726,
+        6727
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        728.0,
+        736.0
+      ],
+      [
+        4676.0,
+        736.0
+      ],
+      [
+        4676.0,
+        6762.0
+      ],
+      [
+        728.0,
+        6762.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        318,
+        117
+      ],
+      [
+        4193,
+        170
+      ],
+      [
+        4119,
+        6153
+      ],
+      [
+        193,
+        6111
+      ]
+    ],
+    "gt_rotation": 0.9801947693424777,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        287.5,
+        96.5
+      ],
+      [
+        4221.0,
+        163.8
+      ],
+      [
+        4117.4,
+        6216.9
+      ],
+      [
+        184.0,
+        6149.6
+      ]
+    ],
+    "det_rotation": 0.9801947693424777,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        1008,
+        796
+      ],
+      [
+        4892,
+        880
+      ],
+      [
+        4767,
+        6874
+      ],
+      [
+        872,
+        6780
+      ]
+    ],
+    "gt_rotation": 1.0551165430243745,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        978.8,
+        788.9
+      ],
+      [
+        4906.1,
+        861.2
+      ],
+      [
+        4795.3,
+        6879.2
+      ],
+      [
+        868.0,
+        6806.9
+      ]
+    ],
+    "det_rotation": 1.0551165430243745,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        287,
+        159
+      ],
+      [
+        4161,
+        211
+      ],
+      [
+        4067,
+        6195
+      ],
+      [
+        204,
+        6143
+      ]
+    ],
+    "gt_rotation": 0.7235392869854415,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        279.2,
+        153.9
+      ],
+      [
+        4160.9,
+        203.0
+      ],
+      [
+        4085.0,
+        6212.5
+      ],
+      [
+        203.3,
+        6163.5
+      ]
+    ],
+    "det_rotation": 0.7235392869854415,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        925.8,
+        780.2
+      ],
+      [
+        4840.1,
+        849.1
+      ],
+      [
+        4734,
+        6880.2
+      ],
+      [
+        819.6,
+        6811.3
+      ]
+    ],
+    "gt_rotation": 1.008141188211572,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        925.8,
+        780.2
+      ],
+      [
+        4840.1,
+        849.1
+      ],
+      [
+        4734.0,
+        6880.2
+      ],
+      [
+        819.6,
+        6811.3
+      ]
+    ],
+    "det_rotation": 1.008141188211572,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        329,
+        232
+      ],
+      [
+        4234,
+        299
+      ],
+      [
+        4109,
+        6289
+      ],
+      [
+        214,
+        6237
+      ]
+    ],
+    "gt_rotation": 0.9527027223157074,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        284.6,
+        233.5
+      ],
+      [
+        4234.1,
+        299.2
+      ],
+      [
+        4134.3,
+        6298.4
+      ],
+      [
+        184.9,
+        6232.7
+      ]
+    ],
+    "det_rotation": 0.9527027223157074,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        945,
+        807
+      ],
+      [
+        4828,
+        818
+      ],
+      [
+        4788,
+        6821
+      ],
+      [
+        893,
+        6790
+      ]
+    ],
+    "gt_rotation": 0.14515513211477635,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        907.3,
+        808.0
+      ],
+      [
+        4828.3,
+        817.9
+      ],
+      [
+        4813.1,
+        6838.9
+      ],
+      [
+        892.1,
+        6829.0
+      ]
+    ],
+    "det_rotation": 0.14515513211477635,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        338,
+        242
+      ],
+      [
+        4266,
+        253
+      ],
+      [
+        4234,
+        6237
+      ],
+      [
+        339,
+        6257
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        338.0,
+        242.0
+      ],
+      [
+        4264.0,
+        242.0
+      ],
+      [
+        4264.0,
+        6260.0
+      ],
+      [
+        338.0,
+        6260.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        945,
+        817
+      ],
+      [
+        4865,
+        850
+      ],
+      [
+        4809,
+        6853
+      ],
+      [
+        893,
+        6811
+      ]
+    ],
+    "gt_rotation": 0.43207318217924595,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        933.2,
+        820.8
+      ],
+      [
+        4865.1,
+        850.4
+      ],
+      [
+        4819.8,
+        6863.2
+      ],
+      [
+        887.9,
+        6833.6
+      ]
+    ],
+    "det_rotation": 0.43207318217924595,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        204,
+        264
+      ],
+      [
+        4130,
+        253
+      ],
+      [
+        4140,
+        6237
+      ],
+      [
+        225,
+        6278
+      ]
+    ],
+    "gt_rotation": -0.1831949984200365,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        187.6,
+        253.8
+      ],
+      [
+        4213.6,
+        240.9
+      ],
+      [
+        4232.8,
+        6262.9
+      ],
+      [
+        206.8,
+        6275.8
+      ]
+    ],
+    "det_rotation": -0.1831949984200365,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        809,
+        807
+      ],
+      [
+        4729,
+        772
+      ],
+      [
+        4781,
+        6781
+      ],
+      [
+        831,
+        6816
+      ]
+    ],
+    "gt_rotation": -0.5024155500709939,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        778.7,
+        806.3
+      ],
+      [
+        4728.6,
+        771.7
+      ],
+      [
+        4781.3,
+        6781.4
+      ],
+      [
+        831.4,
+        6816.1
+      ]
+    ],
+    "det_rotation": -0.5024155500709939,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_2",
+    "page_index": 25,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_2/Scan 25.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        350,
+        295
+      ],
+      [
+        4255,
+        285
+      ],
+      [
+        4245,
+        6268
+      ],
+      [
+        350,
+        6299
+      ]
+    ],
+    "gt_rotation": -0.2177017695239908,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        323.7,
+        280.2
+      ],
+      [
+        4261.7,
+        265.2
+      ],
+      [
+        4284.6,
+        6284.2
+      ],
+      [
+        346.6,
+        6299.1
+      ]
+    ],
+    "det_rotation": -0.2177017695239908,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        193,
+        222
+      ],
+      [
+        4141,
+        191
+      ],
+      [
+        4186,
+        6188
+      ],
+      [
+        231,
+        6218
+      ]
+    ],
+    "gt_rotation": -0.4324216330250823,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        186.1,
+        220.7
+      ],
+      [
+        4141.0,
+        190.9
+      ],
+      [
+        4186.3,
+        6187.7
+      ],
+      [
+        231.4,
+        6217.5
+      ]
+    ],
+    "det_rotation": -0.4324216330250823,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        778,
+        838
+      ],
+      [
+        4729,
+        830
+      ],
+      [
+        4725,
+        6832
+      ],
+      [
+        778,
+        6811
+      ]
+    ],
+    "gt_rotation": -0.10861956634255583,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        768.4,
+        837.7
+      ],
+      [
+        4729.4,
+        830.2
+      ],
+      [
+        4740.8,
+        6828.2
+      ],
+      [
+        779.8,
+        6835.7
+      ]
+    ],
+    "det_rotation": -0.10861956634255583,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        0,
+        316
+      ],
+      [
+        3928,
+        276
+      ],
+      [
+        3994,
+        6257
+      ],
+      [
+        43,
+        6308
+      ]
+    ],
+    "gt_rotation": -0.5710525424323298,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        -16.4,
+        315.2
+      ],
+      [
+        3928.4,
+        275.9
+      ],
+      [
+        3988.1,
+        6268.6
+      ],
+      [
+        43.3,
+        6307.9
+      ]
+    ],
+    "det_rotation": -0.5710525424323298,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        859.1999999999998,
+        885.6999999999998
+      ],
+      [
+        4822.1,
+        913.1999999999998
+      ],
+      [
+        4780.5,
+        6908
+      ],
+      [
+        817.6000000000004,
+        6880.5
+      ]
+    ],
+    "gt_rotation": 0.3976473964874733,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        179.5,
+        108.0
+      ],
+      [
+        4142.4,
+        135.5
+      ],
+      [
+        4100.8,
+        6130.3
+      ],
+      [
+        137.9,
+        6102.8
+      ]
+    ],
+    "det_rotation": 0.3976473964874733,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        60,
+        250
+      ],
+      [
+        4005,
+        230
+      ],
+      [
+        4035,
+        6217
+      ],
+      [
+        90,
+        6237
+      ]
+    ],
+    "gt_rotation": -0.29058870856003205,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        59.9,
+        249.7
+      ],
+      [
+        4004.9,
+        229.7
+      ],
+      [
+        4035.3,
+        6216.6
+      ],
+      [
+        90.3,
+        6236.7
+      ]
+    ],
+    "det_rotation": -0.29058870856003205,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        793,
+        863
+      ],
+      [
+        4768,
+        909
+      ],
+      [
+        4673,
+        6894
+      ],
+      [
+        726,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.6715283079296052,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        793.4,
+        862.6
+      ],
+      [
+        4768.1,
+        909.1
+      ],
+      [
+        4697.8,
+        6904.7
+      ],
+      [
+        723.1,
+        6858.1
+      ]
+    ],
+    "det_rotation": 0.6715283079296052,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        183,
+        305
+      ],
+      [
+        4119,
+        358
+      ],
+      [
+        4025,
+        6331
+      ],
+      [
+        77,
+        6280
+      ]
+    ],
+    "gt_rotation": 0.979772139260132,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        179.2,
+        289.7
+      ],
+      [
+        4138.6,
+        357.4
+      ],
+      [
+        4036.2,
+        6347.5
+      ],
+      [
+        76.8,
+        6279.8
+      ]
+    ],
+    "det_rotation": 0.979772139260132,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        851,
+        922
+      ],
+      [
+        4778,
+        895
+      ],
+      [
+        4798,
+        6884
+      ],
+      [
+        863,
+        6913
+      ]
+    ],
+    "gt_rotation": -0.36506489814478627,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        824.5,
+        920.0
+      ],
+      [
+        4778.4,
+        894.8
+      ],
+      [
+        4816.6,
+        6887.7
+      ],
+      [
+        862.7,
+        6912.9
+      ]
+    ],
+    "det_rotation": -0.36506489814478627,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        155,
+        159
+      ],
+      [
+        4119,
+        211
+      ],
+      [
+        4057,
+        6184
+      ],
+      [
+        85,
+        6151
+      ]
+    ],
+    "gt_rotation": 0.6633186980964837,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        154.6,
+        158.9
+      ],
+      [
+        4123.4,
+        204.8
+      ],
+      [
+        4054.0,
+        6196.4
+      ],
+      [
+        85.2,
+        6150.5
+      ]
+    ],
+    "det_rotation": 0.6633186980964837,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        820,
+        869
+      ],
+      [
+        4746,
+        848
+      ],
+      [
+        4756,
+        6842
+      ],
+      [
+        830,
+        6853
+      ]
+    ],
+    "gt_rotation": 0.5182516430876377,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        883.3,
+        871.4
+      ],
+      [
+        4815.1,
+        907.0
+      ],
+      [
+        4761.0,
+        6892.8
+      ],
+      [
+        829.1,
+        6857.2
+      ]
+    ],
+    "det_rotation": 0.5182516430876377,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        925,
+        868
+      ],
+      [
+        4853,
+        991
+      ],
+      [
+        4652,
+        6978
+      ],
+      [
+        739,
+        6860
+      ]
+    ],
+    "gt_rotation": 1.7816843686469603,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        924.8,
+        868.4
+      ],
+      [
+        4852.9,
+        990.6
+      ],
+      [
+        4666.6,
+        6981.7
+      ],
+      [
+        738.5,
+        6859.5
+      ]
+    ],
+    "det_rotation": 1.7816843686469603,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        87,
+        178
+      ],
+      [
+        4014,
+        163
+      ],
+      [
+        4036,
+        6143
+      ],
+      [
+        109,
+        6170
+      ]
+    ],
+    "gt_rotation": -0.2084935760920029,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        87.4,
+        177.7
+      ],
+      [
+        4014.3,
+        163.4
+      ],
+      [
+        4036.1,
+        6155.4
+      ],
+      [
+        109.2,
+        6169.6
+      ]
+    ],
+    "det_rotation": -0.2084935760920029,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        872,
+        848
+      ],
+      [
+        4785,
+        881
+      ],
+      [
+        4704,
+        6874
+      ],
+      [
+        778,
+        6821
+      ]
+    ],
+    "gt_rotation": 0.49065576695311525,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        839.2,
+        846.9
+      ],
+      [
+        4785.1,
+        880.6
+      ],
+      [
+        4733.8,
+        6870.4
+      ],
+      [
+        787.9,
+        6836.6
+      ]
+    ],
+    "det_rotation": 0.49065576695311525,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        151,
+        211
+      ],
+      [
+        4069,
+        167
+      ],
+      [
+        4141,
+        6156
+      ],
+      [
+        206,
+        6203
+      ]
+    ],
+    "gt_rotation": -0.6944040454297792,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        132.9,
+        214.7
+      ],
+      [
+        4068.6,
+        167.0
+      ],
+      [
+        4141.2,
+        6155.6
+      ],
+      [
+        205.5,
+        6203.3
+      ]
+    ],
+    "det_rotation": -0.6944040454297792,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        945,
+        869
+      ],
+      [
+        4862,
+        888
+      ],
+      [
+        4819,
+        6874
+      ],
+      [
+        903,
+        6853
+      ]
+    ],
+    "gt_rotation": 0.24881442126107872,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        925.4,
+        870.7
+      ],
+      [
+        4862.4,
+        887.8
+      ],
+      [
+        4836.4,
+        6878.8
+      ],
+      [
+        899.4,
+        6861.7
+      ]
+    ],
+    "det_rotation": 0.24881442126107872,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        189,
+        243
+      ],
+      [
+        4109,
+        264
+      ],
+      [
+        4088,
+        6247
+      ],
+      [
+        151,
+        6235
+      ]
+    ],
+    "gt_rotation": 0.3665187450034919,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        188.8,
+        242.8
+      ],
+      [
+        4119.8,
+        267.9
+      ],
+      [
+        4081.4,
+        6259.8
+      ],
+      [
+        150.5,
+        6234.7
+      ]
+    ],
+    "det_rotation": 0.3665187450034919,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        76,
+        238
+      ],
+      [
+        4011,
+        196
+      ],
+      [
+        4078,
+        6174
+      ],
+      [
+        141,
+        6230
+      ]
+    ],
+    "gt_rotation": -0.6187897787345933,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        76.0,
+        238.3
+      ],
+      [
+        4010.8,
+        195.8
+      ],
+      [
+        4075.5,
+        6187.4
+      ],
+      [
+        140.8,
+        6229.9
+      ]
+    ],
+    "det_rotation": -0.6187897787345933,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        872,
+        859
+      ],
+      [
+        4779,
+        879
+      ],
+      [
+        4746,
+        6863
+      ],
+      [
+        809,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.19688777018342532,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        835.1,
+        865.8
+      ],
+      [
+        4779.0,
+        879.4
+      ],
+      [
+        4758.5,
+        6868.3
+      ],
+      [
+        814.5,
+        6854.8
+      ]
+    ],
+    "det_rotation": 0.19688777018342532,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        162,
+        264
+      ],
+      [
+        4109,
+        253
+      ],
+      [
+        4176,
+        6221
+      ],
+      [
+        180,
+        6266
+      ]
+    ],
+    "gt_rotation": -0.6530115627324228,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        111.6,
+        286.8
+      ],
+      [
+        4107.4,
+        241.2
+      ],
+      [
+        4175.5,
+        6220.9
+      ],
+      [
+        179.8,
+        6266.4
+      ]
+    ],
+    "det_rotation": -0.6530115627324228,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        892,
+        846
+      ],
+      [
+        4796,
+        799
+      ],
+      [
+        4840,
+        6780
+      ],
+      [
+        963,
+        6833
+      ]
+    ],
+    "gt_rotation": -0.6860989669740902,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        891.5,
+        845.8
+      ],
+      [
+        4796.2,
+        799.1
+      ],
+      [
+        4867.9,
+        6786.6
+      ],
+      [
+        963.2,
+        6833.4
+      ]
+    ],
+    "det_rotation": -0.6860989669740902,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        162,
+        253
+      ],
+      [
+        4078,
+        232
+      ],
+      [
+        4109,
+        6195
+      ],
+      [
+        183,
+        6247
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        155.0,
+        248.0
+      ],
+      [
+        4101.0,
+        248.0
+      ],
+      [
+        4101.0,
+        6247.0
+      ],
+      [
+        155.0,
+        6247.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        966,
+        859
+      ],
+      [
+        4908,
+        900
+      ],
+      [
+        4840,
+        6894
+      ],
+      [
+        882,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.5264234259757135,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        920.2,
+        863.1
+      ],
+      [
+        4908.1,
+        899.7
+      ],
+      [
+        4853.0,
+        6889.4
+      ],
+      [
+        865.2,
+        6852.8
+      ]
+    ],
+    "det_rotation": 0.5264234259757135,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        220,
+        192
+      ],
+      [
+        4161,
+        211
+      ],
+      [
+        4161,
+        6195
+      ],
+      [
+        193,
+        6184
+      ]
+    ],
+    "gt_rotation": 0.19406220991363674,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        219.7,
+        192.3
+      ],
+      [
+        4172.7,
+        205.7
+      ],
+      [
+        4152.4,
+        6195.7
+      ],
+      [
+        199.4,
+        6182.3
+      ]
+    ],
+    "det_rotation": 0.19406220991363674,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        747,
+        911
+      ],
+      [
+        4673,
+        890
+      ],
+      [
+        4709,
+        6886
+      ],
+      [
+        767,
+        6894
+      ]
+    ],
+    "gt_rotation": -0.36835564477983285,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        738.8,
+        921.6
+      ],
+      [
+        4670.8,
+        896.4
+      ],
+      [
+        4709.3,
+        6886.2
+      ],
+      [
+        777.3,
+        6911.5
+      ]
+    ],
+    "det_rotation": -0.36835564477983285,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_3",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_3/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        298,
+        253
+      ],
+      [
+        4247,
+        211
+      ],
+      [
+        4307,
+        6195
+      ],
+      [
+        354,
+        6257
+      ]
+    ],
+    "gt_rotation": -0.597932031111206,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        290.9,
+        252.2
+      ],
+      [
+        4246.7,
+        210.9
+      ],
+      [
+        4309.4,
+        6215.6
+      ],
+      [
+        353.6,
+        6256.8
+      ]
+    ],
+    "det_rotation": -0.597932031111206,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        225,
+        211
+      ],
+      [
+        4188,
+        223
+      ],
+      [
+        4160,
+        6338
+      ],
+      [
+        177,
+        6319
+      ]
+    ],
+    "gt_rotation": 0.26588323400326414,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        800.1,
+        678.2
+      ],
+      [
+        4783.1,
+        696.7
+      ],
+      [
+        4754.7,
+        6811.6
+      ],
+      [
+        771.7,
+        6793.1
+      ]
+    ],
+    "det_rotation": 0.26588323400326414,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        788,
+        796
+      ],
+      [
+        4742,
+        773
+      ],
+      [
+        4774,
+        6886
+      ],
+      [
+        778,
+        6884
+      ]
+    ],
+    "gt_rotation": -0.29693487785004963,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        750.9,
+        793.4
+      ],
+      [
+        4741.9,
+        772.7
+      ],
+      [
+        4773.5,
+        6885.7
+      ],
+      [
+        782.6,
+        6906.3
+      ]
+    ],
+    "det_rotation": -0.29693487785004963,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        318,
+        170
+      ],
+      [
+        4224,
+        180
+      ],
+      [
+        4210,
+        6270
+      ],
+      [
+        318,
+        6289
+      ]
+    ],
+    "gt_rotation": 0.19079791169484264,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        182.6,
+        162.3
+      ],
+      [
+        4230.6,
+        175.8
+      ],
+      [
+        4210.3,
+        6269.8
+      ],
+      [
+        162.3,
+        6256.3
+      ]
+    ],
+    "det_rotation": 0.19079791169484264,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        831,
+        779
+      ],
+      [
+        4740,
+        733
+      ],
+      [
+        4813,
+        6856
+      ],
+      [
+        903,
+        6874
+      ]
+    ],
+    "gt_rotation": -0.6832325032697102,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        830.8,
+        779.5
+      ],
+      [
+        4739.6,
+        732.9
+      ],
+      [
+        4812.6,
+        6856.4
+      ],
+      [
+        903.9,
+        6903.0
+      ]
+    ],
+    "det_rotation": -0.6832325032697102,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        123,
+        135
+      ],
+      [
+        4096,
+        146
+      ],
+      [
+        4078,
+        6247
+      ],
+      [
+        106,
+        6248
+      ]
+    ],
+    "gt_rotation": 0.16077215282573393,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        123.0,
+        134.9
+      ],
+      [
+        4095.9,
+        146.0
+      ],
+      [
+        4078.8,
+        6259.0
+      ],
+      [
+        105.8,
+        6247.8
+      ]
+    ],
+    "det_rotation": 0.16077215282573393,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        872,
+        775
+      ],
+      [
+        4840,
+        786
+      ],
+      [
+        4809,
+        6894
+      ],
+      [
+        820,
+        6874
+      ]
+    ],
+    "gt_rotation": 0.13732578162674355,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        842.6,
+        771.6
+      ],
+      [
+        4845.5,
+        781.2
+      ],
+      [
+        4830.9,
+        6906.1
+      ],
+      [
+        827.9,
+        6896.5
+      ]
+    ],
+    "det_rotation": 0.13732578162674355,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        231,
+        150
+      ],
+      [
+        4205,
+        150
+      ],
+      [
+        4203,
+        6237
+      ],
+      [
+        231,
+        6264
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        231.0,
+        150.0
+      ],
+      [
+        4205.0,
+        150.0
+      ],
+      [
+        4205.0,
+        6264.0
+      ],
+      [
+        231.0,
+        6264.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        204,
+        159
+      ],
+      [
+        4177,
+        168
+      ],
+      [
+        4161,
+        6257
+      ],
+      [
+        179,
+        6268
+      ]
+    ],
+    "gt_rotation": 0.18401125200428758,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        198.8,
+        155.2
+      ],
+      [
+        4176.7,
+        167.9
+      ],
+      [
+        4157.1,
+        6280.9
+      ],
+      [
+        179.1,
+        6268.1
+      ]
+    ],
+    "det_rotation": 0.18401125200428758,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        663,
+        796
+      ],
+      [
+        4624,
+        739
+      ],
+      [
+        4694,
+        6842
+      ],
+      [
+        727,
+        6901
+      ]
+    ],
+    "gt_rotation": -0.7494046173120076,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        646.8,
+        790.7
+      ],
+      [
+        4623.5,
+        738.7
+      ],
+      [
+        4703.4,
+        6849.2
+      ],
+      [
+        726.7,
+        6901.2
+      ]
+    ],
+    "det_rotation": -0.7494046173120076,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        861,
+        796
+      ],
+      [
+        4798,
+        817
+      ],
+      [
+        4746,
+        6915
+      ],
+      [
+        820,
+        6884
+      ]
+    ],
+    "gt_rotation": -0.6449995317266103,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        813.8,
+        832.1
+      ],
+      [
+        4796.5,
+        787.3
+      ],
+      [
+        4865.5,
+        6913.9
+      ],
+      [
+        882.7,
+        6958.7
+      ]
+    ],
+    "det_rotation": -0.6449995317266103,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        215,
+        127
+      ],
+      [
+        4178,
+        116
+      ],
+      [
+        4193,
+        6226
+      ],
+      [
+        232,
+        6238
+      ]
+    ],
+    "gt_rotation": -0.16311146787788877,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        214.9,
+        127.4
+      ],
+      [
+        4177.9,
+        116.2
+      ],
+      [
+        4195.2,
+        6227.1
+      ],
+      [
+        232.3,
+        6238.4
+      ]
+    ],
+    "det_rotation": -0.16311146787788877,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        809,
+        702
+      ],
+      [
+        4776,
+        683
+      ],
+      [
+        4767,
+        6800
+      ],
+      [
+        820,
+        6790
+      ]
+    ],
+    "gt_rotation": -0.11627468316513256,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        793.3,
+        691.4
+      ],
+      [
+        4776.3,
+        683.3
+      ],
+      [
+        4788.7,
+        6799.3
+      ],
+      [
+        805.7,
+        6807.4
+      ]
+    ],
+    "det_rotation": -0.11627468316513256,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        277,
+        243
+      ],
+      [
+        4172,
+        211
+      ],
+      [
+        4213,
+        6289
+      ],
+      [
+        329,
+        6341
+      ]
+    ],
+    "gt_rotation": 0.13993663559472264,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        175.6,
+        197.4
+      ],
+      [
+        4224.6,
+        207.3
+      ],
+      [
+        4209.6,
+        6350.2
+      ],
+      [
+        160.6,
+        6340.3
+      ]
+    ],
+    "det_rotation": 0.13993663559472264,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        835.4,
+        747.7
+      ],
+      [
+        4742.3,
+        767.3
+      ],
+      [
+        4711.6,
+        6885.3
+      ],
+      [
+        804.6,
+        6865.6
+      ]
+    ],
+    "gt_rotation": 0.28794040984928687,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        835.4,
+        747.7
+      ],
+      [
+        4742.3,
+        767.3
+      ],
+      [
+        4711.6,
+        6885.3
+      ],
+      [
+        804.6,
+        6865.6
+      ]
+    ],
+    "det_rotation": 0.28794040984928687,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        172,
+        211
+      ],
+      [
+        4119,
+        222
+      ],
+      [
+        4119,
+        6299
+      ],
+      [
+        159,
+        6326
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        159.0,
+        210.0
+      ],
+      [
+        4114.0,
+        210.0
+      ],
+      [
+        4114.0,
+        6326.0
+      ],
+      [
+        159.0,
+        6326.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        787,
+        759
+      ],
+      [
+        4735,
+        796
+      ],
+      [
+        4662,
+        6905
+      ],
+      [
+        715,
+        6853
+      ]
+    ],
+    "gt_rotation": 0.32953379618729056,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        786.8,
+        759.2
+      ],
+      [
+        4732.7,
+        781.9
+      ],
+      [
+        4697.5,
+        6912.8
+      ],
+      [
+        751.5,
+        6890.1
+      ]
+    ],
+    "det_rotation": 0.32953379618729056,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        120,
+        211
+      ],
+      [
+        4046,
+        179
+      ],
+      [
+        4088,
+        6278
+      ],
+      [
+        144,
+        6319
+      ]
+    ],
+    "gt_rotation": -0.4327390708943773,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        98.0,
+        208.4
+      ],
+      [
+        4045.9,
+        178.6
+      ],
+      [
+        4092.1,
+        6289.4
+      ],
+      [
+        144.2,
+        6319.2
+      ]
+    ],
+    "det_rotation": -0.4327390708943773,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        813,
+        789
+      ],
+      [
+        4798,
+        754
+      ],
+      [
+        4829,
+        6863
+      ],
+      [
+        882,
+        6884
+      ]
+    ],
+    "gt_rotation": -0.6668258853430464,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        812.7,
+        788.7
+      ],
+      [
+        4806.5,
+        742.2
+      ],
+      [
+        4877.8,
+        6866.8
+      ],
+      [
+        884.0,
+        6913.3
+      ]
+    ],
+    "det_rotation": -0.6668258853430464,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        193,
+        180
+      ],
+      [
+        4140,
+        232
+      ],
+      [
+        4099,
+        6320
+      ],
+      [
+        78,
+        6273
+      ]
+    ],
+    "gt_rotation": 0.8312765108309703,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        166.7,
+        170.6
+      ],
+      [
+        4182.3,
+        228.9
+      ],
+      [
+        4093.7,
+        6331.2
+      ],
+      [
+        78.1,
+        6272.9
+      ]
+    ],
+    "det_rotation": 0.8312765108309703,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        893,
+        702
+      ],
+      [
+        4843,
+        698
+      ],
+      [
+        4828,
+        6816
+      ],
+      [
+        830,
+        6780
+      ]
+    ],
+    "gt_rotation": 0.14725841624417346,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        829.2,
+        687.7
+      ],
+      [
+        4843.2,
+        698.1
+      ],
+      [
+        4827.5,
+        6816.0
+      ],
+      [
+        813.5,
+        6805.7
+      ]
+    ],
+    "det_rotation": 0.14725841624417346,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        131,
+        138
+      ],
+      [
+        4082,
+        170
+      ],
+      [
+        4032,
+        6283
+      ],
+      [
+        57,
+        6257
+      ]
+    ],
+    "gt_rotation": 0.46559774029414513,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        98.3,
+        137.5
+      ],
+      [
+        4082.2,
+        169.9
+      ],
+      [
+        4032.5,
+        6282.7
+      ],
+      [
+        48.6,
+        6250.3
+      ]
+    ],
+    "det_rotation": 0.46559774029414513,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        162,
+        149
+      ],
+      [
+        4116,
+        128
+      ],
+      [
+        4138,
+        6242
+      ],
+      [
+        160,
+        6256
+      ]
+    ],
+    "gt_rotation": -0.19878138459461572,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        138.3,
+        141.6
+      ],
+      [
+        4116.3,
+        127.8
+      ],
+      [
+        4137.5,
+        6241.8
+      ],
+      [
+        159.5,
+        6255.6
+      ]
+    ],
+    "det_rotation": -0.19878138459461572,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        825,
+        801
+      ],
+      [
+        4788,
+        775
+      ],
+      [
+        4842,
+        6886
+      ],
+      [
+        864,
+        6912
+      ]
+    ],
+    "gt_rotation": -0.3690265890931261,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        825.0,
+        801.1
+      ],
+      [
+        4802.9,
+        775.5
+      ],
+      [
+        4842.3,
+        6886.4
+      ],
+      [
+        864.4,
+        6912.0
+      ]
+    ],
+    "det_rotation": -0.3690265890931261,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        914,
+        713
+      ],
+      [
+        4865,
+        709
+      ],
+      [
+        4865,
+        6815
+      ],
+      [
+        885,
+        6815
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        885.0,
+        709.0
+      ],
+      [
+        4865.0,
+        709.0
+      ],
+      [
+        4865.0,
+        6815.0
+      ],
+      [
+        885.0,
+        6815.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/DS9_TNG_4",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/DS9_TNG_4/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        245,
+        138
+      ],
+      [
+        4197,
+        174
+      ],
+      [
+        4130,
+        6268
+      ],
+      [
+        150,
+        6245
+      ]
+    ],
+    "gt_rotation": 0.6817872626572876,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        222.6,
+        126.9
+      ],
+      [
+        4197.3,
+        174.2
+      ],
+      [
+        4124.5,
+        6291.8
+      ],
+      [
+        149.8,
+        6244.5
+      ]
+    ],
+    "det_rotation": 0.6817872626572876,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
     "scan_dir": "/Users/james/Documents/comics-scanned/DS9_blood-and-honor",
     "page_index": 0,
     "filepath": "/Users/james/Documents/comics-scanned/DS9_blood-and-honor/Scan.jpeg",
@@ -81800,6 +86850,2506 @@
     "has_correction": true
   },
   {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        426,
+        167
+      ],
+      [
+        4287,
+        116
+      ],
+      [
+        4298,
+        6092
+      ],
+      [
+        463,
+        6141
+      ]
+    ],
+    "gt_rotation": -0.6508803675463325,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        395.3,
+        153.0
+      ],
+      [
+        4393.0,
+        107.5
+      ],
+      [
+        4461.0,
+        6095.2
+      ],
+      [
+        463.3,
+        6140.6
+      ]
+    ],
+    "det_rotation": -0.6508803675463325,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        159,
+        290
+      ],
+      [
+        3928,
+        126
+      ],
+      [
+        4144,
+        6072
+      ],
+      [
+        375,
+        6256
+      ]
+    ],
+    "gt_rotation": -2.500016471079395,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        114.7,
+        286.6
+      ],
+      [
+        3942.1,
+        119.5
+      ],
+      [
+        4202.5,
+        6084.8
+      ],
+      [
+        375.2,
+        6251.9
+      ]
+    ],
+    "det_rotation": -2.500016471079395,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        611,
+        116
+      ],
+      [
+        4452,
+        126
+      ],
+      [
+        4452,
+        6092
+      ],
+      [
+        601,
+        6072
+      ]
+    ],
+    "gt_rotation": 0.1920827038878059,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        543.9,
+        106.5
+      ],
+      [
+        4479.9,
+        119.7
+      ],
+      [
+        4459.9,
+        6088.7
+      ],
+      [
+        523.9,
+        6075.5
+      ]
+    ],
+    "det_rotation": 0.1920827038878059,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        786,
+        783
+      ],
+      [
+        4729,
+        845
+      ],
+      [
+        4606,
+        6811
+      ],
+      [
+        652,
+        6739
+      ]
+    ],
+    "gt_rotation": 0.8851968471144026,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        315.1,
+        213.7
+      ],
+      [
+        4308.7,
+        275.4
+      ],
+      [
+        4216.5,
+        6241.7
+      ],
+      [
+        223.0,
+        6179.9
+      ]
+    ],
+    "det_rotation": 0.8851968471144026,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        36,
+        198
+      ],
+      [
+        3979,
+        187
+      ],
+      [
+        4013,
+        6150
+      ],
+      [
+        65,
+        6184
+      ]
+    ],
+    "gt_rotation": -0.4938386506882304,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        13.4,
+        200.1
+      ],
+      [
+        3961.3,
+        166.1
+      ],
+      [
+        4012.8,
+        6149.9
+      ],
+      [
+        65.0,
+        6183.9
+      ]
+    ],
+    "det_rotation": -0.4938386506882304,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        878,
+        711
+      ],
+      [
+        4852,
+        752
+      ],
+      [
+        4760,
+        6739
+      ],
+      [
+        786,
+        6678
+      ]
+    ],
+    "gt_rotation": 0.9982141941984777,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        203.3,
+        282.3
+      ],
+      [
+        4178.7,
+        351.6
+      ],
+      [
+        4074.4,
+        6338.7
+      ],
+      [
+        99.0,
+        6269.4
+      ]
+    ],
+    "det_rotation": 0.9982141941984777,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        46,
+        167
+      ],
+      [
+        3979,
+        177
+      ],
+      [
+        4000,
+        6154
+      ],
+      [
+        26,
+        6133
+      ]
+    ],
+    "gt_rotation": 0.32038850958021753,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        43.2,
+        157.8
+      ],
+      [
+        4034.1,
+        180.1
+      ],
+      [
+        4000.7,
+        6156.0
+      ],
+      [
+        9.8,
+        6133.7
+      ]
+    ],
+    "det_rotation": 0.32038850958021753,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        5,
+        157
+      ],
+      [
+        3948,
+        146
+      ],
+      [
+        3990,
+        6123
+      ],
+      [
+        36,
+        6133
+      ]
+    ],
+    "gt_rotation": -0.15077343682131306,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        10.2,
+        160.0
+      ],
+      [
+        3983.2,
+        149.5
+      ],
+      [
+        3998.9,
+        6128.5
+      ],
+      [
+        25.9,
+        6139.0
+      ]
+    ],
+    "det_rotation": -0.15077343682131306,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        39,
+        104
+      ],
+      [
+        3990,
+        157
+      ],
+      [
+        3959,
+        6123
+      ],
+      [
+        0,
+        6092
+      ]
+    ],
+    "gt_rotation": 0.7530467687494239,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        39.0,
+        103.6
+      ],
+      [
+        4040.7,
+        156.2
+      ],
+      [
+        3962.0,
+        6141.7
+      ],
+      [
+        -39.6,
+        6089.1
+      ]
+    ],
+    "det_rotation": 0.7530467687494239,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        847,
+        937
+      ],
+      [
+        4760,
+        927
+      ],
+      [
+        4729,
+        6914
+      ],
+      [
+        786,
+        6883
+      ]
+    ],
+    "gt_rotation": 0.6033021030991961,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        235.3,
+        95.7
+      ],
+      [
+        4181.1,
+        137.2
+      ],
+      [
+        4118.1,
+        6119.9
+      ],
+      [
+        172.3,
+        6078.3
+      ]
+    ],
+    "det_rotation": 0.6033021030991961,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        29,
+        162
+      ],
+      [
+        3969,
+        157
+      ],
+      [
+        3990,
+        6133
+      ],
+      [
+        29,
+        6135
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        29.0,
+        162.0
+      ],
+      [
+        3988.0,
+        162.0
+      ],
+      [
+        3988.0,
+        6135.0
+      ],
+      [
+        29.0,
+        6135.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        56,
+        198
+      ],
+      [
+        3966,
+        176
+      ],
+      [
+        4123,
+        6133
+      ],
+      [
+        65,
+        6226
+      ]
+    ],
+    "gt_rotation": -1.336990068040346,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        -74.2,
+        270.2
+      ],
+      [
+        3965.7,
+        175.9
+      ],
+      [
+        4104.7,
+        6131.3
+      ],
+      [
+        64.8,
+        6225.6
+      ]
+    ],
+    "det_rotation": -1.336990068040346,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        876,
+        854
+      ],
+      [
+        4832,
+        824
+      ],
+      [
+        4852,
+        6801
+      ],
+      [
+        930,
+        6825
+      ]
+    ],
+    "gt_rotation": -0.5129498692528998,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        79.5,
+        226.4
+      ],
+      [
+        4030.4,
+        191.0
+      ],
+      [
+        4083.8,
+        6161.7
+      ],
+      [
+        133.0,
+        6197.1
+      ]
+    ],
+    "det_rotation": -0.5129498692528998,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        98,
+        126
+      ],
+      [
+        4000,
+        157
+      ],
+      [
+        4010,
+        6123
+      ],
+      [
+        46,
+        6113
+      ]
+    ],
+    "gt_rotation": 0.26376708251381237,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        59.5,
+        129.8
+      ],
+      [
+        4038.5,
+        148.1
+      ],
+      [
+        4011.0,
+        6122.1
+      ],
+      [
+        32.0,
+        6103.8
+      ]
+    ],
+    "det_rotation": 0.26376708251381237,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        26,
+        300
+      ],
+      [
+        3971,
+        241
+      ],
+      [
+        4062,
+        6205
+      ],
+      [
+        90,
+        6266
+      ]
+    ],
+    "gt_rotation": -0.8700820996817007,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        -0.5,
+        301.3
+      ],
+      [
+        3971.1,
+        241.0
+      ],
+      [
+        4061.6,
+        6205.3
+      ],
+      [
+        90.1,
+        6265.6
+      ]
+    ],
+    "det_rotation": -0.8700820996817007,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        837,
+        886
+      ],
+      [
+        4786,
+        818
+      ],
+      [
+        4865,
+        6786
+      ],
+      [
+        912,
+        6839
+      ]
+    ],
+    "gt_rotation": -0.7587014980964899,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        95.4,
+        229.8
+      ],
+      [
+        4048.0,
+        177.4
+      ],
+      [
+        4127.1,
+        6145.9
+      ],
+      [
+        174.4,
+        6198.3
+      ]
+    ],
+    "det_rotation": -0.7587014980964899,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        12.2,
+        167.3
+      ],
+      [
+        3959.2,
+        154
+      ],
+      [
+        3979.3,
+        6119.9
+      ],
+      [
+        32.4,
+        6133.3
+      ]
+    ],
+    "gt_rotation": -0.193594005575572,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        12.2,
+        167.3
+      ],
+      [
+        3959.2,
+        154.0
+      ],
+      [
+        3979.3,
+        6119.9
+      ],
+      [
+        32.4,
+        6133.3
+      ]
+    ],
+    "det_rotation": -0.193594005575572,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        888,
+        886
+      ],
+      [
+        4832,
+        868
+      ],
+      [
+        4842,
+        6852
+      ],
+      [
+        893,
+        6852
+      ]
+    ],
+    "gt_rotation": -0.2124010217138755,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        106.1,
+        178.8
+      ],
+      [
+        4067.1,
+        164.1
+      ],
+      [
+        4089.2,
+        6133.1
+      ],
+      [
+        128.3,
+        6147.7
+      ]
+    ],
+    "det_rotation": -0.2124010217138755,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        170.6,
+        148
+      ],
+      [
+        4115.4,
+        188.7
+      ],
+      [
+        4053.8,
+        6152.4
+      ],
+      [
+        109,
+        6111.7
+      ]
+    ],
+    "gt_rotation": 0.5914454341707268,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        170.6,
+        148.0
+      ],
+      [
+        4115.4,
+        188.7
+      ],
+      [
+        4053.8,
+        6152.4
+      ],
+      [
+        109.0,
+        6111.7
+      ]
+    ],
+    "det_rotation": 0.5914454341707268,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        899,
+        886
+      ],
+      [
+        4842,
+        875
+      ],
+      [
+        4836,
+        6842
+      ],
+      [
+        891,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        124.0,
+        174.0
+      ],
+      [
+        4069.0,
+        174.0
+      ],
+      [
+        4069.0,
+        6150.0
+      ],
+      [
+        124.0,
+        6150.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        73,
+        214
+      ],
+      [
+        4031,
+        177
+      ],
+      [
+        4082,
+        6144
+      ],
+      [
+        142,
+        6188
+      ]
+    ],
+    "gt_rotation": -0.6595548361580397,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        72.9,
+        214.5
+      ],
+      [
+        4053.7,
+        168.7
+      ],
+      [
+        4122.4,
+        6142.3
+      ],
+      [
+        141.7,
+        6188.1
+      ]
+    ],
+    "det_rotation": -0.6595548361580397,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        112,
+        184
+      ],
+      [
+        4061,
+        228
+      ],
+      [
+        4005,
+        6195
+      ],
+      [
+        77,
+        6164
+      ]
+    ],
+    "gt_rotation": 0.4725966404652702,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        111.8,
+        184.4
+      ],
+      [
+        4054.7,
+        216.9
+      ],
+      [
+        4005.4,
+        6194.7
+      ],
+      [
+        62.5,
+        6162.2
+      ]
+    ],
+    "det_rotation": 0.4725966404652702,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        159.8,
+        123.5
+      ],
+      [
+        4127.7,
+        145.6
+      ],
+      [
+        4094.6,
+        6111.5
+      ],
+      [
+        126.6,
+        6089.5
+      ]
+    ],
+    "gt_rotation": 0.31854566988493704,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        159.8,
+        123.5
+      ],
+      [
+        4127.7,
+        145.6
+      ],
+      [
+        4094.6,
+        6111.5
+      ],
+      [
+        126.6,
+        6089.5
+      ]
+    ],
+    "det_rotation": 0.31854566988493704,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        244,
+        161
+      ],
+      [
+        4158,
+        161
+      ],
+      [
+        4158,
+        6126
+      ],
+      [
+        244,
+        6126
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        244.0,
+        161.0
+      ],
+      [
+        4158.0,
+        161.0
+      ],
+      [
+        4158.0,
+        6126.0
+      ],
+      [
+        244.0,
+        6126.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_10",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_10/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        888,
+        906
+      ],
+      [
+        4819,
+        911
+      ],
+      [
+        4760,
+        6883
+      ],
+      [
+        862,
+        6863
+      ]
+    ],
+    "gt_rotation": 0.24429118497862853,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        166.9,
+        136.6
+      ],
+      [
+        4097.8,
+        153.4
+      ],
+      [
+        4072.4,
+        6121.3
+      ],
+      [
+        141.4,
+        6104.6
+      ]
+    ],
+    "det_rotation": 0.24429118497862853,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        392,
+        156
+      ],
+      [
+        4330,
+        230
+      ],
+      [
+        4205,
+        6195
+      ],
+      [
+        279,
+        6131
+      ]
+    ],
+    "gt_rotation": 1.0767287719606595,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        391.6,
+        155.7
+      ],
+      [
+        4329.9,
+        229.7
+      ],
+      [
+        4217.6,
+        6204.6
+      ],
+      [
+        279.3,
+        6130.6
+      ]
+    ],
+    "det_rotation": 1.0767287719606595,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        15,
+        249
+      ],
+      [
+        3819,
+        175
+      ],
+      [
+        3937,
+        6131
+      ],
+      [
+        134,
+        6206
+      ]
+    ],
+    "gt_rotation": -1.1288133085967922,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        16.8,
+        249.9
+      ],
+      [
+        3819.1,
+        175.0
+      ],
+      [
+        3936.5,
+        6130.8
+      ],
+      [
+        134.2,
+        6205.7
+      ]
+    ],
+    "det_rotation": -1.1288133085967922,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        539,
+        178
+      ],
+      [
+        4420,
+        112
+      ],
+      [
+        4522,
+        6070
+      ],
+      [
+        641,
+        6136
+      ]
+    ],
+    "gt_rotation": -0.976111648500087,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        539.0,
+        178.1
+      ],
+      [
+        4420.4,
+        112.0
+      ],
+      [
+        4521.9,
+        6070.1
+      ],
+      [
+        640.5,
+        6136.2
+      ]
+    ],
+    "det_rotation": -0.976111648500087,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        827,
+        814
+      ],
+      [
+        4770,
+        927
+      ],
+      [
+        4544,
+        6903
+      ],
+      [
+        652,
+        6780
+      ]
+    ],
+    "gt_rotation": 1.5954745641556287,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        352.0,
+        119.9
+      ],
+      [
+        4371.4,
+        231.9
+      ],
+      [
+        4204.9,
+        6210.6
+      ],
+      [
+        185.5,
+        6098.6
+      ]
+    ],
+    "det_rotation": 1.5954745641556287,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        44,
+        233
+      ],
+      [
+        3971,
+        244
+      ],
+      [
+        3955,
+        6207
+      ],
+      [
+        56,
+        6195
+      ]
+    ],
+    "gt_rotation": 0.1554865720308582,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        44.4,
+        232.9
+      ],
+      [
+        3971.4,
+        243.5
+      ],
+      [
+        3955.2,
+        6206.5
+      ],
+      [
+        28.2,
+        6195.9
+      ]
+    ],
+    "det_rotation": 0.1554865720308582,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        885,
+        767
+      ],
+      [
+        4835,
+        875
+      ],
+      [
+        4616,
+        6862
+      ],
+      [
+        721,
+        6746
+      ]
+    ],
+    "gt_rotation": 1.565544544331295,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        288.1,
+        161.9
+      ],
+      [
+        4238.6,
+        269.8
+      ],
+      [
+        4075.2,
+        6248.6
+      ],
+      [
+        124.7,
+        6140.6
+      ]
+    ],
+    "det_rotation": 1.565544544331295,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        46,
+        198
+      ],
+      [
+        3979,
+        167
+      ],
+      [
+        4025,
+        6132
+      ],
+      [
+        139,
+        6164
+      ]
+    ],
+    "gt_rotation": -0.4615120805619764,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        46.3,
+        202.0
+      ],
+      [
+        3977.2,
+        170.3
+      ],
+      [
+        4025.2,
+        6132.1
+      ],
+      [
+        94.3,
+        6163.8
+      ]
+    ],
+    "det_rotation": -0.4615120805619764,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        26,
+        270
+      ],
+      [
+        3977,
+        223
+      ],
+      [
+        4047,
+        6185
+      ],
+      [
+        149,
+        6236
+      ]
+    ],
+    "gt_rotation": -0.6733652729066463,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        32.8,
+        269.0
+      ],
+      [
+        3976.5,
+        222.7
+      ],
+      [
+        4046.6,
+        6185.3
+      ],
+      [
+        102.8,
+        6231.6
+      ]
+    ],
+    "det_rotation": -0.6733652729066463,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        966,
+        827
+      ],
+      [
+        4896,
+        909
+      ],
+      [
+        4719,
+        6893
+      ],
+      [
+        841,
+        6805
+      ]
+    ],
+    "gt_rotation": 1.202330954739226,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        189.4,
+        128.2
+      ],
+      [
+        4119.5,
+        210.7
+      ],
+      [
+        3994.1,
+        6189.4
+      ],
+      [
+        63.9,
+        6106.9
+      ]
+    ],
+    "det_rotation": 1.202330954739226,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        52,
+        192
+      ],
+      [
+        3983,
+        162
+      ],
+      [
+        4028,
+        6131
+      ],
+      [
+        128,
+        6164
+      ]
+    ],
+    "gt_rotation": -0.43246192425859525,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        51.9,
+        191.7
+      ],
+      [
+        3982.8,
+        162.1
+      ],
+      [
+        4027.8,
+        6130.9
+      ],
+      [
+        97.0,
+        6160.6
+      ]
+    ],
+    "det_rotation": -0.43246192425859525,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        857,
+        937
+      ],
+      [
+        4791,
+        917
+      ],
+      [
+        4729,
+        6903
+      ],
+      [
+        837,
+        6883
+      ]
+    ],
+    "gt_rotation": 0.44758110744364304,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        201.5,
+        110.1
+      ],
+      [
+        4147.4,
+        140.9
+      ],
+      [
+        4100.6,
+        6121.7
+      ],
+      [
+        154.8,
+        6090.9
+      ]
+    ],
+    "det_rotation": 0.44758110744364304,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        54,
+        245
+      ],
+      [
+        3988,
+        191
+      ],
+      [
+        4072,
+        6154
+      ],
+      [
+        159,
+        6205
+      ]
+    ],
+    "gt_rotation": -0.780530264799968,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        53.8,
+        244.7
+      ],
+      [
+        3987.5,
+        191.2
+      ],
+      [
+        4068.7,
+        6151.6
+      ],
+      [
+        135.0,
+        6205.2
+      ]
+    ],
+    "det_rotation": -0.780530264799968,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        36,
+        157
+      ],
+      [
+        3965,
+        100
+      ],
+      [
+        4041,
+        6072
+      ],
+      [
+        139,
+        6113
+      ]
+    ],
+    "gt_rotation": -0.6803647027852605,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        32.9,
+        146.8
+      ],
+      [
+        3964.6,
+        100.1
+      ],
+      [
+        4035.4,
+        6062.7
+      ],
+      [
+        103.7,
+        6109.4
+      ]
+    ],
+    "det_rotation": -0.6803647027852605,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        67,
+        208
+      ],
+      [
+        4028,
+        238
+      ],
+      [
+        3979,
+        6195
+      ],
+      [
+        77,
+        6185
+      ]
+    ],
+    "gt_rotation": 0.4798140794333323,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        16.6,
+        204.8
+      ],
+      [
+        4028.4,
+        238.4
+      ],
+      [
+        3978.4,
+        6210.1
+      ],
+      [
+        -33.4,
+        6176.5
+      ]
+    ],
+    "det_rotation": 0.4798140794333323,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        827,
+        917
+      ],
+      [
+        4739,
+        890
+      ],
+      [
+        4719,
+        6873
+      ],
+      [
+        837,
+        6883
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        221.0,
+        148.0
+      ],
+      [
+        4129.0,
+        148.0
+      ],
+      [
+        4129.0,
+        6126.0
+      ],
+      [
+        221.0,
+        6126.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        289,
+        194
+      ],
+      [
+        4209,
+        194
+      ],
+      [
+        4209,
+        6152
+      ],
+      [
+        303,
+        6154
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        289.0,
+        194.0
+      ],
+      [
+        4209.0,
+        194.0
+      ],
+      [
+        4209.0,
+        6152.0
+      ],
+      [
+        289.0,
+        6152.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        899,
+        875
+      ],
+      [
+        4821,
+        937
+      ],
+      [
+        4667,
+        6914
+      ],
+      [
+        796,
+        6832
+      ]
+    ],
+    "gt_rotation": 1.030533740920775,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        217.2,
+        114.8
+      ],
+      [
+        4182.5,
+        186.1
+      ],
+      [
+        4075.2,
+        6150.1
+      ],
+      [
+        109.9,
+        6078.8
+      ]
+    ],
+    "det_rotation": 1.030533740920775,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        119,
+        140
+      ],
+      [
+        4051,
+        167
+      ],
+      [
+        4041,
+        6123
+      ],
+      [
+        139,
+        6123
+      ]
+    ],
+    "gt_rotation": 0.37981102164319236,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        119.3,
+        140.3
+      ],
+      [
+        4072.2,
+        166.5
+      ],
+      [
+        4032.6,
+        6142.3
+      ],
+      [
+        79.7,
+        6116.1
+      ]
+    ],
+    "det_rotation": 0.37981102164319236,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        940,
+        896
+      ],
+      [
+        4862,
+        927
+      ],
+      [
+        4760,
+        6883
+      ],
+      [
+        878,
+        6862
+      ]
+    ],
+    "gt_rotation": 0.6999293375773474,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        151.7,
+        118.3
+      ],
+      [
+        4100.4,
+        166.5
+      ],
+      [
+        4027.5,
+        6136.1
+      ],
+      [
+        78.8,
+        6087.9
+      ]
+    ],
+    "det_rotation": 0.6999293375773474,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        118,
+        177
+      ],
+      [
+        4031,
+        228
+      ],
+      [
+        3979,
+        6185
+      ],
+      [
+        118,
+        6154
+      ]
+    ],
+    "gt_rotation": 0.8546736822679039,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        120.5,
+        170.9
+      ],
+      [
+        4067.1,
+        229.8
+      ],
+      [
+        3977.9,
+        6207.1
+      ],
+      [
+        31.3,
+        6148.3
+      ]
+    ],
+    "det_rotation": 0.8546736822679039,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        104,
+        122
+      ],
+      [
+        4051,
+        177
+      ],
+      [
+        3959,
+        6133
+      ],
+      [
+        46,
+        6082
+      ]
+    ],
+    "gt_rotation": 0.8147820090986566,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        104.4,
+        122.4
+      ],
+      [
+        4039.0,
+        178.3
+      ],
+      [
+        3954.2,
+        6143.7
+      ],
+      [
+        19.6,
+        6087.8
+      ]
+    ],
+    "det_rotation": 0.8147820090986566,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        201,
+        270
+      ],
+      [
+        4144,
+        270
+      ],
+      [
+        4156,
+        6244
+      ],
+      [
+        252,
+        6246
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        201.0,
+        270.0
+      ],
+      [
+        4156.0,
+        270.0
+      ],
+      [
+        4156.0,
+        6244.0
+      ],
+      [
+        201.0,
+        6244.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        690,
+        850
+      ],
+      [
+        4655,
+        866
+      ],
+      [
+        4575,
+        6842
+      ],
+      [
+        666,
+        6812
+      ]
+    ],
+    "gt_rotation": 0.22737594919434556,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        328.7,
+        187.9
+      ],
+      [
+        4293.6,
+        203.7
+      ],
+      [
+        4270.0,
+        6165.6
+      ],
+      [
+        305.0,
+        6149.9
+      ]
+    ],
+    "det_rotation": 0.22737594919434556,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        238,
+        251
+      ],
+      [
+        4185,
+        268
+      ],
+      [
+        4159,
+        6228
+      ],
+      [
+        231,
+        6205
+      ]
+    ],
+    "gt_rotation": 0.2470053704506776,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        238.0,
+        250.8
+      ],
+      [
+        4185.0,
+        267.8
+      ],
+      [
+        4159.3,
+        6227.8
+      ],
+      [
+        212.3,
+        6210.7
+      ]
+    ],
+    "det_rotation": 0.2470053704506776,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_11",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_11/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        936,
+        857
+      ],
+      [
+        4893,
+        865
+      ],
+      [
+        4852,
+        6821
+      ],
+      [
+        936,
+        6818
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        53.0,
+        198.0
+      ],
+      [
+        4024.0,
+        198.0
+      ],
+      [
+        4024.0,
+        6159.0
+      ],
+      [
+        53.0,
+        6159.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
     "scan_dir": "/Users/james/Documents/comics-scanned/VOY_2",
     "page_index": 0,
     "filepath": "/Users/james/Documents/comics-scanned/VOY_2/Scan.jpeg",
@@ -88796,6 +96346,2506 @@
     ],
     "det_rotation": -0.10226313009534115,
     "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        214,
+        232
+      ],
+      [
+        4160,
+        154
+      ],
+      [
+        4266,
+        6143
+      ],
+      [
+        306,
+        6217
+      ]
+    ],
+    "gt_rotation": -0.9110708334796451,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        210.4,
+        217.2
+      ],
+      [
+        4159.9,
+        154.4
+      ],
+      [
+        4255.3,
+        6154.6
+      ],
+      [
+        305.8,
+        6217.4
+      ]
+    ],
+    "det_rotation": -0.9110708334796451,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        820,
+        963
+      ],
+      [
+        4759,
+        912
+      ],
+      [
+        4809,
+        6905
+      ],
+      [
+        851,
+        6926
+      ]
+    ],
+    "gt_rotation": -0.6019789116222586,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        800.6,
+        954.0
+      ],
+      [
+        4759.4,
+        912.4
+      ],
+      [
+        4822.3,
+        6899.1
+      ],
+      [
+        863.5,
+        6940.7
+      ]
+    ],
+    "det_rotation": -0.6019789116222586,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        16,
+        138
+      ],
+      [
+        3955,
+        105
+      ],
+      [
+        4006,
+        6089
+      ],
+      [
+        67,
+        6123
+      ]
+    ],
+    "gt_rotation": -0.4960903228132956,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        14.7,
+        139.2
+      ],
+      [
+        3954.6,
+        105.1
+      ],
+      [
+        4006.4,
+        6088.9
+      ],
+      [
+        66.6,
+        6123.0
+      ]
+    ],
+    "det_rotation": -0.4960903228132956,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        820,
+        869
+      ],
+      [
+        4761,
+        883
+      ],
+      [
+        4715,
+        6884
+      ],
+      [
+        767,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.27209462438868903,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        809.0,
+        864.5
+      ],
+      [
+        4761.0,
+        883.3
+      ],
+      [
+        4732.5,
+        6892.2
+      ],
+      [
+        780.5,
+        6873.5
+      ]
+    ],
+    "det_rotation": 0.27209462438868903,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        134,
+        125
+      ],
+      [
+        4067,
+        149
+      ],
+      [
+        4046,
+        6122
+      ],
+      [
+        111,
+        6112
+      ]
+    ],
+    "gt_rotation": 0.21474461050890556,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        133.7,
+        125.2
+      ],
+      [
+        4082.6,
+        140.0
+      ],
+      [
+        4060.2,
+        6126.9
+      ],
+      [
+        111.2,
+        6112.1
+      ]
+    ],
+    "det_rotation": 0.21474461050890556,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        861,
+        942
+      ],
+      [
+        4777,
+        955
+      ],
+      [
+        4746,
+        6947
+      ],
+      [
+        778,
+        6905
+      ]
+    ],
+    "gt_rotation": 0.31909460565911957,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        825.3,
+        933.2
+      ],
+      [
+        4777.3,
+        955.3
+      ],
+      [
+        4743.9,
+        6942.2
+      ],
+      [
+        792.0,
+        6920.2
+      ]
+    ],
+    "det_rotation": 0.31909460565911957,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        107,
+        175
+      ],
+      [
+        4015,
+        149
+      ],
+      [
+        4067,
+        6122
+      ],
+      [
+        141,
+        6160
+      ]
+    ],
+    "gt_rotation": -0.327440921461501,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        106.9,
+        174.5
+      ],
+      [
+        4037.8,
+        152.0
+      ],
+      [
+        4072.1,
+        6137.9
+      ],
+      [
+        141.1,
+        6160.4
+      ]
+    ],
+    "det_rotation": -0.327440921461501,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        131,
+        86
+      ],
+      [
+        4057,
+        149
+      ],
+      [
+        3994,
+        6122
+      ],
+      [
+        57,
+        6080
+      ]
+    ],
+    "gt_rotation": 0.9016219821071836,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        129.1,
+        84.1
+      ],
+      [
+        4086.6,
+        146.4
+      ],
+      [
+        3992.3,
+        6140.6
+      ],
+      [
+        34.8,
+        6078.3
+      ]
+    ],
+    "det_rotation": 0.9016219821071836,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        841,
+        911
+      ],
+      [
+        4769,
+        890
+      ],
+      [
+        4793,
+        6878
+      ],
+      [
+        851,
+        6874
+      ]
+    ],
+    "gt_rotation": -0.22735960440270675,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        817.2,
+        906.1
+      ],
+      [
+        4769.1,
+        890.4
+      ],
+      [
+        4792.9,
+        6878.3
+      ],
+      [
+        840.9,
+        6894.0
+      ]
+    ],
+    "det_rotation": -0.22735960440270675,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        123,
+        143
+      ],
+      [
+        4025,
+        138
+      ],
+      [
+        4088,
+        6090
+      ],
+      [
+        151,
+        6132
+      ]
+    ],
+    "gt_rotation": -0.22798639436530047,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        123.1,
+        142.9
+      ],
+      [
+        4066.1,
+        127.2
+      ],
+      [
+        4089.9,
+        6122.1
+      ],
+      [
+        146.9,
+        6137.8
+      ]
+    ],
+    "det_rotation": -0.22798639436530047,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        872,
+        901
+      ],
+      [
+        4794,
+        899
+      ],
+      [
+        4788,
+        6884
+      ],
+      [
+        851,
+        6874
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        859.0,
+        899.0
+      ],
+      [
+        4794.0,
+        899.0
+      ],
+      [
+        4794.0,
+        6885.0
+      ],
+      [
+        859.0,
+        6885.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        76,
+        115
+      ],
+      [
+        3984,
+        128
+      ],
+      [
+        4015,
+        6101
+      ],
+      [
+        76,
+        6110
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        76.0,
+        115.0
+      ],
+      [
+        4016.0,
+        115.0
+      ],
+      [
+        4016.0,
+        6110.0
+      ],
+      [
+        76.0,
+        6110.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        151,
+        138
+      ],
+      [
+        4095,
+        136
+      ],
+      [
+        4078,
+        6132
+      ],
+      [
+        129,
+        6122
+      ]
+    ],
+    "gt_rotation": 0.13416797131340238,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        142.9,
+        127.0
+      ],
+      [
+        4094.9,
+        136.3
+      ],
+      [
+        4080.9,
+        6131.3
+      ],
+      [
+        128.9,
+        6122.0
+      ]
+    ],
+    "det_rotation": 0.13416797131340238,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        791,
+        834
+      ],
+      [
+        4762,
+        897
+      ],
+      [
+        4666,
+        6881
+      ],
+      [
+        715,
+        6800
+      ]
+    ],
+    "gt_rotation": 0.9153211785759743,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        791.0,
+        833.7
+      ],
+      [
+        4761.5,
+        897.1
+      ],
+      [
+        4665.9,
+        6881.3
+      ],
+      [
+        695.4,
+        6817.9
+      ]
+    ],
+    "det_rotation": 0.9153211785759743,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        296,
+        16
+      ],
+      [
+        4261,
+        24
+      ],
+      [
+        4250,
+        5987
+      ],
+      [
+        285,
+        5979
+      ]
+    ],
+    "gt_rotation": 0.11098195287057326,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        296.3,
+        16.3
+      ],
+      [
+        4261.3,
+        23.9
+      ],
+      [
+        4249.7,
+        5986.9
+      ],
+      [
+        284.7,
+        5979.3
+      ]
+    ],
+    "det_rotation": 0.11098195287057326,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        872,
+        754
+      ],
+      [
+        4787,
+        805
+      ],
+      [
+        4694,
+        6800
+      ],
+      [
+        778,
+        6727
+      ]
+    ],
+    "gt_rotation": 0.6663720135617797,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        847.4,
+        759.3
+      ],
+      [
+        4787.1,
+        805.1
+      ],
+      [
+        4717.5,
+        6791.7
+      ],
+      [
+        777.7,
+        6745.9
+      ]
+    ],
+    "det_rotation": 0.6663720135617797,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        235,
+        128
+      ],
+      [
+        4140,
+        129
+      ],
+      [
+        4126,
+        6123
+      ],
+      [
+        225,
+        6111
+      ]
+    ],
+    "gt_rotation": 0.13801715469073883,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        213.2,
+        119.0
+      ],
+      [
+        4140.1,
+        128.5
+      ],
+      [
+        4125.7,
+        6122.5
+      ],
+      [
+        198.7,
+        6113.0
+      ]
+    ],
+    "det_rotation": 0.13801715469073883,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        767,
+        859
+      ],
+      [
+        4683,
+        823
+      ],
+      [
+        4715,
+        6800
+      ],
+      [
+        809,
+        6821
+      ]
+    ],
+    "gt_rotation": -0.5878196630912278,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        744.3,
+        863.7
+      ],
+      [
+        4683.1,
+        823.3
+      ],
+      [
+        4744.5,
+        6810.9
+      ],
+      [
+        805.7,
+        6851.4
+      ]
+    ],
+    "det_rotation": -0.5878196630912278,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        120,
+        122
+      ],
+      [
+        4029,
+        88
+      ],
+      [
+        4078,
+        6069
+      ],
+      [
+        172,
+        6119
+      ]
+    ],
+    "gt_rotation": -0.4969337120788805,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        119.5,
+        122.3
+      ],
+      [
+        4029.4,
+        88.4
+      ],
+      [
+        4081.4,
+        6085.2
+      ],
+      [
+        171.6,
+        6119.1
+      ]
+    ],
+    "det_rotation": -0.4969337120788805,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        216,
+        164
+      ],
+      [
+        4140,
+        222
+      ],
+      [
+        4078,
+        6184
+      ],
+      [
+        131,
+        6153
+      ]
+    ],
+    "gt_rotation": 0.8388147401517514,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        215.7,
+        164.0
+      ],
+      [
+        4165.3,
+        221.8
+      ],
+      [
+        4077.6,
+        6211.2
+      ],
+      [
+        128.0,
+        6153.4
+      ]
+    ],
+    "det_rotation": 0.8388147401517514,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        229,
+        146
+      ],
+      [
+        4151,
+        191
+      ],
+      [
+        4088,
+        6143
+      ],
+      [
+        157,
+        6140
+      ]
+    ],
+    "gt_rotation": 0.6849818379095691,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        228.5,
+        145.8
+      ],
+      [
+        4163.3,
+        192.9
+      ],
+      [
+        4091.6,
+        6187.5
+      ],
+      [
+        156.9,
+        6140.4
+      ]
+    ],
+    "det_rotation": 0.6849818379095691,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        893,
+        859
+      ],
+      [
+        4815,
+        847
+      ],
+      [
+        4798,
+        6832
+      ],
+      [
+        861,
+        6821
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        866.0,
+        847.0
+      ],
+      [
+        4815.0,
+        847.0
+      ],
+      [
+        4815.0,
+        6838.0
+      ],
+      [
+        866.0,
+        6838.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": true,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_8",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_8/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        207,
+        69
+      ],
+      [
+        4099,
+        128
+      ],
+      [
+        4036,
+        6090
+      ],
+      [
+        119,
+        6072
+      ]
+    ],
+    "gt_rotation": 0.8431018067089688,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        207.4,
+        69.2
+      ],
+      [
+        4131.9,
+        126.9
+      ],
+      [
+        4043.6,
+        6129.3
+      ],
+      [
+        119.0,
+        6071.5
+      ]
+    ],
+    "det_rotation": 0.8431018067089688,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 0,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        150,
+        82
+      ],
+      [
+        4031,
+        126
+      ],
+      [
+        3990,
+        6113
+      ],
+      [
+        118,
+        6082
+      ]
+    ],
+    "gt_rotation": 0.7851558201319246,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        150.2,
+        82.3
+      ],
+      [
+        4136.9,
+        136.9
+      ],
+      [
+        4054.8,
+        6121.3
+      ],
+      [
+        68.2,
+        6066.7
+      ]
+    ],
+    "det_rotation": 0.7851558201319246,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 1,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 1.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        11,
+        252
+      ],
+      [
+        3743,
+        198
+      ],
+      [
+        3897,
+        6174
+      ],
+      [
+        118,
+        6215
+      ]
+    ],
+    "gt_rotation": -0.7590985487850911,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        10.6,
+        251.9
+      ],
+      [
+        3803.3,
+        201.7
+      ],
+      [
+        3882.3,
+        6163.2
+      ],
+      [
+        89.6,
+        6213.4
+      ]
+    ],
+    "det_rotation": -0.7590985487850911,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 2,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 2.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        467,
+        116
+      ],
+      [
+        4328,
+        157
+      ],
+      [
+        4205,
+        6113
+      ],
+      [
+        354,
+        6082
+      ]
+    ],
+    "gt_rotation": 0.5065280464883392,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        409.4,
+        121.1
+      ],
+      [
+        4326.2,
+        155.7
+      ],
+      [
+        4273.7,
+        6100.5
+      ],
+      [
+        356.8,
+        6065.8
+      ]
+    ],
+    "det_rotation": 0.5065280464883392,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 3,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 3.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        816,
+        865
+      ],
+      [
+        4770,
+        896
+      ],
+      [
+        4698,
+        6893
+      ],
+      [
+        765,
+        6821
+      ]
+    ],
+    "gt_rotation": 0.874847534737446,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        264.4,
+        127.8
+      ],
+      [
+        4229.9,
+        188.3
+      ],
+      [
+        4138.5,
+        6171.6
+      ],
+      [
+        173.0,
+        6111.1
+      ]
+    ],
+    "det_rotation": 0.874847534737446,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 4,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 4.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        221,
+        198
+      ],
+      [
+        4146,
+        184
+      ],
+      [
+        4154,
+        6144
+      ],
+      [
+        213,
+        6157
+      ]
+    ],
+    "gt_rotation": -0.20221406551007237,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        192.3,
+        197.6
+      ],
+      [
+        4146.3,
+        183.6
+      ],
+      [
+        4167.3,
+        6142.6
+      ],
+      [
+        213.3,
+        6156.5
+      ]
+    ],
+    "det_rotation": -0.20221406551007237,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 5,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 5.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        829,
+        872
+      ],
+      [
+        4770,
+        906
+      ],
+      [
+        4729,
+        6883
+      ],
+      [
+        786,
+        6842
+      ]
+    ],
+    "gt_rotation": 0.5702939209723408,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        238.9,
+        141.0
+      ],
+      [
+        4190.7,
+        180.4
+      ],
+      [
+        4131.3,
+        6144.1
+      ],
+      [
+        179.5,
+        6104.7
+      ]
+    ],
+    "det_rotation": 0.5702939209723408,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 6,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 6.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        128,
+        157
+      ],
+      [
+        4037,
+        186
+      ],
+      [
+        4007,
+        6151
+      ],
+      [
+        64,
+        6131
+      ]
+    ],
+    "gt_rotation": 0.288674556463731,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        94.3,
+        165.9
+      ],
+      [
+        4037.3,
+        185.8
+      ],
+      [
+        4007.2,
+        6150.7
+      ],
+      [
+        64.3,
+        6130.9
+      ]
+    ],
+    "det_rotation": 0.288674556463731,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 7,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 7.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        26,
+        321
+      ],
+      [
+        3948,
+        208
+      ],
+      [
+        4103,
+        6174
+      ],
+      [
+        156,
+        6278
+      ]
+    ],
+    "gt_rotation": -1.5407362509561053,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        -4.8,
+        313.7
+      ],
+      [
+        3953.8,
+        207.2
+      ],
+      [
+        4114.2,
+        6171.0
+      ],
+      [
+        155.6,
+        6277.5
+      ]
+    ],
+    "det_rotation": -1.5407362509561053,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 8,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 8.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        26,
+        187
+      ],
+      [
+        3942,
+        143
+      ],
+      [
+        4010,
+        6102
+      ],
+      [
+        85,
+        6160
+      ]
+    ],
+    "gt_rotation": -0.7098417718318032,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        10.7,
+        191.3
+      ],
+      [
+        3942.4,
+        142.6
+      ],
+      [
+        4016.4,
+        6111.2
+      ],
+      [
+        84.7,
+        6159.9
+      ]
+    ],
+    "det_rotation": -0.7098417718318032,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 9,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 9.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        950,
+        937
+      ],
+      [
+        4883,
+        958
+      ],
+      [
+        4832,
+        6945
+      ],
+      [
+        896,
+        6898
+      ]
+    ],
+    "gt_rotation": 0.6221624704608749,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        135.6,
+        75.8
+      ],
+      [
+        4064.4,
+        118.5
+      ],
+      [
+        3999.5,
+        6094.2
+      ],
+      [
+        70.7,
+        6051.5
+      ]
+    ],
+    "det_rotation": 0.6221624704608749,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 10,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 10.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        56,
+        177
+      ],
+      [
+        3996,
+        119
+      ],
+      [
+        4061,
+        6072
+      ],
+      [
+        115,
+        6137
+      ]
+    ],
+    "gt_rotation": -0.6691689216376219,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        45.3,
+        164.7
+      ],
+      [
+        3996.0,
+        118.6
+      ],
+      [
+        4065.8,
+        6091.2
+      ],
+      [
+        115.0,
+        6137.3
+      ]
+    ],
+    "det_rotation": -0.6691689216376219,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 11,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 11.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        857,
+        968
+      ],
+      [
+        4780,
+        927
+      ],
+      [
+        4832,
+        6914
+      ],
+      [
+        919,
+        6934
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        134.0,
+        106.0
+      ],
+      [
+        4105.0,
+        106.0
+      ],
+      [
+        4105.0,
+        6086.0
+      ],
+      [
+        134.0,
+        6086.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 12,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 12.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        42,
+        176
+      ],
+      [
+        3976,
+        160
+      ],
+      [
+        3990,
+        6123
+      ],
+      [
+        67,
+        6149
+      ]
+    ],
+    "gt_rotation": -0.23269922272970306,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        42.4,
+        175.9
+      ],
+      [
+        3976.4,
+        159.9
+      ],
+      [
+        4000.7,
+        6132.8
+      ],
+      [
+        66.7,
+        6148.8
+      ]
+    ],
+    "det_rotation": -0.23269922272970306,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 13,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 13.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        929,
+        896
+      ],
+      [
+        4852,
+        855
+      ],
+      [
+        4904,
+        6832
+      ],
+      [
+        980,
+        6858
+      ]
+    ],
+    "gt_rotation": -0.4942533626015849,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        54.3,
+        191.8
+      ],
+      [
+        3980.2,
+        157.9
+      ],
+      [
+        4031.7,
+        6134.7
+      ],
+      [
+        105.9,
+        6168.6
+      ]
+    ],
+    "det_rotation": -0.4942533626015849,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 14,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 14.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        31,
+        109
+      ],
+      [
+        3968,
+        124
+      ],
+      [
+        3944,
+        6098
+      ],
+      [
+        26,
+        6082
+      ]
+    ],
+    "gt_rotation": 0.22895842966636,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        31.1,
+        108.7
+      ],
+      [
+        3968.0,
+        124.4
+      ],
+      [
+        3944.2,
+        6098.4
+      ],
+      [
+        7.2,
+        6082.6
+      ]
+    ],
+    "det_rotation": 0.22895842966636,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 15,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 15.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        937,
+        926
+      ],
+      [
+        4849,
+        884
+      ],
+      [
+        4924,
+        6862
+      ],
+      [
+        1001,
+        6897
+      ]
+    ],
+    "gt_rotation": -0.61885846138634,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        46.2,
+        161.6
+      ],
+      [
+        3959.0,
+        119.3
+      ],
+      [
+        4023.5,
+        6090.0
+      ],
+      [
+        110.7,
+        6132.2
+      ]
+    ],
+    "det_rotation": -0.61885846138634,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 16,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 16.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        17,
+        178
+      ],
+      [
+        3929,
+        178
+      ],
+      [
+        3929,
+        6145
+      ],
+      [
+        17,
+        6145
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        17.0,
+        178.0
+      ],
+      [
+        3929.0,
+        178.0
+      ],
+      [
+        3929.0,
+        6145.0
+      ],
+      [
+        17.0,
+        6145.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": false
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 17,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 17.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        940,
+        886
+      ],
+      [
+        4842,
+        886
+      ],
+      [
+        4825,
+        6841
+      ],
+      [
+        899,
+        6832
+      ]
+    ],
+    "gt_rotation": 0.2427416820797023,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        134.6,
+        175.0
+      ],
+      [
+        4056.6,
+        191.6
+      ],
+      [
+        4031.3,
+        6157.6
+      ],
+      [
+        109.3,
+        6141.0
+      ]
+    ],
+    "det_rotation": 0.2427416820797023,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 18,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 18.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        36,
+        208
+      ],
+      [
+        3938,
+        146
+      ],
+      [
+        4010,
+        6113
+      ],
+      [
+        106,
+        6175
+      ]
+    ],
+    "gt_rotation": -0.8694475959546578,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        15.1,
+        205.0
+      ],
+      [
+        3937.6,
+        145.5
+      ],
+      [
+        4028.2,
+        6115.8
+      ],
+      [
+        105.7,
+        6175.3
+      ]
+    ],
+    "det_rotation": -0.8694475959546578,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 19,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 19.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        816,
+        886
+      ],
+      [
+        4729,
+        814
+      ],
+      [
+        4811,
+        6780
+      ],
+      [
+        893,
+        6824
+      ]
+    ],
+    "gt_rotation": -0.6825720445281536,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        138.4,
+        238.7
+      ],
+      [
+        4067.1,
+        191.9
+      ],
+      [
+        4138.2,
+        6161.4
+      ],
+      [
+        209.5,
+        6208.2
+      ]
+    ],
+    "det_rotation": -0.6825720445281536,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 20,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 20.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        77,
+        187
+      ],
+      [
+        3998,
+        172
+      ],
+      [
+        4019,
+        6143
+      ],
+      [
+        91,
+        6157
+      ]
+    ],
+    "gt_rotation": -0.20527685728638134,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        69.6,
+        186.1
+      ],
+      [
+        3997.6,
+        172.0
+      ],
+      [
+        4019.0,
+        6143.0
+      ],
+      [
+        91.0,
+        6157.1
+      ]
+    ],
+    "det_rotation": -0.20527685728638134,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 21,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 21.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        984,
+        902
+      ],
+      [
+        4908,
+        892
+      ],
+      [
+        4924,
+        6856
+      ],
+      [
+        1000,
+        6866
+      ]
+    ],
+    "gt_rotation": -0.15151756176216707,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        36.1,
+        160.0
+      ],
+      [
+        3960.1,
+        149.6
+      ],
+      [
+        3975.9,
+        6113.6
+      ],
+      [
+        51.9,
+        6123.9
+      ]
+    ],
+    "det_rotation": -0.15151756176216707,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 22,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 22.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        95,
+        155
+      ],
+      [
+        4032,
+        122
+      ],
+      [
+        4082,
+        6072
+      ],
+      [
+        146,
+        6131
+      ]
+    ],
+    "gt_rotation": -0.4913731769090053,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        94.7,
+        155.3
+      ],
+      [
+        4031.5,
+        121.6
+      ],
+      [
+        4082.8,
+        6097.3
+      ],
+      [
+        145.9,
+        6131.1
+      ]
+    ],
+    "det_rotation": -0.4913731769090053,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 23,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 23.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        933,
+        890
+      ],
+      [
+        4883,
+        855
+      ],
+      [
+        4924,
+        6811
+      ],
+      [
+        991,
+        6852
+      ]
+    ],
+    "gt_rotation": -0.5756069585067446,
+    "gt_rotate180": true,
+    "det_corners": [
+      [
+        20.7,
+        205.0
+      ],
+      [
+        3967.5,
+        165.4
+      ],
+      [
+        4027.4,
+        6126.1
+      ],
+      [
+        80.6,
+        6165.7
+      ]
+    ],
+    "det_rotation": -0.5756069585067446,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 24,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 24.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        108,
+        157
+      ],
+      [
+        4015,
+        114
+      ],
+      [
+        4061,
+        6072
+      ],
+      [
+        134,
+        6126
+      ]
+    ],
+    "gt_rotation": -0.5074960163780765,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        80.7,
+        148.6
+      ],
+      [
+        4014.5,
+        113.8
+      ],
+      [
+        4067.4,
+        6091.5
+      ],
+      [
+        133.6,
+        6126.4
+      ]
+    ],
+    "det_rotation": -0.5074960163780765,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 25,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 25.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        149,
+        218
+      ],
+      [
+        4061,
+        176
+      ],
+      [
+        4109,
+        6158
+      ],
+      [
+        175,
+        6189
+      ]
+    ],
+    "gt_rotation": -0.46096942160360677,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        126.4,
+        207.3
+      ],
+      [
+        4061.2,
+        175.7
+      ],
+      [
+        4109.4,
+        6157.5
+      ],
+      [
+        174.5,
+        6189.1
+      ]
+    ],
+    "det_rotation": -0.46096942160360677,
+    "det_rotate180": false,
+    "det_bleed_method": "cnn+snap",
+    "has_correction": true
+  },
+  {
+    "scan_dir": "/Users/james/Documents/comics-scanned/VOY_9",
+    "page_index": 26,
+    "filepath": "/Users/james/Documents/comics-scanned/VOY_9/Scan 26.jpeg",
+    "dpi": 600,
+    "image_width": 4960,
+    "image_height": 7016,
+    "gt_corners": [
+      [
+        406,
+        208
+      ],
+      [
+        4318,
+        218
+      ],
+      [
+        4318,
+        6186
+      ],
+      [
+        376,
+        6186
+      ]
+    ],
+    "gt_rotation": 0.0,
+    "gt_rotate180": false,
+    "det_corners": [
+      [
+        376.0,
+        206.0
+      ],
+      [
+        4318.0,
+        206.0
+      ],
+      [
+        4318.0,
+        6186.0
+      ],
+      [
+        376.0,
+        6186.0
+      ]
+    ],
+    "det_rotation": 0.0,
+    "det_rotate180": false,
     "det_bleed_method": "cnn+snap",
     "has_correction": true
   }
