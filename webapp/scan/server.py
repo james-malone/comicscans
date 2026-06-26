@@ -40,6 +40,7 @@ from comicscans import (
     get_source_dpi,
     detect_page_bounds,
     detect_orientation,
+    orientation_is_uncertain,
     normalize_dimensions,
     TESSERACT_BIN,
 )
@@ -481,11 +482,17 @@ def detect_page(sid: str, page_index: int):
     # silently leaving every page un-rotated.
     auto_rotate_available = _tesseract_available()
     rotate180 = False
+    orientation_uncertain = not auto_rotate_available   # fully unknown without OCR
     if auto_rotate_available:
         try:
-            rotate180, _, _ = detect_orientation(image)
+            rotate180, _nw, _rw = detect_orientation(image)
+            # Flag text-sparse pages (covers/splash/dark art) where the OCR
+            # signal is too weak to trust — these are where auto-rotate
+            # silently guesses wrong, so the UI prompts a manual check.
+            orientation_uncertain = orientation_is_uncertain(_nw, _rw)
         except Exception:
             auto_rotate_available = False
+            orientation_uncertain = True
 
     # Step 2: Apply 180° rotation before detection (matches CLI pipeline)
     oriented_image = image
@@ -524,6 +531,7 @@ def detect_page(sid: str, page_index: int):
         "rotation": float(bounds["angle"]),
         "rotate180": bool(rotate180),
         "auto_rotate_available": bool(auto_rotate_available),
+        "orientation_uncertain": bool(orientation_uncertain),
         "bleed_method": bounds.get("bleed_method"),
         "dpi": int(dpi),
         "original_bounds": {

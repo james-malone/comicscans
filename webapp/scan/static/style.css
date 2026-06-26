@@ -441,12 +441,30 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
 /* ===== Grid Card ===== */
 .grid-card {
+    position: relative;
     background: var(--bg-card);
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.2s, box-shadow 0.2s;
     border: 2px solid transparent;
+}
+
+/* Orientation-uncertain marker (text-sparse page — verify it's not upside down) */
+.grid-card.orient-uncertain { border-color: #e0a020; }
+.orient-warn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #e0a020;
+    color: #1a1a1a;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 3px 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
 }
 
 .grid-card:hover {

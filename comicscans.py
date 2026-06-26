@@ -118,6 +118,26 @@ def detect_orientation(cv_image):
     return should_rotate, normal_words, rotated_words
 
 
+def orientation_is_uncertain(normal_words, rotated_words,
+                             min_signal=8, min_margin=4):
+    """True when the OCR word-count signal is too weak to trust the flip
+    decision — i.e. text-sparse pages (covers, splash/dark art) where the
+    correct orientation can't be read either way.
+
+    Such pages are exactly where auto-rotate silently guesses wrong, so the
+    UI flags them for human review rather than shipping a likely-upside-down
+    page. Uncertain when the stronger orientation has too few words OR the
+    two orientations are too close to call.
+    """
+    hi = max(normal_words, rotated_words)
+    lo = min(normal_words, rotated_words)
+    if hi < min_signal:
+        return True                      # not enough text in either orientation
+    if (hi - lo) < max(min_margin, 0.25 * hi):
+        return True                      # margin too small — basically tied
+    return False
+
+
 # ---------------------------------------------------------------------------
 # File handling
 # ---------------------------------------------------------------------------

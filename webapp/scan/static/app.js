@@ -181,6 +181,7 @@ async function detectAll() {
     const sid = state.sessionId;
     const total = state.pages.length;
     const lbl = dom.btnDetectAll.querySelector('.btn-lbl');
+    const uncertain = [];
     for (let i = 0; i < total; i++) {
         if (state.ignored[i]) continue;
         if (lbl) lbl.textContent = `Detecting ${i + 1}/${total}…`;
@@ -188,11 +189,24 @@ async function detectAll() {
             const result = await apiPost(`/api/session/${sid}/detect/${i}`);
             state.detections[i] = result;
             maybeWarnOrientation(result);
+            if (result && result.orientation_uncertain && result.auto_rotate_available) {
+                uncertain.push(i);
+            }
             // Update just this card's status badge (dot + label together)
             updateCardStatus(i);
         } catch (err) {
             console.error(`Detection failed for page ${i}:`, err);
         }
+    }
+    // Summarize text-sparse pages whose orientation couldn't be trusted, so
+    // they get a manual look instead of silently shipping upside-down. (Skip
+    // if the Tesseract-missing banner is already up — that's a bigger problem.)
+    if (uncertain.length && !_orientationWarned) {
+        const shown = uncertain.slice(0, 10)
+            .map(i => state.pages[i].filename || `page ${i}`).join(', ');
+        const more = uncertain.length > 10 ? ` (+${uncertain.length - 10} more)` : '';
+        showBanner(`${uncertain.length} page(s) have uncertain orientation — too little `
+            + `text to auto-detect. Verify they aren't upside down: ${shown}${more}`);
     }
 }
 
@@ -226,6 +240,30 @@ async function processAll(outputDir, format, quality) {
 // ===== Grid View =====
 
 /** Render the grid of page thumbnails. */
+// A page is orientation-uncertain when OCR ran but the text signal was too
+// weak to trust the flip decision (covers, splash/dark art). Resolved once the
+// user adjusts the page. Only marked when OCR was available — the Tesseract-
+// missing case is covered by the global banner instead of marking every card.
+function orientationUncertain(i) {
+    const d = state.detections[i];
+    return !state.overrides[i] && d && d.orientation_uncertain && d.auto_rotate_available;
+}
+
+function refreshOrientationFlag(card, i) {
+    const existing = card.querySelector('.orient-warn');
+    if (existing) existing.remove();
+    const flag = orientationUncertain(i);
+    card.classList.toggle('orient-uncertain', flag);
+    if (flag) {
+        const w = document.createElement('span');
+        w.className = 'orient-warn';
+        w.textContent = '⟲?';
+        w.title = "Orientation uncertain — too little text to auto-detect. "
+            + "Verify this page isn't upside down.";
+        card.appendChild(w);
+    }
+}
+
 function renderGrid() {
     dom.gridContainer.innerHTML = '';
 
@@ -277,6 +315,7 @@ function renderGrid() {
         footer.appendChild(badge);
 
         card.appendChild(footer);
+        refreshOrientationFlag(card, i);
 
         // Click to open editor (still works for ignored pages so the
         // user can un-ignore from the editor)
@@ -315,6 +354,7 @@ function updateCardStatus(pageIndex) {
     badge.innerHTML = '';
     badge.appendChild(dot);
     badge.appendChild(document.createTextNode(statusText));
+    refreshOrientationFlag(card, pageIndex);
 }
 
 // ===== Editor View =====
