@@ -85,6 +85,22 @@ if HYBRID_MODEL_PATH:
         print(f"[webapp] Hybrid detector unavailable ({e}); falling back to classical.")
         HYBRID_MODEL_PATH = None
 
+# Optional visual orientation classifier. Backs up the OCR check on text-sparse
+# pages (covers, splash/dark art) where there's no text to read either way.
+ORIENT_MODEL = None
+ORIENT_DEVICE = None
+_predict_upside_down = None
+_orient_path = os.environ.get("COMICML_ORIENT_MODEL") or str(
+    _PROJECT_ROOT / "models" / "orient_resnet18.pt")
+if Path(_orient_path).is_file():
+    try:
+        from comicml.orient import load_orient_model, predict_upside_down as _predict_upside_down
+        ORIENT_MODEL, ORIENT_DEVICE = load_orient_model(_orient_path)
+        print(f"[webapp] Orientation classifier enabled: {_orient_path}")
+    except Exception as e:
+        print(f"[webapp] Orientation classifier unavailable ({e}); OCR only.")
+        ORIENT_MODEL = None
+
 # ---------------------------------------------------------------------------
 # App setup
 # ---------------------------------------------------------------------------
@@ -167,6 +183,36 @@ def _tesseract_available() -> bool:
     """True if the Tesseract OCR binary can be found. Orientation auto-detection
     depends on it; when absent, auto-rotate must be skipped (and flagged)."""
     return shutil.which("tesseract") is not None or os.path.isfile(TESSERACT_BIN)
+
+
+def _decide_orientation(image):
+    """Hybrid 180° orientation decision. OCR word-counting is reliable on
+    text-rich pages, so it's primary; on text-sparse pages (covers, splash,
+    dark art) where OCR can't read either way, the visual classifier takes
+    over. Returns (rotate180, uncertain, ocr_available).
+
+    Validated on N-Vector #1: OCR alone and the classifier alone each miss 2/23
+    pages — but different ones — and the hybrid gets 23/23.
+    """
+    ocr_ok = _tesseract_available()
+    ocr_rot, ocr_uncertain = None, True
+    if ocr_ok:
+        try:
+            ocr_rot, nw, rw = detect_orientation(image)
+            ocr_uncertain = orientation_is_uncertain(nw, rw)
+        except Exception:
+            ocr_ok = False
+
+    if ocr_ok and not ocr_uncertain:
+        return bool(ocr_rot), False, True            # trust OCR's strong signal
+
+    # OCR text-starved or unavailable → defer to the visual classifier
+    if ORIENT_MODEL is not None:
+        is_ud, prob = _predict_upside_down(ORIENT_MODEL, ORIENT_DEVICE, image)
+        return bool(is_ud), bool(0.35 < prob < 0.65), ocr_ok
+
+    # No classifier and OCR can't decide — flag for manual review
+    return bool(ocr_rot) if ocr_rot is not None else False, True, ocr_ok
 
 
 def _load_page_image(session: dict, page_index: int) -> np.ndarray:
@@ -480,19 +526,11 @@ def detect_page(sid: str, page_index: int):
     # Step 1: Detect orientation (needs Tesseract OCR). If it's missing we
     # report auto_rotate_available=False so the UI can warn, rather than
     # silently leaving every page un-rotated.
-    auto_rotate_available = _tesseract_available()
-    rotate180 = False
-    orientation_uncertain = not auto_rotate_available   # fully unknown without OCR
-    if auto_rotate_available:
-        try:
-            rotate180, _nw, _rw = detect_orientation(image)
-            # Flag text-sparse pages (covers/splash/dark art) where the OCR
-            # signal is too weak to trust — these are where auto-rotate
-            # silently guesses wrong, so the UI prompts a manual check.
-            orientation_uncertain = orientation_is_uncertain(_nw, _rw)
-        except Exception:
-            auto_rotate_available = False
-            orientation_uncertain = True
+    # Hybrid orientation: OCR primary, visual classifier on text-sparse pages.
+    # auto_rotate_available reflects whether *any* detector ran (OCR or model),
+    # so the missing-Tesseract banner only fires when neither is available.
+    rotate180, orientation_uncertain, _ocr_ok = _decide_orientation(image)
+    auto_rotate_available = _ocr_ok or (ORIENT_MODEL is not None)
 
     # Step 2: Apply 180° rotation before detection (matches CLI pipeline)
     oriented_image = image
