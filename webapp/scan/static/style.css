@@ -671,6 +671,39 @@ button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
     margin: -2px 0 6px;
 }
 
+/* App-level warning banner — floating toast below the fixed topbar */
+.app-banner {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 680px;
+    z-index: 95;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.45;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.app-banner.hidden { display: none; }
+.app-banner-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.85;
+}
+.app-banner-close:hover { opacity: 1; }
+
 /* Rotation slider */
 input[type="range"] {
     -webkit-appearance: none;

@@ -14,6 +14,7 @@ Usage:
 import io
 import json
 import re
+import shutil
 import sys
 import time
 import uuid
@@ -40,6 +41,7 @@ from comicscans import (
     detect_page_bounds,
     detect_orientation,
     normalize_dimensions,
+    TESSERACT_BIN,
 )
 from comicml import MODEL_FILE as _DEFAULT_MODEL
 
@@ -160,6 +162,12 @@ class CreateCBZRequest(BaseModel):
 # ---------------------------------------------------------------------------
 # Helper: load a page image from disk
 # ---------------------------------------------------------------------------
+def _tesseract_available() -> bool:
+    """True if the Tesseract OCR binary can be found. Orientation auto-detection
+    depends on it; when absent, auto-rotate must be skipped (and flagged)."""
+    return shutil.which("tesseract") is not None or os.path.isfile(TESSERACT_BIN)
+
+
 def _load_page_image(session: dict, page_index: int) -> np.ndarray:
     """Load the raw scan image for a page by its list index."""
     if page_index < 0 or page_index >= len(session["scans"]):
@@ -468,11 +476,16 @@ def detect_page(sid: str, page_index: int):
     page_info = session["pages"][page_index]
     dpi = page_info["dpi"]
 
-    # Step 1: Detect orientation
-    try:
-        rotate180, normal_words, rotated_words = detect_orientation(image)
-    except Exception:
-        rotate180 = False
+    # Step 1: Detect orientation (needs Tesseract OCR). If it's missing we
+    # report auto_rotate_available=False so the UI can warn, rather than
+    # silently leaving every page un-rotated.
+    auto_rotate_available = _tesseract_available()
+    rotate180 = False
+    if auto_rotate_available:
+        try:
+            rotate180, _, _ = detect_orientation(image)
+        except Exception:
+            auto_rotate_available = False
 
     # Step 2: Apply 180° rotation before detection (matches CLI pipeline)
     oriented_image = image
@@ -510,6 +523,7 @@ def detect_page(sid: str, page_index: int):
         "inward_shift": {"x": float(sx), "y": float(sy)},
         "rotation": float(bounds["angle"]),
         "rotate180": bool(rotate180),
+        "auto_rotate_available": bool(auto_rotate_available),
         "bleed_method": bounds.get("bleed_method"),
         "dpi": int(dpi),
         "original_bounds": {
@@ -1120,6 +1134,28 @@ def browse_directory(req: dict):
         "parent": str(p.parent.resolve()) if p.parent != p else None,
         "entries": entries,
     }
+
+
+@app.post("/api/mkdir")
+def make_directory(req: dict):
+    """Create a single new subdirectory under `path`. Used by the file picker's
+    New Folder button (handy for choosing a fresh output directory)."""
+    parent = (req.get("path") or "").strip()
+    name = (req.get("name") or "").strip()
+    if not name or "/" in name or "\\" in name or name in (".", ".."):
+        raise HTTPException(status_code=400,
+                            detail="Folder name can't be empty or contain slashes")
+    base = Path(parent).resolve() if parent else Path.home()
+    if not base.is_dir():
+        raise HTTPException(status_code=400, detail="Parent directory does not exist")
+    target = (base / name).resolve()
+    if target.parent != base:
+        raise HTTPException(status_code=400, detail="Invalid folder name")
+    try:
+        target.mkdir(parents=False, exist_ok=True)
+    except OSError as e:
+        raise HTTPException(status_code=400, detail=f"Could not create folder: {e}")
+    return {"path": str(target)}
 
 
 # ---------------------------------------------------------------------------

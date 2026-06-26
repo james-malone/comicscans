@@ -12,6 +12,12 @@
     <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
 </head>
 <body>
+    <!-- App-level warning banner (e.g. auto-rotate unavailable) -->
+    <div id="app-banner" class="app-banner hidden">
+        <span id="app-banner-msg"></span>
+        <button id="app-banner-close" class="app-banner-close" title="Dismiss">&times;</button>
+    </div>
+
     <!-- Top Bar -->
     <header id="topbar">
         <div class="topbar-row">
@@ -358,6 +364,7 @@
             </div>
             <div id="fp-entries" class="fp-entries"></div>
             <div class="fp-footer">
+                <button id="btn-fp-mkdir" class="btn-sm btn-secondary">New Folder</button>
                 <button id="btn-fp-select" class="btn-sm">Select This Directory</button>
             </div>
         </div>

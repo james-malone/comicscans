@@ -142,11 +142,35 @@ async function createSession(inputDir) {
     return data;
 }
 
+/** Show a dismissible top-of-page banner. */
+function showBanner(msg) {
+    const banner = document.getElementById('app-banner');
+    document.getElementById('app-banner-msg').textContent = msg;
+    banner.classList.remove('hidden');
+}
+
+// Warn once per session if the server reports auto-rotate is unavailable
+// (Tesseract OCR missing) — otherwise every upside-down page is left as-is
+// with no indication that auto-rotate silently did nothing.
+let _orientationWarned = false;
+function maybeWarnOrientation(data) {
+    if (_orientationWarned || !data || data.auto_rotate_available !== false) return;
+    _orientationWarned = true;
+    showBanner('Auto-rotate is off: Tesseract OCR wasn’t found, so pages aren’t flipped '
+        + 'automatically. Install it (brew install tesseract) and restart the server, '
+        + 'or flip upside-down pages by hand.');
+}
+
+const _bannerClose = document.getElementById('app-banner-close');
+if (_bannerClose) _bannerClose.addEventListener('click',
+    () => document.getElementById('app-banner').classList.add('hidden'));
+
 /** Run detection on a single page. */
 async function detectPage(pageIndex) {
     const sid = state.sessionId;
     const data = await apiPost(`/api/session/${sid}/detect/${pageIndex}`);
     state.detections[pageIndex] = data;
+    maybeWarnOrientation(data);
     return data;
 }
 
@@ -163,6 +187,7 @@ async function detectAll() {
         try {
             const result = await apiPost(`/api/session/${sid}/detect/${i}`);
             state.detections[i] = result;
+            maybeWarnOrientation(result);
             // Update just this card's status badge (dot + label together)
             updateCardStatus(i);
         } catch (err) {
@@ -1776,6 +1801,20 @@ fpDom.btnSelect.addEventListener('click', () => {
         fpState.targetInput.value = fpState.currentPath;
     }
     fpDom.modal.classList.add('hidden');
+});
+
+// New Folder — create a subdirectory in the current location and step into it
+document.getElementById('btn-fp-mkdir').addEventListener('click', async () => {
+    const name = prompt('New folder name:');
+    if (name === null) return;          // cancelled
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    try {
+        const data = await apiPost('/api/mkdir', { path: fpState.currentPath, name: trimmed });
+        await browseDir(data.path);     // navigate into the newly created folder
+    } catch (e) {
+        alert('Could not create folder: ' + e.message);
+    }
 });
 
 fpDom.btnClose.addEventListener('click', () => {
