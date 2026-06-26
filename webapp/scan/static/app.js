@@ -620,6 +620,16 @@ function saveCorners() {
     }
     state.overrides[pageIndex].corners = origCorners;
 
+    // Keep the rotation field + slider in lockstep with the quad's real tilt,
+    // so a manual corner drag updates the slider and processing (which uses the
+    // corners) always matches what the slider shows.
+    const tilt = cornerTiltDeg(displayCorners);
+    state.overrides[pageIndex].rotation = tilt;
+    if (dom.rotationSlider) {
+        dom.rotationSlider.value = tilt.toFixed(2);
+        dom.rotationValue.textContent = tilt.toFixed(2);
+    }
+
     updateCornerDisplay();
 }
 
@@ -981,26 +991,37 @@ dom.overlayCanvas.addEventListener('mousemove', handleMouseMove);
 // ===== Editor Controls =====
 
 // Rotation slider — real-time visual rotation preview via CSS transform
+/** Tilt of the crop quad's top edge, in degrees (display/image coords). This
+ *  is the deskew angle: processing straightens the quad, so tilt 0 = no deskew. */
+function cornerTiltDeg(corners) {
+    const [tl, tr] = [corners[0], corners[1]];
+    return Math.atan2(tr[1] - tl[1], tr[0] - tl[0]) * 180 / Math.PI;
+}
+
+/** Rotate displayCorners about their centroid so the top edge sits at targetDeg. */
+function rotateDisplayCornersTo(targetDeg) {
+    const cx = displayCorners.reduce((s, p) => s + p[0], 0) / 4;
+    const cy = displayCorners.reduce((s, p) => s + p[1], 0) / 4;
+    const d = (targetDeg - cornerTiltDeg(displayCorners)) * Math.PI / 180;
+    const cos = Math.cos(d), sin = Math.sin(d);
+    displayCorners = displayCorners.map(([x, y]) => {
+        const dx = x - cx, dy = y - cy;
+        return [cx + dx * cos - dy * sin, cy + dx * sin + dy * cos];
+    });
+}
+
+// Rotation slider — actually rotates the crop quad so it deskews the output.
+// Processing straightens the corner quad, so making the slider rotate the quad
+// means slider → corners → output all agree (and the live overlay is WYSIWYG,
+// unlike the old CSS-transform preview which the processor ignored).
 dom.rotationSlider.addEventListener('input', () => {
     const val = parseFloat(dom.rotationSlider.value);
     dom.rotationValue.textContent = val.toFixed(2);
-
-    const pageIndex = state.currentPage;
-    if (pageIndex === null) return;
-
-    if (!state.overrides[pageIndex]) {
-        const detection = state.detections[pageIndex];
-        state.overrides[pageIndex] = detection ? { ...detection } : {};
-    }
-    state.overrides[pageIndex].rotation = val;
-
-    // Apply the fine-rotation visually to the canvas container.
-    // The detection's base rotation is already baked into the corner coordinates,
-    // so we show the *delta* from the detected angle as a CSS transform.
-    const detected = state.detections[pageIndex];
-    const baseRotation = detected ? (detected.rotation || 0) : 0;
-    const delta = val - baseRotation;
-    dom.canvasContainer.style.transform = `rotate(${delta}deg)`;
+    if (state.currentPage === null || displayCorners.length < 4) return;
+    rotateDisplayCornersTo(val);
+    dom.canvasContainer.style.transform = '';   // corners carry the rotation now
+    drawOverlay();
+    saveCorners();
 });
 
 // 180 degree toggle
@@ -1221,10 +1242,9 @@ function undoEdit() {
         // Orientation changed — reload the image (redraws the overlay too)
         loadEditorImage(pageIndex);
     } else {
-        // Restore the fine-rotation preview transform, then redraw
-        const det = state.detections[pageIndex];
-        const delta = ((after && after.rotation) || 0) - ((det && det.rotation) || 0);
-        dom.canvasContainer.style.transform = delta ? `rotate(${delta}deg)` : '';
+        // Rotation now lives in the corner geometry, so just redraw the overlay
+        // from the restored state (no CSS-transform preview to restore).
+        dom.canvasContainer.style.transform = '';
         loadDetectionOverlay(pageIndex);
     }
     updateCardStatus(pageIndex);
