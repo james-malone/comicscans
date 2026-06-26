@@ -38,7 +38,7 @@ from torchvision import transforms
 from .models import (
     INPUT_SIZE, IMAGENET_MEAN, IMAGENET_STD,
     CornerRegressor, CornerHeatmapRegressor,
-    _make_heatmap_targets, _soft_argmax_2d,
+    _make_heatmap_targets, _soft_argmax_2d, pick_device,
 )
 
 # ---------------------------------------------------------------------------
@@ -273,7 +273,7 @@ def _predict_corners(model, device, image_bgr, rotate180=False, input_size=None,
 # ---------------------------------------------------------------------------
 
 def train(args):
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     print(f"Device: {device}")
 
     # Relative output paths land in <root>/models/ so inference picks them up
@@ -461,7 +461,7 @@ def train(args):
 # ---------------------------------------------------------------------------
 
 def evaluate(args):
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     model_path = args.model if args.model else DEFAULT_MODEL_FILE
     if not Path(model_path).is_absolute():
         model_path = MODELS_DIR / model_path
@@ -536,7 +536,7 @@ def evaluate(args):
 # ---------------------------------------------------------------------------
 
 def predict_cli(args):
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     model_path = args.model if args.model else DEFAULT_MODEL_FILE
     if not Path(model_path).is_absolute():
         model_path = MODELS_DIR / model_path

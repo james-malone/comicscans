@@ -32,6 +32,7 @@ from .models import (
     INPUT_SIZE,
     IMAGENET_MEAN,
     IMAGENET_STD,
+    pick_device,
 )
 
 # Project root (two levels up from comicml/inference.py):
@@ -476,7 +477,7 @@ def _get_cached_model(model_path):
     key = str(model_path)
     if key in _MODEL_CACHE:
         return _MODEL_CACHE[key]
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     model, _ = _load_model(model_path, device)
     _MODEL_CACHE[key] = (model, device)
     return model, device
@@ -506,7 +507,7 @@ def _get_cached_ensemble():
     key = ("__ensemble__", tuple(str(p) for p in paths))
     if key in _MODEL_CACHE:
         return _MODEL_CACHE[key]
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     models_list = []
     for p in paths:
         m, _ = _load_model(p, device)
@@ -619,7 +620,7 @@ def detect_page_bounds_hybrid(image, dpi=600, model_path=None,
 
 
 def predict_cli(args):
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    device = pick_device()
     model, _ = _load_model(args.model or MODEL_FILE, device)
     img = cv2.imread(args.image)
     if img is None:

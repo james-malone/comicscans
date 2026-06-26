@@ -19,6 +19,17 @@ IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD  = [0.229, 0.224, 0.225]
 
 
+def pick_device():
+    """Select the best available torch device: CUDA (NVIDIA) > MPS (Apple) > CPU.
+    Checked CUDA first so the same code trains on an RTX GPU under Windows/Linux
+    and on Apple Silicon under macOS."""
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
 class CornerRegressor(nn.Module):
     """ResNet-18 backbone + linear head predicting 8 normalized corner coords."""
 
