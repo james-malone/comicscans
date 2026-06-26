@@ -56,7 +56,8 @@ ENSEMBLE_MODELS = [
     "comicml_model_reg_768_1000pg.pt",        # seed 137, 1000 pages
     "comicml_model_reg_768_1420pg_e280.pt",   # seed 137, 1420 pages, 280 epochs
     "comicml_model_reg_768_1589pg_e280.pt",   # seed 137, 1589 pages, 280 epochs
-    "comicml_model_reg_768_1702pg_e280.pt",   # seed 137, 1702 pages, 280 epochs (champion)
+    "comicml_model_reg_768_1702pg_e280.pt",   # seed 137, 1702 pages, 280 epochs (best standalone)
+    "comicml_model_reg_768_1893pg_e280.pt",   # seed 137, 1893 pages, 280 epochs (weaker solo, cuts ensemble p95)
 ]
 
 

@@ -4,6 +4,7 @@
     "comicml_model_reg_768_1000pg.pt",
     "comicml_model_reg_768_1420pg_e280.pt",
     "comicml_model_reg_768_1589pg_e280.pt",
-    "comicml_model_reg_768_1702pg_e280.pt"
+    "comicml_model_reg_768_1702pg_e280.pt",
+    "comicml_model_reg_768_1893pg_e280.pt"
   ]
 }
